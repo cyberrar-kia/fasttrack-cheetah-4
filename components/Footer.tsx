@@ -1,0 +1,44 @@
+import Link from "next/link";
+export default function Footer() {
+  return (
+    <footer style={{ background:"#0C2340", color:"rgba(255,255,255,0.7)", paddingTop:60, paddingBottom:30 }}>
+      <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px" }}>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))", gap:40, marginBottom:48 }}>
+          <div>
+            <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:14 }}>
+              <div style={{ width:36, height:36, borderRadius:10, background:"linear-gradient(135deg,#F5820A,#FF9F2F)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:18 }}>🚂</div>
+              <div>
+                <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:16, color:"white" }}>FastTrack Literacy<span style={{ color:"#F5820A" }}>™</span></div>
+                <div style={{ fontSize:10, color:"rgba(255,255,255,0.4)" }}>by CHEETAH®</div>
+              </div>
+            </div>
+            <p style={{ fontSize:13, lineHeight:1.7, maxWidth:240, marginBottom:16 }}>Every child can read. Every child must read. — Paulette Trowers-Lawrence, JD</p>
+            <div style={{ display:"flex", gap:8 }}>
+              {["f","ig","yt"].map(s=>(<div key={s} style={{ width:32, height:32, borderRadius:8, background:"rgba(255,255,255,0.08)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:11, cursor:"pointer", color:"rgba(255,255,255,0.6)" }}>{s}</div>))}
+            </div>
+          </div>
+          <div>
+            <h4 style={{ color:"white", fontSize:14, fontWeight:700, marginBottom:14, fontFamily:"'Nunito',sans-serif" }}>Program</h4>
+            {[["FastTrack Literacy™","/fasttrack"],["How It Works","/how-it-works"],["Resources","/resources"],["Get Started","/get-started"]].map(([l,h])=>(<Link key={h} href={h} style={{ display:"block", color:"rgba(255,255,255,0.55)", textDecoration:"none", fontSize:13, marginBottom:9 }}>{l}</Link>))}
+          </div>
+          <div>
+            <h4 style={{ color:"white", fontSize:14, fontWeight:700, marginBottom:14, fontFamily:"'Nunito',sans-serif" }}>Company</h4>
+            {[["About CHEETAH®","/about"],["Contact","/contact"],["Book a Demo","/contact"],["Careers","#"]].map(([l,h])=>(<Link key={l} href={h} style={{ display:"block", color:"rgba(255,255,255,0.55)", textDecoration:"none", fontSize:13, marginBottom:9 }}>{l}</Link>))}
+          </div>
+          <div>
+            <h4 style={{ color:"white", fontSize:14, fontWeight:700, marginBottom:14, fontFamily:"'Nunito',sans-serif" }}>Stay Connected</h4>
+            <p style={{ fontSize:13, marginBottom:14 }}>Get literacy tips and updates delivered to your inbox.</p>
+            <div style={{ display:"flex", gap:8 }}>
+              <input placeholder="Your email" style={{ flex:1, padding:"10px 14px", borderRadius:50, border:"1px solid rgba(255,255,255,0.15)", background:"rgba(255,255,255,0.07)", color:"white", fontSize:13, outline:"none" }} />
+              <button style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"10px 14px", fontWeight:700, cursor:"pointer", fontSize:13 }}>→</button>
+            </div>
+          </div>
+        </div>
+        <div style={{ borderTop:"1px solid rgba(255,255,255,0.1)", paddingTop:24, display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:12, fontSize:12 }}>
+          <p>© 2025 CHEETAH Toys & More, LLC. All rights reserved.</p>
+          <p>FastTrack Literacy™ · JamDER™ · iCHEETAH™ are trademarks of CHEETAH®</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
