@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 style={{ color:"white", fontSize:14, fontWeight:700, marginBottom:14, fontFamily:"'Nunito',sans-serif" }}>Company</h4>
-            {[["About CHEETAH®","/about"],["Contact","/contact"],["Book a Demo","/meeting"],["Careers","#"]].map(([l,h])=>(<Link key={l} href={h} style={{ display:"block", color:"rgba(255,255,255,0.55)", textDecoration:"none", fontSize:13, marginBottom:9 }}>{l}</Link>))}
+            {[["About CHEETAH®","/about"],["Contact","/contact"],["Book a Demo","/contact"]].map(([l,h])=>(<Link key={l} href={h} style={{ display:"block", color:"rgba(255,255,255,0.55)", textDecoration:"none", fontSize:13, marginBottom:9 }}>{l}</Link>))}
           </div>
           <div>
             <h4 style={{ color:"white", fontSize:14, fontWeight:700, marginBottom:14, fontFamily:"'Nunito',sans-serif" }}>Stay Connected</h4>
