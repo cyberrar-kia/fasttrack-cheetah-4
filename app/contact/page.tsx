@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const FORMSPREE_CONTACT = "https://formspree.io/f/YOUR_FORMSPREE_ID";
+const FORMSPREE_CONTACT = "https://formspree.io/f/xgorojya";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
