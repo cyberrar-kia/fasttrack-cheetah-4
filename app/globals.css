@@ -104,6 +104,18 @@ h1, h2, h3, h4, h5 {
 
 @media (max-width: 768px) {
   .grid-2 { grid-template-columns: 1fr; gap: 28px; }
+  /* Drawers — tighter padding on small screens */
+  .drawer-panel { padding: 24px 18px !important; }
+  /* How It Works comparison table — horizontal scroll on mobile */
+  table { font-size: 12px; }
+  /* Resource cards — single column already via grid-auto */
+  /* Forms — first/last name row stacks on mobile */
+  .grid-2.form-row { grid-template-columns: 1fr !important; }
+  /* Hero section padding tighter */
+  .section { padding: 40px 16px; }
+  /* Footer grid stacks */
+  footer > div > div:first-child > div { min-width: 0; }
+
   .grid-3 { grid-template-columns: 1fr; gap: 16px; }
   .grid-4 { grid-template-columns: repeat(2,1fr); gap: 12px; }
   .grid-auto { grid-template-columns: 1fr; }

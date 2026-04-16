@@ -132,7 +132,7 @@ export default function FastTrackPage() {
       {whyOpen && (
         <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
           <div onClick={() => setWhyOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
-          <div style={{ width:"min(600px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+          <div style={{ width:"min(600px,100vw)", background:"white", overflowY:"auto", padding:"clamp(20px,5vw,40px) clamp(16px,4vw,32px)", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
               <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>Why It Matters</h2>
               <button onClick={() => setWhyOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
@@ -150,7 +150,7 @@ export default function FastTrackPage() {
       {whoOpen && (
         <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
           <div onClick={() => setWhoOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
-          <div style={{ width:"min(600px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+          <div style={{ width:"min(600px,100vw)", background:"white", overflowY:"auto", padding:"clamp(20px,5vw,40px) clamp(16px,4vw,32px)", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
               <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>Who Is the Program For</h2>
               <button onClick={() => setWhoOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
@@ -168,7 +168,7 @@ export default function FastTrackPage() {
       {diffOpen && (
         <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
           <div onClick={() => setDiffOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
-          <div style={{ width:"min(660px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+          <div style={{ width:"min(660px,100vw)", background:"white", overflowY:"auto", padding:"clamp(20px,5vw,40px) clamp(16px,4vw,32px)", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
               <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>What Makes FastTrack Literacy™ Different</h2>
               <button onClick={() => setDiffOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>

@@ -160,7 +160,7 @@ export default function Resources() {
       {activeDrawer && drawer && (
         <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
           <div onClick={()=>setActiveDrawer(null)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
-          <div style={{ width:"min(520px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+          <div style={{ width:"min(520px,100vw)", background:"white", overflowY:"auto", padding:"clamp(20px,5vw,40px) clamp(16px,4vw,32px)", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
               <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:20, color:"#0C2340", flex:1, marginRight:16 }}>{drawer.title}</h2>
               <button onClick={()=>setActiveDrawer(null)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16, flexShrink:0 }}>✕</button>
@@ -189,7 +189,7 @@ export default function Resources() {
       {quoteOpen && (
         <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
           <div onClick={()=>setQuoteOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
-          <div style={{ width:"min(520px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+          <div style={{ width:"min(520px,100vw)", background:"white", overflowY:"auto", padding:"clamp(20px,5vw,40px) clamp(16px,4vw,32px)", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
               <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>Request a Quote</h2>
               <button onClick={()=>setQuoteOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
