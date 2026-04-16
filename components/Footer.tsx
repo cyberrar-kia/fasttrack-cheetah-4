@@ -20,14 +20,17 @@ export default function Footer() {
           </div>
           <div>
             <h4 style={{ color:"white", fontSize:14, fontWeight:700, marginBottom:14, fontFamily:"'Nunito',sans-serif" }}>Company</h4>
-            {[["About CHEETAH®","/about"],["Contact","/contact"],["Book a Demo","/contact"],["Careers","#"]].map(([l,h])=>(<Link key={l} href={h} style={{ display:"block", color:"rgba(255,255,255,0.55)", textDecoration:"none", fontSize:13, marginBottom:9 }}>{l}</Link>))}
+            {[["About CHEETAH®","/about"],["Contact","/contact"],["Book a Demo","/meeting"],["Careers","#"]].map(([l,h])=>(<Link key={l} href={h} style={{ display:"block", color:"rgba(255,255,255,0.55)", textDecoration:"none", fontSize:13, marginBottom:9 }}>{l}</Link>))}
           </div>
           <div>
             <h4 style={{ color:"white", fontSize:14, fontWeight:700, marginBottom:14, fontFamily:"'Nunito',sans-serif" }}>Stay Connected</h4>
             <p style={{ fontSize:13, marginBottom:14 }}>Get literacy tips and updates delivered to your inbox.</p>
-            <div style={{ display:"flex", gap:8 }}>
+            <div style={{ display:"flex", gap:8, marginBottom:20 }}>
               <input placeholder="Your email" style={{ flex:1, padding:"10px 14px", borderRadius:50, border:"1px solid rgba(255,255,255,0.15)", background:"rgba(255,255,255,0.07)", color:"white", fontSize:13, outline:"none" }} />
               <button style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"10px 14px", fontWeight:700, cursor:"pointer", fontSize:13 }}>→</button>
+            </div>
+            <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+              {[["Privacy Notice","/legal"],["Terms","/legal"],["Support","/contact"]].map(([l,h])=>(<Link key={l} href={h} style={{ color:"rgba(255,255,255,0.45)", textDecoration:"none", fontSize:12 }}>{l}</Link>))}
             </div>
           </div>
         </div>

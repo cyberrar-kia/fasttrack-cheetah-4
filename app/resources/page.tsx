@@ -1,25 +1,59 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
+
+const FORMSPREE_QUOTE = "https://formspree.io/f/YOUR_FORMSPREE_ID";
+
+type DrawerItem = { title: string; body: string; bullets?: string[] };
+
+const drawerContent: Record<string, DrawerItem> = {
+  "Teacher's Helper / Teacher's Guide": { title:"Teacher's Helper / Teacher's Guide", body:"The Teacher's Helper provides the full instructional roadmap and difficult auditory stories. Each letter includes a 'Suggested 65-Minute Teacher's Page' to guide daily lessons. The Pupil's Helper omits steps 2, 3, and 4 to remain accessible for the child.", bullets:["Full 16-step instructional roadmap for every phoneme","Complex auditory stories and guided steps for teachers/parents","'Suggested 65-Minute Teacher's Page' per letter","Differentiated instruction — adjust, skip, or shorten lessons based on ability","Available in Volumes 1 and 2","Over 640 activities, with Sets 1–4 as supplemental digital resources"] },
+  "Pupil's Workbook / Pupil's Helper": { title:"Pupil's Workbook / Pupil's Helper", body:"Streamlined version for students — simplified to remove jingles and drills that prevent overwhelm, focusing on print and sound. Available in Volumes 1, 2, and 3.", bullets:["Omits steps 2, 3, and 4 to remain child-accessible","Focus on print and sound activities","Simplified auditory stories","Hands-on activities for decoding and encoding","Available as Pupil's Workbook, Student's Workbook, or Pupil's Helper (varies by country)","Volumes 1, 2, and 3"] },
+  "45 Reggae Phoneme Songs": { title:"45 One-Minute Reggae Phoneme Songs", body:"One-minute rhythmic, memorable, and fun songs — one for each phoneme. Call-and-response rhythms introduce sounds and reinforce learning. Children wake up singing them!", bullets:["45 songs — one per phoneme","One minute each — perfect for attention spans","Call-and-response rhythmic structure","Boosts memory, engagement and phoneme retention","Evidence-based: rhythmic learning improves sound discrimination","Available digitally and as audio recordings"] },
+  "CHEETAH® Poster Stories — Level 1": { title:"CHEETAH® Poster Stories — Level 1", body:"9 Level 1 Decodable Books for early readers just beginning to decode. Large, poster-format stories ideal for classroom shared reading.", bullets:["9 books in the Level 1 collection","Poster-format — large, clear, classroom-friendly","Aligned to the 16-step instructional sequence","Ideal for shared reading and student-led reading","C-DER® Book Integration — seamless connection to phoneme lessons","Available in JamDER™ and other localised editions"] },
+  "CHEETAH® Decodable & Early Readers — Level 2": { title:"CHEETAH® Decodable & Early Readers (C-DER) — Level 2", body:"70+ Level 2 Decodable Books for building decoding and fluency. Fiction and nonfiction titles across a wide range of topics and cultural contexts.", bullets:["70+ books in the Level 2 collection","Fiction and nonfiction titles","Wide range of topics and cultural contexts","Builds decoding, fluency, and reading confidence","Published by CHEETAH® Purrrrrrr Publishing","Available as JamDER™ and C-DER™ editions"] },
+  "27+ Interactive Charts": { title:"27+ Interactive Charts", body:"Multisensory reinforcement tools including phonics charts, word family charts, and classroom display resources. Standardised review and fluency testing.", bullets:["27+ charts in the collection","Phonics charts and word family charts","CHEETAH® Poster Fluency Tests — standardised review and testing","Multisensory reinforcement tools","Classroom display resources","Designed for individual and group instruction"] },
+  "Phoneme Flashcard Sets": { title:"Phoneme Flashcard Sets", body:"Visual flashcard sets for letter-sound practice, sight words, and vocabulary building. Designed for both classroom and home use.", bullets:["Letter-sound correspondence flashcards","Sight word recognition sets","Vocabulary building cards","National Literacy Competition cards","Suitable for classroom and home use","Aligned to the 16-step lesson sequence"] },
+  "Assessment & Progress Monitoring Tools": { title:"Assessment & Progress Monitoring Tools", body:"Built-in assessment tools including CHEETAH® Poster Fluency Tests, self-assessment checklists, and progress tracking sheets. Measurable outcomes at every stage.", bullets:["CHEETAH® Poster Fluency Tests — Step 16 of every lesson","Self-assessment and reward sticker system","Parent/teacher progress notes","Standardised review before progression","Built-in progress monitoring and measurable outcomes","Reward stickers tied to every milestone"] },
+  "iCHEETAH™ AI-Powered Robot": { title:"iCHEETAH™ — Patent-Pending AI-Powered Robot", body:"Our patent-pending, AI-powered Smart Edutainment Robot for Kids. The Teacher's Helper and Your Child's Learning Companion. Smart devices and AI tools support student assessment and track fluency.", bullets:["Patent-pending AI-powered robot with integrated CHEETAH® content","Smart devices and AI tools support student assessment and track fluency","Voice assistant — just say iCHEETAH™","Preloaded educational apps","Sing-along with two microphones","Cast to TV for classroom activities","Inclusive design: supports children with visual impairments, speech delays, and limited motor skills"] },
+  "CHEETAH® Apps": { title:"CHEETAH® Apps", body:"Digital apps for independent practice, phoneme reinforcement, and parent engagement. Available on tablets and compatible devices.", bullets:["Independent phoneme practice","Parent engagement tools","Tablet-compatible for classroom and home use","Part of the full iCHEETAH™ technology ecosystem","Combines physical books with apps and AI tools","Innovative AI tool for comprehensive learning"] },
+  "National Literacy Competition Cards": { title:"National Literacy Competition Cards", body:"Cards and materials for classroom and national literacy competitions — building motivation, fluency, and confidence. Supports national literacy initiatives.", bullets:["Designed for classroom and national literacy competitions","Builds motivation, fluency, and reading confidence","Supports national literacy initiatives","Community engagement and nation-building focus","Aligned to the CHEETAH® programme scope and sequence","Reward and recognition built in"] },
+  "Reward Sticker Sets": { title:"Reward Sticker Sets", body:"Motivational reward stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone.", bullets:["Tied to Step 12: Assessment & Motivation in every lesson","Children self-assess and receive stickers","Parent/teacher notes included at each milestone","Builds intrinsic motivation and self-confidence","Available in sets aligned to each volume","Designed to celebrate every small win"] },
+};
+
+const resources = [
+  { cat:"Teacher Resources", icon:"👩‍🏫", title:"Teacher's Helper / Teacher's Guide", desc:"Full instructional roadmap with difficult auditory stories, a 65-minute suggested Teacher's Page per letter, and over 640 activities. Available in Volumes 1 and 2.", tag:"blue", type:"Physical + Digital" },
+  { cat:"Student Resources", icon:"👧", title:"Pupil's Workbook / Pupil's Helper", desc:"Streamlined version for students (omitting steps 2, 3, and 4) to remain accessible for the child. Available in Volumes 1, 2, and 3.", tag:"green", type:"Physical Book" },
+  { cat:"Songs & Audio", icon:"🎵", title:"45 Reggae Phoneme Songs", desc:"One-minute rhythmic, memorable, and fun songs — one for each phoneme. Children wake up singing them! Available digitally and as recordings.", tag:"orange", type:"Audio + Digital" },
+  { cat:"Decodable Books", icon:"📖", title:"CHEETAH® Poster Stories — Level 1", desc:"9 Level 1 decodable books for early readers just beginning to decode. Large, poster-format stories ideal for classroom shared reading.", tag:"blue", type:"Physical Book" },
+  { cat:"Decodable Books", icon:"📚", title:"CHEETAH® Decodable & Early Readers — Level 2", desc:"70+ Level 2 decodable books for building decoding and fluency. Fiction and nonfiction titles across a range of topics.", tag:"green", type:"Physical Book" },
+  { cat:"Charts & Visual Tools", icon:"📊", title:"27+ Interactive Charts", desc:"Multisensory reinforcement tools including phonics charts, word family charts, and classroom display resources.", tag:"orange", type:"Physical Resource" },
+  { cat:"Flashcards", icon:"🃏", title:"Phoneme Flashcard Sets", desc:"Visual flashcard sets for letter-sound practice, sight words, and vocabulary building. Designed for both classroom and home use.", tag:"blue", type:"Physical Resource" },
+  { cat:"Assessment", icon:"📋", title:"Assessment & Progress Monitoring Tools", desc:"Built-in assessment tools including CHEETAH® Poster Fluency Tests, self-assessment checklists, and progress tracking sheets.", tag:"green", type:"Assessment" },
+  { cat:"Technology", icon:"🤖", title:"iCHEETAH™ AI-Powered Robot", desc:"Patent-pending AI-powered robot with integrated CHEETAH® content. Engages children in interactive literacy activities through voice and screen.", tag:"orange", type:"Hardware" },
+  { cat:"Technology", icon:"📱", title:"CHEETAH® Apps", desc:"Digital apps for independent practice, phoneme reinforcement, and parent engagement. Available on tablets and compatible devices.", tag:"blue", type:"Digital App" },
+  { cat:"Competition", icon:"🏆", title:"National Literacy Competition Cards", desc:"Cards and materials for classroom and national literacy competitions — building motivation, fluency, and confidence.", tag:"green", type:"Competition Resource" },
+  { cat:"Rewards", icon:"⭐", title:"Reward Sticker Sets", desc:"Motivational reward stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone.", tag:"orange", type:"Classroom Resource" },
+];
+
+const tagColors: Record<string,{bg:string,tc:string}> = { green:{bg:"#F0FDF4",tc:"#166534"}, blue:{bg:"#EEF4FF",tc:"#1A5DB5"}, orange:{bg:"#FFF0E0",tc:"#C05A00"} };
+
 export default function Resources() {
-  const resources = [
-    { cat:"Teacher Resources", icon:"👩‍🏫", title:"Teacher's Helper / Teacher's Guide", desc:"Full instructional roadmap with difficult auditory stories, a 65-minute suggested Teacher's Page per letter, and over 640 activities. Available in Volumes 1 and 2.", tag:"blue", type:"Physical + Digital" },
-    { cat:"Student Resources", icon:"👧", title:"Pupil's Workbook / Pupil's Helper", desc:"Streamlined version for students (omitting steps 2, 3, and 4) to remain accessible for the child. Available in Volumes 1, 2, and 3.", tag:"green", type:"Physical Book" },
-    { cat:"Songs & Audio", icon:"🎵", title:"45 Reggae Phoneme Songs", desc:"One-minute rhythmic, memorable, and fun songs — one for each phoneme. Children wake up singing them! Available digitally and as recordings.", tag:"orange", type:"Audio + Digital" },
-    { cat:"Decodable Books", icon:"📖", title:"CHEETAH® Poster Stories — Level 1", desc:"9 Level 1 decodable books for early readers just beginning to decode. Large, poster-format stories ideal for classroom shared reading.", tag:"blue", type:"Physical Book" },
-    { cat:"Decodable Books", icon:"📚", title:"CHEETAH® Decodable & Early Readers — Level 2", desc:"70+ Level 2 decodable books for building decoding and fluency. Fiction and nonfiction titles across a range of topics.", tag:"green", type:"Physical Book" },
-    { cat:"Charts & Visual Tools", icon:"📊", title:"27+ Interactive Charts", desc:"Multisensory reinforcement tools including phonics charts, word family charts, and classroom display resources.", tag:"orange", type:"Physical Resource" },
-    { cat:"Flashcards", icon:"🃏", title:"Phoneme Flashcard Sets", desc:"Visual flashcard sets for letter-sound practice, sight words, and vocabulary building. Designed for both classroom and home use.", tag:"blue", type:"Physical Resource" },
-    { cat:"Assessment", icon:"📋", title:"Assessment & Progress Monitoring Tools", desc:"Built-in assessment tools including CHEETAH® Poster Fluency Tests, self-assessment checklists, and progress tracking sheets.", tag:"green", type:"Assessment" },
-    { cat:"Technology", icon:"🤖", title:"iCHEETAH™ AI-Powered Robot", desc:"Patent-pending AI-powered robot with integrated CHEETAH® content. Engages children in interactive literacy activities through voice and screen.", tag:"orange", type:"Hardware" },
-    { cat:"Technology", icon:"📱", title:"CHEETAH® Apps", desc:"Digital apps for independent practice, phoneme reinforcement, and parent engagement. Available on tablets and compatible devices.", tag:"blue", type:"Digital App" },
-    { cat:"Competition", icon:"🏆", title:"National Literacy Competition Cards", desc:"Cards and materials for classroom and national literacy competitions — building motivation, fluency, and confidence.", tag:"green", type:"Competition Resource" },
-    { cat:"Rewards", icon:"⭐", title:"Reward Sticker Sets", desc:"Motivational reward stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone.", tag:"orange", type:"Classroom Resource" },
-  ];
-  const tagColors: Record<string,{bg:string,tc:string}> = {
-    green:{bg:"#F0FDF4",tc:"#166534"},
-    blue:{bg:"#EEF4FF",tc:"#1A5DB5"},
-    orange:{bg:"#FFF0E0",tc:"#C05A00"},
+  const [activeDrawer, setActiveDrawer] = useState<string|null>(null);
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const [quoteStatus, setQuoteStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
+  const [quoteForm, setQuoteForm] = useState({ name:"", email:"", organisation:"", country:"", resources:"", message:"" });
+
+  const handleQuoteSubmit = async () => {
+    setQuoteStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_QUOTE, { method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(quoteForm) });
+      setQuoteStatus(res.ok ? "sent" : "error");
+    } catch { setQuoteStatus("error"); }
   };
+
+  const drawer = activeDrawer ? drawerContent[activeDrawer] : null;
+
   return (
     <>
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"80px 24px 60px", textAlign:"center" }}>
@@ -30,23 +64,21 @@ export default function Resources() {
         </div>
       </section>
 
-      {/* ECOSYSTEM OVERVIEW */}
       <section className="section" style={{ background:"white" }}>
         <div className="container">
           <div className="grid-2">
             <div>
               <div className="section-chip">🔄 The Ecosystem</div>
               <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>A Complete Learning Flow</h2>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>The CHEETAH® Literacy Ecosystem is a comprehensive framework combining educational resources, technological innovations, and extensive training for educators — with everything flowing in a logical sequence.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>The CHEETAH® Literacy Ecosystem combines educational resources, technological innovations, and extensive training — with everything flowing in a logical sequence.</p>
               <div style={{ display:"flex", alignItems:"center", gap:0, flexWrap:"wrap", marginBottom:28 }}>
-                {["Books","Tools","Technology","Training","Review","Evaluation"].map((step, i, arr)=>(
+                {["Books","Tools","Technology","Training","Review","Evaluation"].map((step,i,arr)=>(
                   <div key={step} style={{ display:"flex", alignItems:"center" }}>
                     <div style={{ background:i===0?"#F5820A":"#FFF0E0", color:i===0?"white":"#C05A00", fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:12, padding:"8px 14px", borderRadius:50, whiteSpace:"nowrap" }}>{step}</div>
                     {i<arr.length-1 && <div style={{ color:"#F5820A", fontWeight:700, margin:"0 4px", fontSize:14 }}>→</div>}
                   </div>
                 ))}
               </div>
-              <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.75 }}>This flow ensures students don't just learn to decode — they develop fluency, build vocabulary, and become truly independent readers.</p>
             </div>
             <div style={{ background:"#FFF9F4", border:"1px solid #EDE0D0", borderRadius:20, padding:28 }}>
               <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:16, color:"#0C2340", marginBottom:20 }}>📊 Resource Count</div>
@@ -61,48 +93,36 @@ export default function Resources() {
         </div>
       </section>
 
-      {/* RESOURCES GRID */}
       <section className="section" style={{ background:"#FFF9F4" }}>
         <div className="container">
-          <div style={{ textAlign:"center", marginBottom:40 }}>
-            <h2 style={{ fontSize:"clamp(22px,4vw,34px)", fontWeight:900, color:"#0C2340" }}>All Resources</h2>
-          </div>
-
-          {/* iCHEETAH SECTION */}
           <div className="grid-2" style={{ marginBottom:48, gap:40, alignItems:"center" }}>
             <div>
               <div className="section-chip">🤖 AI Technology</div>
               <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:24, color:"#0C2340", marginBottom:14 }}>Meet iCHEETAH™</h3>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.8, marginBottom:14 }}>Our patent-pending, AI-powered Smart Edutainment Robot for Kids — the Teacher&apos;s Helper and Your Child&apos;s Learning Companion. Especially effective for children with visual impairments, speech delays, or limited motor skills.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.8, marginBottom:14 }}>Our patent-pending, AI-powered Smart Edutainment Robot for Kids — the Teacher's Helper and Your Child's Learning Companion. Especially effective for children with visual impairments, speech delays, or limited motor skills.</p>
               <div style={{ display:"flex", flexDirection:"column", gap:8, marginBottom:20 }}>
                 {["🎙️ Voice assistant — just say iCHEETAH™","📱 Preloaded educational apps","🎵 Sing-along with two microphones","📺 Cast to TV for classroom activities","🎮 Explore shapes, numbers & colours","📚 STEM literacy & learning kits"].map(f=>(
-                  <div key={f} style={{ fontSize:13, color:"#5A5240", display:"flex", gap:8 }}><span>{f}</span></div>
+                  <div key={f} style={{ fontSize:13, color:"#5A5240" }}>{f}</div>
                 ))}
               </div>
-              <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"14px 18px", borderRadius:"0 10px 10px 0" }}>
-                <p style={{ fontSize:13, color:"#0C2340", lineHeight:1.7 }}><strong>Inclusive design:</strong> Audio narration, interactive touchscreens, and adaptive features ensure no child is left behind — including those with disabilities or learning challenges.</p>
-              </div>
             </div>
-            <div style={{ display:"grid", gridTemplateColumns:"1fr", gap:14 }}>
-              <Image src="/images/icheetah-frontal.png" alt="iCHEETAH™ Robot — Frontal View" width={400} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
-            </div>
+            <Image src="/images/icheetah-frontal.png" alt="iCHEETAH™ Robot" width={400} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
           </div>
           <div style={{ marginBottom:48 }}>
             <Image src="/images/icheetah-features.png" alt="iCHEETAH Features" width={1200} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
           </div>
-          {/* Books */}
           <div className="grid-2" style={{ marginBottom:48, gap:40, alignItems:"center" }}>
             <div>
-              <div className="section-chip">📊 Featured Resource</div>
-              <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:24, color:"#0C2340", marginBottom:14 }}>JamDER™ &amp; C-DER Books</h3>
+              <div className="section-chip">📚 Featured Resource</div>
+              <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:24, color:"#0C2340", marginBottom:14 }}>JamDER™ & C-DER Books</h3>
               <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.8 }}>All JamDER™ and C-DER™ books — 70+ decodable readers published by CHEETAH® Purrrrrrr Publishing. Fiction and nonfiction titles across a wide range of topics, levels, and cultural contexts.</p>
             </div>
-            <div>
-              <Image src="/images/jamder-books.png" alt="All JamDER and C-DER Books" width={400} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
-            </div>
+            <Image src="/images/jamder-books.png" alt="All JamDER and C-DER Books" width={400} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
           </div>
+
           <div style={{ textAlign:"center", marginBottom:40 }}>
             <h2 style={{ fontSize:"clamp(22px,4vw,34px)", fontWeight:900, color:"#0C2340" }}>All Resources</h2>
+            <p style={{ fontSize:14, color:"#5A5240", marginTop:8 }}>Click "Learn More" on any resource for full details.</p>
           </div>
           <div className="grid-auto">
             {resources.map(r=>(
@@ -115,7 +135,7 @@ export default function Resources() {
                 <p style={{ fontSize:12, color:"#5A5240", lineHeight:1.7, flex:1 }}>{r.desc}</p>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", paddingTop:8, borderTop:"1px solid #F5EEE4" }}>
                   <span style={{ fontSize:11, color:"#A0927A", fontWeight:500 }}>{r.type}</span>
-                  <button style={{ background:"#FFF0E0", color:"#C05A00", border:"none", borderRadius:50, padding:"7px 14px", fontSize:12, fontWeight:700, cursor:"pointer" }}>Learn More →</button>
+                  <button onClick={()=>setActiveDrawer(r.title)} style={{ background:"#FFF0E0", color:"#C05A00", border:"none", borderRadius:50, padding:"7px 14px", fontSize:12, fontWeight:700, cursor:"pointer" }}>Learn More →</button>
                 </div>
               </div>
             ))}
@@ -127,9 +147,70 @@ export default function Resources() {
         <div className="container-xs">
           <h2 style={{ fontSize:"clamp(20px,3vw,30px)", fontWeight:900, color:"white", marginBottom:14 }}>Need Resources for Your School or Organisation?</h2>
           <p style={{ fontSize:15, color:"rgba(255,255,255,0.7)", marginBottom:24 }}>We offer bulk pricing and customised packages for schools, districts, and NGOs — with full teacher training included.</p>
-          <button style={{ background:"#F5820A", color:"white", border:"none", fontFamily:"'Nunito',sans-serif", fontWeight:800, padding:"14px 28px", borderRadius:50, fontSize:15, cursor:"pointer" }}>Request a Quote →</button>
+          <button onClick={()=>setQuoteOpen(true)} style={{ background:"#F5820A", color:"white", border:"none", fontFamily:"'Nunito',sans-serif", fontWeight:800, padding:"14px 28px", borderRadius:50, fontSize:15, cursor:"pointer" }}>Request a Quote →</button>
         </div>
       </section>
+
+      {activeDrawer && drawer && (
+        <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
+          <div onClick={()=>setActiveDrawer(null)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
+          <div style={{ width:"min(520px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:20, color:"#0C2340", flex:1, marginRight:16 }}>{drawer.title}</h2>
+              <button onClick={()=>setActiveDrawer(null)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16, flexShrink:0 }}>✕</button>
+            </div>
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:20 }}>{drawer.body}</p>
+            {drawer.bullets && (
+              <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:24 }}>
+                {drawer.bullets.map(b=>(
+                  <div key={b} style={{ background:"#FFF9F4", border:"1px solid #EDE0D0", borderRadius:8, padding:"10px 14px", fontSize:13, color:"#5A5240", display:"flex", gap:10 }}>
+                    <span style={{ color:"#F5820A", fontWeight:700, flexShrink:0 }}>✓</span>{b}
+                  </div>
+                ))}
+              </div>
+            )}
+            <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"14px 18px", borderRadius:"0 10px 10px 0", marginBottom:24 }}>
+              <p style={{ fontSize:13, color:"#0C2340" }}>Interested in this resource? <strong>Request a quote</strong> or <a href="/contact" style={{ color:"#C05A00" }}>contact us</a> for more information.</p>
+            </div>
+            <div style={{ display:"flex", gap:12 }}>
+              <button onClick={()=>{setActiveDrawer(null);setQuoteOpen(true);}} style={{ flex:1, background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:12, fontSize:13, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Request a Quote →</button>
+              <button onClick={()=>setActiveDrawer(null)} style={{ flex:1, background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:12, fontSize:13, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {quoteOpen && (
+        <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
+          <div onClick={()=>setQuoteOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
+          <div style={{ width:"min(520px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>Request a Quote</h2>
+              <button onClick={()=>setQuoteOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
+            </div>
+            {quoteStatus==="sent" ? (
+              <div style={{ textAlign:"center", padding:"40px 20px" }}>
+                <div style={{ fontSize:48, marginBottom:16 }}>✅</div>
+                <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:20, color:"#0C2340", marginBottom:8 }}>Quote Request Sent!</h3>
+                <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.7 }}>Thank you. The CHEETAH® team will be in touch within 1 business day.</p>
+                <button onClick={()=>{setQuoteOpen(false);setQuoteStatus("idle");setQuoteForm({name:"",email:"",organisation:"",country:"",resources:"",message:""});}} style={{ marginTop:20, background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"12px 24px", fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Done</button>
+              </div>
+            ) : (
+              <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
+                <div><label style={{ display:"block", fontSize:12, fontWeight:700, color:"#0C2340", marginBottom:6 }}>Full Name *</label><input value={quoteForm.name} onChange={e=>setQuoteForm({...quoteForm,name:e.target.value})} placeholder="Your full name" style={{ width:"100%", padding:"11px 14px", border:"1.5px solid #EDE0D0", borderRadius:10, fontSize:14, outline:"none" }} /></div>
+                <div><label style={{ display:"block", fontSize:12, fontWeight:700, color:"#0C2340", marginBottom:6 }}>Email Address *</label><input type="email" value={quoteForm.email} onChange={e=>setQuoteForm({...quoteForm,email:e.target.value})} placeholder="you@example.com" style={{ width:"100%", padding:"11px 14px", border:"1.5px solid #EDE0D0", borderRadius:10, fontSize:14, outline:"none" }} /></div>
+                <div><label style={{ display:"block", fontSize:12, fontWeight:700, color:"#0C2340", marginBottom:6 }}>Organisation / School</label><input value={quoteForm.organisation} onChange={e=>setQuoteForm({...quoteForm,organisation:e.target.value})} placeholder="e.g. Springfield Primary School" style={{ width:"100%", padding:"11px 14px", border:"1.5px solid #EDE0D0", borderRadius:10, fontSize:14, outline:"none" }} /></div>
+                <div><label style={{ display:"block", fontSize:12, fontWeight:700, color:"#0C2340", marginBottom:6 }}>Country</label><input value={quoteForm.country} onChange={e=>setQuoteForm({...quoteForm,country:e.target.value})} placeholder="e.g. Jamaica" style={{ width:"100%", padding:"11px 14px", border:"1.5px solid #EDE0D0", borderRadius:10, fontSize:14, outline:"none" }} /></div>
+                <div><label style={{ display:"block", fontSize:12, fontWeight:700, color:"#0C2340", marginBottom:6 }}>Resources Needed</label><input value={quoteForm.resources} onChange={e=>setQuoteForm({...quoteForm,resources:e.target.value})} placeholder="e.g. Teacher Guides, Decodable Books, iCHEETAH" style={{ width:"100%", padding:"11px 14px", border:"1.5px solid #EDE0D0", borderRadius:10, fontSize:14, outline:"none" }} /></div>
+                <div><label style={{ display:"block", fontSize:12, fontWeight:700, color:"#0C2340", marginBottom:6 }}>Additional Notes</label><textarea rows={3} value={quoteForm.message} onChange={e=>setQuoteForm({...quoteForm,message:e.target.value})} placeholder="Number of students, budget, timeline..." style={{ width:"100%", padding:"11px 14px", border:"1.5px solid #EDE0D0", borderRadius:10, fontSize:14, outline:"none", resize:"vertical" }} /></div>
+                {quoteStatus==="error" && <p style={{ fontSize:13, color:"#DC2626" }}>Something went wrong. Please try again or email info@mycheetahinc.com</p>}
+                <button onClick={handleQuoteSubmit} disabled={quoteStatus==="sending"} style={{ width:"100%", background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:14, fontSize:15, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer", opacity:quoteStatus==="sending"?0.7:1 }}>{quoteStatus==="sending"?"Sending...":"Submit Quote Request →"}</button>
+                <p style={{ fontSize:12, color:"#A0927A", textAlign:"center" }}>We respond to all enquiries within 1 business day.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }

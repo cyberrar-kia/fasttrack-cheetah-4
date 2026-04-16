@@ -1,7 +1,11 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function About() {
+  const [cheetahOpen, setCheetahOpen] = useState(false);
+  const [founderOpen, setFounderOpen] = useState(false);
   return (
     <>
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"80px 24px 60px", textAlign:"center" }}>
@@ -18,12 +22,13 @@ export default function About() {
             <div>
               <div className="section-chip">🏢 Who We Are</div>
               <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>A Global Literacy Ecosystem</h2>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Founded in the United States and Jamaica in 2014 and 2015, CHEETAH® has grown from national assessment workbooks (Primary Exit Profile) into textbooks and a comprehensive literacy system with over 90 resources.</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>These resources are customised for markets including Jamaica, the USA, and several countries in Africa. Its flagship program, <strong>FastTrack Literacy™</strong>, is delivered in Jamaica as <strong>JamDER™</strong> (Jamaica Decodable and Early Readers).</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85 }}>CHEETAH® provides a full ecosystem of tools and training — combining curriculum, content, assessment, technology, and AI to improve reading outcomes at scale.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>CHEETAH® (Connect to Higher Education, Electronic Tools, Apps & Help) Toys & More, LLC is a global education and technology company that designs complete literacy ecosystems—combining curriculum, content, assessment, technology, and AI to improve reading outcomes at scale.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Founded in the United States and Jamaica in 2014 and 2015, respectively, CHEETAH® has grown from national assessment workbooks (Primary Exit Profile) into textbooks and a comprehensive literacy system with over 90 resources. These resources are customised for markets including Jamaica, the USA, and several countries in Africa.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>Its flagship program, <strong>FastTrack Literacy™</strong>, is delivered in Jamaica as <strong>JamDER™ (Jamaica Decodable and Early Readers)</strong>.</p>
+              <button onClick={() => setCheetahOpen(true)} style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"11px 24px", fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Read More →</button>
             </div>
             <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-              {[{icon:"📖",title:"Evidence-Based Programs",desc:"Posters, flashcards, reggae phoneme songs, and decodable readers (fiction and nonfiction)"},{icon:"🌍",title:"Customised Country Editions",desc:"Including JamDER™ and other localised versions for Jamaica, USA, and Africa"},{icon:"🤖",title:"Technology & AI Integration",desc:"iCHEETAH™, tablets, apps, and digital training tools"},{icon:"🏫",title:"ICT Solutions for Schools",desc:"Mobile learning carts, projectors, and all-in-one systems"},{icon:"🤝",title:"Government Partnerships",desc:"National mobilisation across thousands of schools"},{icon:"❤️",title:"Community Literacy Initiatives",desc:"School donations, scholarships, and media rooms with books and tablets"}].map(w=>(
+              {[{icon:"📖",title:"Evidence-Based Programs",desc:"Posters, flashcards, reggae phoneme songs, and decodable readers (fiction and nonfiction)"},{icon:"🌍",title:"Customised Country Editions",desc:"Including JamDER™ and other localised versions"},{icon:"🤖",title:"Technology & AI Integration",desc:"iCHEETAH™, tablets, apps, and digital training"},{icon:"🏫",title:"ICT Solutions for Schools",desc:"Mobile learning carts, projectors, and all-in-one systems"},{icon:"🤝",title:"Government Partnerships",desc:"National mobilisation across thousands of schools"},{icon:"❤️",title:"Community Literacy Initiatives",desc:"School donations, scholarships, and a media room with books and tablets developed in collaboration with the Jamaican Ministry of Education"}].map(w=>(
                 <div key={w.title} style={{ background:"#FFF9F4", border:"1px solid #EDE0D0", borderRadius:12, padding:16, display:"flex", gap:12, alignItems:"flex-start" }}>
                   <div style={{ fontSize:22, flexShrink:0 }}>{w.icon}</div>
                   <div><h4 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:14, color:"#0C2340", marginBottom:3 }}>{w.title}</h4><p style={{ fontSize:12, color:"#5A5240", lineHeight:1.6 }}>{w.desc}</p></div>
@@ -34,43 +39,49 @@ export default function About() {
         </div>
       </section>
 
-      {/* FOUNDER */}
       <section className="section" style={{ background:"#FFF9F4" }}>
         <div className="container">
+          <div style={{ textAlign:"center", marginBottom:32 }}>
+            <div className="section-chip" style={{ margin:"0 auto 16px" }}>🌍 Global Framework</div>
+            <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:12 }}>The CHEETAH® Literacy Ecosystem</h2>
+            <p style={{ fontSize:15, color:"#5A5240", maxWidth:560, margin:"0 auto", lineHeight:1.7 }}>A comprehensive framework designed to improve reading skills through five primary pillars — combining educational resources, technological innovations, and extensive training.</p>
+          </div>
+          <Image src="/images/image1.png" alt="The CHEETAH® Literacy Ecosystem: A Global Framework for Reading" width={1400} height={800} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
+          <p style={{ textAlign:"center", marginTop:20, fontSize:14, color:"#5A5240", lineHeight:1.7 }}>Founded by <strong>Paulette Trowers-Lawrence, JD</strong>, CHEETAH® is driven by one mission: <strong>every child can read, and every child must read.</strong></p>
+        </div>
+      </section>
+
+      <section className="section" style={{ background:"white" }}>
+        <div className="container">
           <div className="grid-2">
-            <div style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", borderRadius:24, padding:40 }}>
-              <div style={{ width:80, height:80, borderRadius:"50%", background:"linear-gradient(135deg,#F5820A,#FF9F2F)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:36, marginBottom:20 }}>👩‍💼</div>
-              <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"white", marginBottom:6 }}>Paulette Trowers-Lawrence, JD</h3>
-              <div style={{ fontSize:13, color:"#F5820A", fontWeight:600, marginBottom:20 }}>Founder & CEO, CHEETAH Toys & More, LLC</div>
-              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-                {[{icon:"🏆",text:"USA Presidential Lifetime Achievement Award (2024)"},{icon:"🎓",text:"Honorary Doctorate of Humanitarianism"},{icon:"⚖️",text:"Juris Doctor with Honors"},{icon:"📚",text:"1,100+ Educational Resources Developed"},{icon:"🌍",text:"30+ Years Corporate & Business Experience"}].map(a=>(
-                  <div key={a.text} style={{ display:"flex", gap:10, alignItems:"flex-start", fontSize:13, color:"rgba(255,255,255,0.8)" }}><span style={{ flexShrink:0 }}>{a.icon}</span>{a.text}</div>
-                ))}
-              </div>
-              <div style={{ marginTop:20, fontSize:12, color:"rgba(255,255,255,0.5)" }}>info@mycheetahinc.com · 876-909-6311 · 860-781-1276</div>
+            <div>
+              <Image src="/images/image2.jpg" alt="Paulette Trowers-Lawrence — USA Presidential Lifetime Achievement Award 2024" width={600} height={800} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
             </div>
             <div>
-              <div className="section-chip">🌟 Our Founder</div>
-              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>Visionary. Educator. Global Leader.</h2>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Paulette Trowers-Lawrence, JD is a global literacy leader, author, entrepreneur, and education innovator committed to improving reading outcomes for children worldwide.</p>
+              <div className="section-chip">🌟 Our Founder & CEO</div>
+              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:6 }}>Paulette Trowers-Lawrence, JD</h2>
+              <div style={{ fontSize:13, color:"#F5820A", fontWeight:700, marginBottom:20 }}>Founder & CEO, CHEETAH Toys & More, LLC</div>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Paulette Trowers-Lawrence, JD is the Founder and CEO of CHEETAH Toys & More, LLC and the visionary behind FastTrack Literacy™.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>She is a global literacy leader, author, entrepreneur, and education innovator committed to improving reading outcomes for children worldwide.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>She holds a <strong>Juris Doctor with honors</strong>, is a recipient of the <strong>USA Presidential Lifetime Achievement Award (2024)</strong>, and has been awarded an <strong>Honorary Doctorate of Humanitarianism</strong>.</p>
               <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>With over 30 years of corporate and business experience, she has led the development of more than <strong>1,100 educational resources</strong>, integrating curriculum, technology, and AI to support learning across diverse environments.</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85 }}>Her work continues to impact classrooms, communities, and education systems across Jamaica, the United States, and several African countries.</p>
-              <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"16px 20px", borderRadius:"0 12px 12px 0", marginTop:20 }}>
-                <p style={{ fontSize:14, fontStyle:"italic", color:"#0C2340", lineHeight:1.7 }}>"Every child can read, and every child must read." — Our founding mission</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>Her work continues to impact classrooms, communities, and education systems across Jamaica, the United States, and several African countries.</p>
+              <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"16px 20px", borderRadius:"0 12px 12px 0", marginBottom:24 }}>
+                <p style={{ fontSize:14, fontStyle:"italic", color:"#0C2340", lineHeight:1.7 }}>"Every child can read, and every child must read." — Paulette Trowers-Lawrence, JD</p>
               </div>
-              <div style={{ marginTop:24 }}>
-                <a href="https://mycheetahinc.com" target="_blank" rel="noopener noreferrer" className="btn-orange">Visit CHEETAH® →</a>
+              <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+                <button onClick={() => setFounderOpen(true)} style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"11px 24px", fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Read More →</button>
+                <a href="https://mycheetahinc.com" target="_blank" rel="noopener noreferrer" className="btn-navy" style={{ textDecoration:"none" }}>Visit CHEETAH® →</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)" }}>
         <div className="container">
           <div className="grid-auto">
-            {[["2014/15","Founded in USA & Jamaica"],["90+","Educational Resources"],["1,100+","Total Resources Developed"],["<50%","Jamaica Grade 4 literacy rate"],["3 in 10","Uganda P3 students who can read"],["770M+","People globally lacking literacy"]].map(([n,l])=>(
+            {[["2014/15","Founded in USA & Jamaica"],["90+","Educational Resources"],["1,100+","Total Resources Developed"],["770M+","People globally lacking literacy"],["37%","US 4th graders below basic reading"],["3","Countries Served"]].map(([n,l])=>(
               <div key={l} style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:16, padding:24, textAlign:"center" }}>
                 <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:28, fontWeight:900, color:"#F5820A" }}>{n}</div>
                 <div style={{ fontSize:12, color:"rgba(255,255,255,0.6)", marginTop:6 }}>{l}</div>
@@ -85,6 +96,53 @@ export default function About() {
         <p style={{ fontSize:15, color:"#5A5240", marginBottom:28, maxWidth:480, margin:"0 auto 28px" }}>Whether you run a school, an NGO, or a government literacy programme — we want to hear from you.</p>
         <Link href="/contact" className="btn-orange">Get In Touch →</Link>
       </section>
+
+      {cheetahOpen && (
+        <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }} onClick={e => { if(e.target===e.currentTarget) setCheetahOpen(false); }}>
+          <div onClick={() => setCheetahOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
+          <div style={{ width:"min(560px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>About CHEETAH®</h2>
+              <button onClick={() => setCheetahOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
+            </div>
+            <div className="section-chip" style={{ marginBottom:20 }}>🏢 What We Do</div>
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>CHEETAH Toys & More, LLC provides a full ecosystem of tools and training through:</p>
+            <div style={{ display:"flex", flexDirection:"column", gap:12, marginBottom:24 }}>
+              {[{b:"Evidence-based reading programs:",r:" posters, flashcards, reggae phoneme songs, and decodable readers (fiction and nonfiction)"},{b:"Customised country editions:",r:" including JamDER™ and other localised versions"},{b:"Technology and AI integration:",r:" iCHEETAH™, tablets, apps, and digital training"},{b:"ICT solutions for schools:",r:" mobile learning carts, projectors, and all-in-one systems"},{b:"Government partnerships:",r:" national mobilisation across thousands of schools"},{b:"Community literacy initiatives:",r:" school donations, scholarships, and a media room with books and tablets developed in collaboration with the Jamaican Ministry of Education"}].map(item=>(
+                <div key={item.b} style={{ background:"#FFF9F4", border:"1px solid #EDE0D0", borderRadius:10, padding:"12px 16px", fontSize:13, color:"#5A5240", lineHeight:1.7 }}><strong style={{ color:"#0C2340" }}>{item.b}</strong>{item.r}</div>
+              ))}
+            </div>
+            <Image src="/images/image1.png" alt="The CHEETAH® Literacy Ecosystem" width={800} height={450} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Founded by <strong>Paulette Trowers-Lawrence, JD</strong>, CHEETAH® is driven by one mission: <strong>every child can read, and every child must read.</strong></p>
+            <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"14px 18px", borderRadius:"0 10px 10px 0", marginBottom:24 }}>
+              <p style={{ fontSize:13, color:"#0C2340" }}><strong>Learn more:</strong> <a href="https://mycheetahinc.com" target="_blank" rel="noopener noreferrer" style={{ color:"#C05A00" }}>mycheetahinc.com</a></p>
+              <p style={{ fontSize:13, color:"#5A5240", marginTop:6 }}><strong>Contact:</strong> paulettetrowers@yahoo.com · info@mycheetahinc.com<br/>876-909-6311 · 860-781-1276</p>
+            </div>
+            <button onClick={() => setCheetahOpen(false)} style={{ width:"100%", background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:14, fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {founderOpen && (
+        <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
+          <div onClick={() => setFounderOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
+          <div style={{ width:"min(560px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>Paulette Trowers-Lawrence, JD</h2>
+              <button onClick={() => setFounderOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
+            </div>
+            <Image src="/images/image2.jpg" alt="Paulette Trowers-Lawrence — Presidential Lifetime Achievement Award 2024" width={500} height={650} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:14 }}>Paulette Trowers-Lawrence, JD is the Founder and CEO of CHEETAH Toys & More, LLC and the visionary behind FastTrack Literacy™. She is a global literacy leader, author, entrepreneur, and education innovator committed to improving reading outcomes for children worldwide.</p>
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:14 }}>She holds a <strong>Juris Doctor with honors</strong>, is a recipient of the <strong>USA Presidential Lifetime Achievement Award (2024)</strong>, and has been awarded an <strong>Honorary Doctorate of Humanitarianism</strong>.</p>
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:20 }}>With over 30 years of corporate and business experience, she has led the development of more than <strong>1,100 educational resources</strong>, integrating curriculum, technology, and AI to support learning across diverse environments. Her work continues to impact classrooms, communities, and education systems across Jamaica, the United States, and several African countries.</p>
+            <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"14px 18px", borderRadius:"0 10px 10px 0", marginBottom:24 }}>
+              <p style={{ fontSize:13, color:"#0C2340" }}><strong>Learn more:</strong> <a href="https://mycheetahinc.com" target="_blank" rel="noopener noreferrer" style={{ color:"#C05A00" }}>mycheetahinc.com</a></p>
+              <p style={{ fontSize:13, color:"#5A5240", marginTop:6 }}><strong>Contact:</strong> paulettetrowers@yahoo.com · info@mycheetahinc.com<br/>876-909-6311 · 860-781-1276</p>
+            </div>
+            <button onClick={() => setFounderOpen(false)} style={{ width:"100%", background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:14, fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Close</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

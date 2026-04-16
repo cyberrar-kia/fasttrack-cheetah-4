@@ -101,11 +101,16 @@ export default function HowItWorks() {
                   ["Approach","Holistic literacy system: reading, writing & comprehension","Isolated skill drills"],
                   ["Instruction","Explicit, systematic, sequential (Science of Reading)","Often implicit and incidental"],
                   ["Learning Model","Multisensory, child-led, guided practice","Teacher-directed only"],
+                  ["Core Skills","Phonemic awareness, phonics, fluency, vocabulary, comprehension","Limited to phonics only"],
+                  ["Reading + Writing","Strong focus on both decoding (reading) and encoding (writing)","Often reading only"],
                   ["Engagement","Reggae songs, rhythm, storytelling, visual supports","Worksheets and repetition"],
                   ["Cultural Relevance","Culturally responsive (JamDER™, global editions)","Generic Western content"],
+                  ["Curriculum Fit","Aligned with national curriculum standards and classroom instruction","Often standalone"],
                   ["Technology","iCHEETAH™ AI robot, tablets, apps, digital tools","Limited or none"],
                   ["Home Connection","Active family involvement built into the system","School only"],
                   ["Assessment","Built-in progress monitoring and measurable outcomes","End-of-term testing"],
+                  ["Student Impact","Builds confident, independent readers who can apply and teach others","Passive learners"],
+                  ["Extended Impact","Supports national literacy initiatives, competitions, and community engagement","Classroom only"],
                 ].map(([area,ft,trad],i)=>(
                   <tr key={area} style={{ background:i%2===0?"#FFF9F4":"white" }}>
                     <td style={{ padding:"12px 18px", fontWeight:600, color:"#0C2340", borderBottom:"1px solid #EDE0D0" }}>{area}</td>

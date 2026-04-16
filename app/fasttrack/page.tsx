@@ -1,7 +1,13 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function FastTrackPage() {
+  const [whyOpen, setWhyOpen] = useState(false);
+  const [whoOpen, setWhoOpen] = useState(false);
+  const [diffOpen, setDiffOpen] = useState(false);
+
   return (
     <>
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"80px 24px 60px", textAlign:"center" }}>
@@ -18,28 +24,79 @@ export default function FastTrackPage() {
           <div className="grid-2">
             <div>
               <div className="section-chip">🚂 A Literacy Journey</div>
-              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>More Than a Reading Programme</h2>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Phonics™ teaches children how letters sound, connect, and form words — grounded in the <strong>evidence-based Science of Reading</strong>, integrating the five pillars of phonemic awareness, phonics, fluency, vocabulary, and comprehension.</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Literacy™ goes beyond traditional instruction by combining structured literacy with engaging, real-world learning experiences. It integrates the Science of Reading with <strong>music, rhythm, and storytelling</strong> to make learning both effective and enjoyable.</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85 }}>Children are not just learners — they become active participants in their reading journey through <strong>child-led learning and guided practice</strong>.</p>
+              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>What is FastTrack Literacy©?</h2>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Phonics™ is a structured early reading program that teaches children how letters sound, connect, and form words.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>It is grounded in the <strong>evidence-based Science of Reading</strong>, integrating the five pillars of <strong>phonemic awareness, phonics, fluency, vocabulary, and comprehension</strong> to build strong, confident readers, especially during the formative years.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>Children are not just learners — they become active participants in their reading journey through <strong>child-led learning and guided practice</strong>.</p>
             </div>
-            <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
-              {[
-                { title:"Phonological Awareness", desc:"Training children to hear, identify, and manipulate sounds in spoken words — the #1 predictor of reading success.", pct:95 },
-                { title:"Phonics & Decoding", desc:"Systematic letter-sound correspondences taught in a clear, cumulative 16-step sequence.", pct:90 },
-                { title:"Reading Fluency", desc:"Speed, accuracy, and expression through 70+ decodable books and guided oral reading.", pct:85 },
-                { title:"Vocabulary", desc:"Rich word knowledge built through reggae songs, word walls, and storytelling.", pct:82 },
-                { title:"Comprehension", desc:"Deep understanding through active participation, self-assessment, and child-led reading.", pct:88 },
-              ].map(p=>(
-                <div key={p.title} style={{ background:"#FFF9F4", border:"1px solid #EDE0D0", borderRadius:10, padding:"14px 18px" }}>
-                  <div style={{ display:"flex", justifyContent:"space-between", marginBottom:6 }}>
-                    <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:13, color:"#0C2340" }}>{p.title}</div>
-                    <span style={{ fontSize:12, fontWeight:700, color:"#F5820A" }}>{p.pct}% efficacy</span>
-                  </div>
-                  <div style={{ height:6, background:"#EDE0D0", borderRadius:3, overflow:"hidden", marginBottom:8 }}><div style={{ height:"100%", width:`${p.pct}%`, background:"linear-gradient(90deg,#F5820A,#FF9F2F)", borderRadius:3 }} /></div>
-                  <p style={{ fontSize:12, color:"#5A5240" }}>{p.desc}</p>
-                </div>
-              ))}
+            <div>
+              <Image src="/images/image3.png" alt="The Five Pillars of Literacy: Building Strong Readers" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY IT MATTERS */}
+      <section className="section" style={{ background:"#FFF9F4" }}>
+        <div className="container">
+          <div style={{ textAlign:"center", marginBottom:32 }}>
+            <div className="section-chip" style={{ margin:"0 auto 16px" }}>📊 A Global Need</div>
+            <h2 style={{ fontSize:"clamp(22px,4vw,36px)", fontWeight:900, color:"#0C2340", marginBottom:12 }}>Why It Matters</h2>
+          </div>
+          <div className="grid-2" style={{ alignItems:"center" }}>
+            <div>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Reading is the foundation for all learning, yet millions of children never master it early enough. According to <strong>UNESCO (2023)</strong>, over <strong>770 million people</strong> globally lack basic literacy skills.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>In the United States alone, <strong>37% of fourth-grade students</strong> read below basic levels, limiting their ability to succeed across subjects.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Literacy© was created to build strong foundations early, before gaps widen. When children struggle to read, they fall behind in school, lose confidence, and face long-term academic and economic challenges.</p>
+              <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"14px 18px", borderRadius:"0 10px 10px 0", marginBottom:24 }}>
+                <p style={{ fontSize:13, fontStyle:"italic", color:"#0C2340", lineHeight:1.7 }}>We are connecting home and school for literacy growth!</p>
+              </div>
+              <button onClick={() => setWhyOpen(true)} style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"11px 24px", fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Read More →</button>
+            </div>
+            <div>
+              <Image src="/images/image4.png" alt="The Global Literacy Crisis: A Foundation at Risk — 770 Million, 37% of Fourth Graders" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHO IS IT FOR */}
+      <section className="section" style={{ background:"white" }}>
+        <div className="container">
+          <div className="grid-2" style={{ alignItems:"center" }}>
+            <div>
+              <div className="section-chip">👧 Who Is the Program For</div>
+              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>Designed for Ages 3–8 and Their Families</h2>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Primarily designed for children ages 3–8 and their families because reading success starts early and grows at home.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}><strong>FastTrack Literacy©</strong> is adaptive and can be used across a wide range of age groups, supporting learners at different reading levels. It is also a great resource for educators and parents.</p>
+              <button onClick={() => setWhoOpen(true)} style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"11px 24px", fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Read More →</button>
+            </div>
+            <div>
+              <Image src="/images/image5.png" alt="Empowering Young Readers: Who Is the Program For?" width={600} height={1100} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT MAKES IT DIFFERENT */}
+      <section className="section" style={{ background:"#FFF9F4" }}>
+        <div className="container">
+          <div className="grid-2" style={{ alignItems:"center" }}>
+            <div>
+              <div className="section-chip">🚀 More Than a Program</div>
+              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>What Makes FastTrack Literacy™ Different</h2>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Literacy™ goes beyond traditional instruction by combining structured literacy with engaging, real-world learning experiences. It integrates the <strong>Science of Reading</strong> with music, rhythm, and storytelling to make learning both effective and enjoyable.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Children are not just learners; they become active participants in their reading journey through <strong>child-led learning and guided practice</strong>.</p>
+              <div style={{ display:"flex", flexDirection:"column", gap:8, marginBottom:24 }}>
+                {["👉 Confident readers","👉 Faster progress","👉 Stronger foundations"].map(r=>(
+                  <div key={r} style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:15, color:"#0C2340" }}>{r}</div>
+                ))}
+              </div>
+              <p style={{ fontSize:14, fontStyle:"italic", color:"#F5820A", fontWeight:700, marginBottom:24 }}>We are nation builders – one letter at a time!</p>
+              <button onClick={() => setDiffOpen(true)} style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"11px 24px", fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Read More →</button>
+            </div>
+            <div>
+              <Image src="/images/image8.png" alt="The FastTrack Literacy™ Difference — 16-Step Instructional Journey" width={600} height={1100} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
             </div>
           </div>
         </div>
@@ -48,42 +105,17 @@ export default function FastTrackPage() {
       {/* THE TRAIN */}
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)" }}>
         <div className="container">
-          <div className="grid-2">
-            <div>
-              <div style={{ display:"inline-flex", background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", color:"#FFB366", fontSize:11, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", padding:"6px 14px", borderRadius:50, marginBottom:16 }}>🚂 The Brand Experience</div>
-              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"white", marginBottom:16 }}>The FastTrack Literacy™ Train</h2>
-              <p style={{ fontSize:15, color:"rgba(255,255,255,0.8)", lineHeight:1.85, marginBottom:20 }}>It&apos;s more than a mascot — it&apos;s a mission on wheels! The FastTrack Train carries children on an exciting literacy journey, building excitement around learning through movement and rhythm.</p>
-              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-                {["🎵 Carries letters, sounds, and songs","🕺 Engages children through movement and rhythm","🎉 Builds excitement around learning","🚂 A memorable journey metaphor for reading progress"].map(f=>(
-                  <div key={f} style={{ display:"flex", gap:10, alignItems:"flex-start", fontSize:14, color:"rgba(255,255,255,0.85)" }}>{f}</div>
-                ))}
-              </div>
-            </div>
-            <div style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.15)", borderRadius:20, padding:36, display:"flex", alignItems:"center", justifyContent:"center" }}>
-              <Image src="/images/train-poster.png" alt="Built Around the FastTrack Train — Speeding Up Reading Successes" width={600} height={800} style={{ width:"100%", height:"auto", borderRadius:16 }} />
-            </div>
+          <div style={{ textAlign:"center", marginBottom:32 }}>
+            <div className="section-chip" style={{ margin:"0 auto 16px", background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", color:"#FFB366" }}>🚂 The Brand Experience</div>
+            <h2 style={{ fontSize:"clamp(22px,4vw,36px)", fontWeight:900, color:"white", marginBottom:12 }}>The FastTrack Literacy© Train</h2>
+            <p style={{ fontSize:15, color:"rgba(255,255,255,0.8)", lineHeight:1.7, maxWidth:520, margin:"0 auto 12px" }}>It is more than a mascot! It is a mission on wheels. It:</p>
           </div>
-        </div>
-      </section>
-
-      {/* WHO IS IT FOR */}
-      <section className="section" style={{ background:"#FFF9F4" }}>
-        <div className="container">
-          <div style={{ textAlign:"center", marginBottom:48 }}>
-            <div className="section-chip" style={{ margin:"0 auto 16px" }}>👧 Who Is It For</div>
-            <h2 style={{ fontSize:"clamp(22px,4vw,34px)", fontWeight:900, color:"#0C2340" }}>Designed for Ages 3–8 and Their Families</h2>
-            <p style={{ fontSize:15, color:"#5A5240", maxWidth:520, margin:"12px auto 0", lineHeight:1.7 }}>Reading success starts early and grows at home. FastTrack Literacy™ is adaptive and works across a wide range of ages and learning levels.</p>
-          </div>
-          <div className="grid-auto">
-            {[{icon:"👶",who:"Early Learners (Ages 3–5)",desc:"Phonemic awareness and early phonics through songs, stories, and play-based activities.",tag:"Foundation Stage"},{icon:"👧",who:"Primary Students (Ages 5–8)",desc:"Full 16-step lesson structure, decodable books, and progress tracking for classroom learning.",tag:"Core Programme"},{icon:"👩‍🏫",who:"Classroom Teachers",desc:"Complete instructional package including Teacher's Helper, 640+ activities, and assessment tools.",tag:"Educator Edition"},{icon:"👨‍👩‍👧",who:"Parents & Home Educators",desc:"Home support guides, family engagement activities, and parent-friendly resources for at-home practice.",tag:"Family Edition"},{icon:"🏫",who:"Schools & Literacy Coaches",desc:"School-wide implementation support, teacher training, and national literacy competition resources.",tag:"School-Wide"}].map(w=>(
-              <div key={w.who} className="feature-card">
-                <div style={{ fontSize:32, marginBottom:12 }}>{w.icon}</div>
-                <span style={{ background:"#FFF0E0", color:"#C05A00", fontSize:11, fontWeight:700, padding:"3px 10px", borderRadius:50 }}>{w.tag}</span>
-                <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:15, color:"#0C2340", margin:"10px 0 8px" }}>{w.who}</h3>
-                <p style={{ fontSize:13, color:"#5A5240", lineHeight:1.65 }}>{w.desc}</p>
-              </div>
+          <div style={{ display:"flex", justifyContent:"center", gap:"clamp(16px,4vw,48px)", flexWrap:"wrap", marginBottom:36 }}>
+            {["🎵 Carries letters, sounds, and songs","🕺 Engages children through movement and rhythm","🎉 Builds excitement around learning"].map(f=>(
+              <div key={f} style={{ background:"rgba(255,255,255,0.1)", border:"1px solid rgba(255,255,255,0.15)", borderRadius:12, padding:"12px 20px", fontSize:14, color:"rgba(255,255,255,0.9)", fontWeight:600 }}>{f}</div>
             ))}
           </div>
+          <Image src="/images/image11.png" alt="All Aboard the FastTrack Phonics© Train!" width={1400} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.3)" }} />
         </div>
       </section>
 
@@ -95,6 +127,98 @@ export default function FastTrackPage() {
           <Link href="/resources" className="btn-navy">Browse Resources</Link>
         </div>
       </section>
+
+      {/* WHY DRAWER */}
+      {whyOpen && (
+        <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
+          <div onClick={() => setWhyOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
+          <div style={{ width:"min(600px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>Why It Matters</h2>
+              <button onClick={() => setWhyOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
+            </div>
+            <Image src="/images/image4.png" alt="The Global Literacy Crisis" width={800} height={450} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:14 }}>FastTrack Literacy© was created to address this urgent gap—by building strong reading foundations early, using structured, evidence-based instruction that helps children and their caregivers to become confident, independent readers.</p>
+            <p style={{ fontSize:14, color:"#F5820A", fontWeight:700, marginBottom:20 }}>We are connecting home and school for literacy growth!</p>
+            <Image src="/images/image6.png" alt="FastTrack Literacy: Building Early Reading Success" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <button onClick={() => setWhyOpen(false)} style={{ width:"100%", background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:14, fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* WHO DRAWER */}
+      {whoOpen && (
+        <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
+          <div onClick={() => setWhoOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
+          <div style={{ width:"min(600px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>Who Is the Program For</h2>
+              <button onClick={() => setWhoOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
+            </div>
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}><strong>FastTrack Literacy©</strong> is adaptive and can be used across a wide range of age groups, supporting learners at different reading levels. FastTrack Literacy© is also a great resource for educators and parents.</p>
+            <p style={{ fontSize:14, color:"#F5820A", fontWeight:700, marginBottom:20 }}>CHEETAH® is empowering young readers and their families!</p>
+            <Image src="/images/image7.png" alt="FastTrack Literacy: Empowering Young Readers and Their Families" width={600} height={1100} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <Image src="/images/image6.png" alt="FastTrack Literacy: Building Early Reading Success" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <button onClick={() => setWhoOpen(false)} style={{ width:"100%", background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:14, fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* DIFF DRAWER */}
+      {diffOpen && (
+        <div style={{ position:"fixed", inset:0, zIndex:1000, display:"flex" }}>
+          <div onClick={() => setDiffOpen(false)} style={{ flex:1, background:"rgba(0,0,0,0.5)" }} />
+          <div style={{ width:"min(660px,100vw)", background:"white", overflowY:"auto", padding:"40px 32px", boxShadow:"-8px 0 40px rgba(0,0,0,0.2)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:22, color:"#0C2340" }}>What Makes FastTrack Literacy™ Different</h2>
+              <button onClick={() => setDiffOpen(false)} style={{ background:"none", border:"1px solid #EDE0D0", borderRadius:8, padding:"6px 12px", cursor:"pointer", fontSize:16 }}>✕</button>
+            </div>
+            <div className="section-chip" style={{ marginBottom:16 }}>🎵 Science + Engagement</div>
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginBottom:12 }}>FastTrack Literacy™ blends research-based instruction with culturally relevant and engaging tools, including:</p>
+            {["Structured literacy and phoneme-based instruction","Reggae-inspired songs and rhythmic learning","Decodable books and visual supports"].map(i=>(
+              <div key={i} style={{ background:"#FFF9F4", border:"1px solid #EDE0D0", borderRadius:8, padding:"10px 14px", marginBottom:8, fontSize:13, color:"#5A5240" }}>✓ {i}</div>
+            ))}
+            <p style={{ fontSize:14, color:"#5A5240", lineHeight:1.85, marginTop:16, marginBottom:16 }}>This balanced approach ensures that children not only understand how reading works but also enjoy the process.</p>
+            <Image src="/images/image9.png" alt="FastTrack Literacy: Mastery Through Science & Rhythm" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <Image src="/images/image10.png" alt="FastTrack Literacy: More Than a Program — Nation Building" width={600} height={1100} style={{ width:"100%", height:"auto", borderRadius:12, marginBottom:20 }} />
+            <div style={{ overflowX:"auto" }}>
+              <table style={{ width:"100%", borderCollapse:"collapse", fontSize:13 }}>
+                <thead>
+                  <tr>
+                    <th style={{ background:"#0C2340", color:"white", padding:"12px 14px", textAlign:"left", fontFamily:"'Nunito',sans-serif" }}>Area</th>
+                    <th style={{ background:"#F5820A", color:"white", padding:"12px 14px", textAlign:"left", fontFamily:"'Nunito',sans-serif" }}>FastTrack Literacy™</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Approach","Holistic literacy system integrating reading, writing, and comprehension"],
+                    ["Instruction","Explicit, systematic, and sequential (Science of Reading aligned)"],
+                    ["Learning Model","Multisensory, child-led, and guided practice"],
+                    ["Core Skills","Phonemic awareness, phonics, fluency, vocabulary, comprehension"],
+                    ["Reading + Writing","Strong focus on both decoding (reading) and encoding (writing)"],
+                    ["Engagement","Reggae-inspired songs, rhythm, storytelling, and visual supports"],
+                    ["Cultural Relevance","Customised, culturally responsive content (e.g., JamDER™ and global editions)"],
+                    ["Curriculum Fit","Aligned with national curriculum standards and classroom instruction"],
+                    ["Technology","Integrated ecosystem: books, apps, AI tools, and iCHEETAH™ device"],
+                    ["Home Connection","Extends learning into the home with active family involvement"],
+                    ["Assessment","Built-in progress monitoring and measurable outcomes"],
+                    ["Student Impact","Builds confident, independent readers who can apply and teach others"],
+                    ["Extended Impact","Supports national literacy initiatives, competitions, and community engagement"],
+                  ].map(([a,v],i)=>(
+                    <tr key={a} style={{ background:i%2===0?"#FFF9F4":"white" }}>
+                      <td style={{ padding:"10px 14px", fontWeight:600, color:"#0C2340", borderBottom:"1px solid #EDE0D0", whiteSpace:"nowrap" }}>{a}</td>
+                      <td style={{ padding:"10px 14px", color:"#5A5240", borderBottom:"1px solid #EDE0D0" }}>{v}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div style={{ marginTop:24 }}>
+              <button onClick={() => setDiffOpen(false)} style={{ width:"100%", background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:14, fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
