@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const links = [
   { href:"/about", label:"About Us" },
-  { href:"/fasttrack", label:"FastTrack Literacy™" },
+  { href:"/fasttrack", label:"About FastTrack Literacy™" },
   { href:"/resources", label:"Resources" },
   { href:"/how-it-works", label:"How It Works" },
   { href:"/contact", label:"Contact" },
