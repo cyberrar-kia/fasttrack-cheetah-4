@@ -10,7 +10,7 @@ export default function Contact() {
   const handleSubmit = async () => {
     setStatus("sending");
     try {
-      const res = await fetch(FORMSPREE_CONTACT, { method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(form) });
+      const res = await fetch(FORMSPREE_CONTACT, { method:"POST", headers:{"Accept":"application/json"}, body: (() => { const fd = new FormData(); Object.entries(form).forEach(([k,v]) => fd.append(k,String(v))); return fd; })() });
       setStatus(res.ok ? "sent" : "error");
     } catch { setStatus("error"); }
   };

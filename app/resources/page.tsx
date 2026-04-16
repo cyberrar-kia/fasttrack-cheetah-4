@@ -53,7 +53,7 @@ export default function Resources() {
   const handleQuoteSubmit = async () => {
     setQuoteStatus("sending");
     try {
-      const res = await fetch(FORMSPREE_QUOTE, { method:"POST", headers:{"Content-Type":"application/json","Accept":"application/json"}, body:JSON.stringify(quoteForm) });
+      const res = await fetch(FORMSPREE_QUOTE, { method:"POST", headers:{"Accept":"application/json"}, body: (() => { const fd = new FormData(); Object.entries(quoteForm).forEach(([k,v]) => fd.append(k,v)); return fd; })() });
       setQuoteStatus(res.ok ? "sent" : "error");
     } catch { setQuoteStatus("error"); }
   };

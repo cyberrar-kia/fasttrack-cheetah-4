@@ -15,8 +15,8 @@ export default function Footer() {
     try {
       const res = await fetch(FORMSPREE_NEWSLETTER, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({ email }),
+        headers: { "Accept": "application/json" },
+        body: (() => { const fd = new FormData(); fd.append("email", email); return fd; })(),
       });
       setStatus(res.ok ? "sent" : "error");
     } catch {
