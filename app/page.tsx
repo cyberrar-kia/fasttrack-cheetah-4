@@ -1,6 +1,58 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+function useCountUp(target: number, duration: number = 1800, start: boolean = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(target);
+    };
+    requestAnimationFrame(step);
+  }, [start, target, duration]);
+  return count;
+}
+
+function AnimatedStats() {
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const n90 = useCountUp(90, 1600, started);
+  const n1100 = useCountUp(1100, 2000, started);
+  const n3 = useCountUp(3, 1000, started);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} style={{ display:"flex", gap:"clamp(20px,3vw,36px)", marginTop:40, flexWrap:"wrap" }}>
+      {[
+        { value: `${n90}+`, label: "Educational Resources" },
+        { value: `${n1100.toLocaleString()}+`, label: "Resources Developed" },
+        { value: `${n3}`, label: "Countries Served" },
+        { value: "Ages 3–8", label: "Primary Focus" },
+      ].map(({ value, label }) => (
+        <div key={label}>
+          <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:22, fontWeight:900, color:"#F5820A", minWidth:60 }}>{value}</div>
+          <div style={{ fontSize:11, color:"rgba(255,255,255,0.55)", marginTop:2 }}>{label}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -18,11 +70,7 @@ export default function Home() {
                 <Link href="/get-started" className="btn-orange">Get Started Free →</Link>
                 <Link href="/how-it-works" className="btn-white">How It Works</Link>
               </div>
-              <div style={{ display:"flex", gap:"clamp(20px,3vw,36px)", marginTop:40, flexWrap:"wrap" }}>
-                {[["90+","Educational Resources"],["1,100+","Resources Developed"],["3","Countries Served"],["Ages 3–8","Primary Focus"]].map(([n,l])=>(
-                  <div key={l}><div style={{ fontFamily:"'Nunito',sans-serif", fontSize:22, fontWeight:900, color:"#F5820A" }}>{n}</div><div style={{ fontSize:11, color:"rgba(255,255,255,0.55)", marginTop:2 }}>{l}</div></div>
-                ))}
-              </div>
+              <AnimatedStats />
             </div>
             <div className="hero-visual">
               <Image src="/images/whats-inside-program.png" alt="What's Inside FastTrack Phonics Program" width={700} height={420} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 24px 64px rgba(0,0,0,0.4)" }} priority />
