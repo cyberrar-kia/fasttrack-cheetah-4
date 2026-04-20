@@ -58,23 +58,36 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="section" style={{ background:"linear-gradient(135deg,#0C2340 0%,#1A3A70 55%,#0C4A6E 100%)", padding:"100px 24px 80px", position:"relative", overflow:"hidden" }}>
-        <div style={{ position:"absolute", top:-100, right:-100, width:500, height:500, borderRadius:"50%", background:"rgba(245,130,10,0.07)", pointerEvents:"none" }} />
-        <div className="container">
+      <section style={{ position:"relative", minHeight:"100svh", display:"flex", alignItems:"center", overflow:"hidden" }}>
+        {/* Video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", zIndex:0 }}
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay so text stays readable */}
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(12,35,64,0.82) 0%, rgba(12,35,64,0.65) 50%, rgba(12,35,64,0.75) 100%)", zIndex:1 }} />
+        {/* Orange accent glow */}
+        <div style={{ position:"absolute", top:-100, right:-100, width:500, height:500, borderRadius:"50%", background:"rgba(245,130,10,0.08)", pointerEvents:"none", zIndex:1 }} />
+
+        {/* Content */}
+        <div className="container" style={{ position:"relative", zIndex:2, padding:"clamp(100px,14vh,140px) 24px clamp(80px,10vh,100px)" }}>
           <div className="grid-2">
             <div>
               <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:20, background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", padding:"6px 16px", borderRadius:50, fontSize:12, fontWeight:700, color:"#FFB366" }}>🚂 FastTrack Literacy™ by CHEETAH®</div>
               <h1 style={{ fontSize:"clamp(34px,5vw,56px)", fontWeight:900, color:"white", marginBottom:20, lineHeight:1.08 }}>Every Child Can Read.<br/><span style={{ color:"#F5820A" }}>Every Child Must Read.</span></h1>
-              <p style={{ fontSize:"clamp(15px,2vw,17px)", color:"rgba(255,255,255,0.8)", lineHeight:1.8, marginBottom:36, maxWidth:500 }}>FastTrack Literacy™ is a structured, evidence-based reading program for children ages 3–8. Built on the Science of Reading — combining reggae-inspired phoneme songs, decodable books, and AI technology.</p>
+              <p style={{ fontSize:"clamp(15px,2vw,17px)", color:"rgba(255,255,255,0.85)", lineHeight:1.8, marginBottom:36, maxWidth:500 }}>FastTrack Literacy™ is a structured, evidence-based reading program for children ages 3–8. Built on the Science of Reading — combining reggae-inspired phoneme songs, decodable books, and AI technology.</p>
               <div className="btn-row">
                 <Link href="/get-started" className="btn-orange">Get Started Free →</Link>
                 <Link href="/how-it-works" className="btn-white">How It Works</Link>
               </div>
               <AnimatedStats />
             </div>
-            <div className="hero-visual">
-              <Image src="/images/whats-inside-program.png" alt="What's Inside FastTrack Phonics Program" width={700} height={420} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 24px 64px rgba(0,0,0,0.4)" }} priority />
-            </div>
+            <div className="hero-visual" />
           </div>
         </div>
       </section>
