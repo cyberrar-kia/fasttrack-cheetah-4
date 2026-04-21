@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const FORMSPREE_NEWSLETTER = "https://formspree.io/f/xaqaewen";
+const FORMSPREE_NEWSLETTER = "https://formspree.io/f/mwvanraq";
 
 export default function Footer() {
   const [email, setEmail] = useState("");

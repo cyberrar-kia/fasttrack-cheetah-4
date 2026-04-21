@@ -2,7 +2,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 
-const FORMSPREE_QUOTE = "https://formspree.io/f/xkokolbb";
+const FORMSPREE_QUOTE = "https://formspree.io/f/mwvanraq";
 
 type DrawerItem = { title: string; body: string; bullets?: string[] };
 

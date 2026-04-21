@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const FORMSPREE_GETSTARTED = "https://formspree.io/f/xwvavdbn";
+const FORMSPREE_GETSTARTED = "https://formspree.io/f/mwvanraq";
 
 export default function GetStarted() {
   const [status, setStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
