@@ -175,9 +175,16 @@ export default function Careers() {
                       <div style={{ fontSize:"clamp(12px,1.4vw,14px)", color:"#8A7A6A" }}>{role.subtitle} · {role.type}</div>
                     </div>
                   </div>
-                  <div style={{ display:"flex", alignItems:"center", gap:14, flexShrink:0 }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:10, flexShrink:0, flexWrap:"wrap" }}>
                     <div style={{ fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A" }}>📍 {role.location}</div>
-                    <div style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"8px 20px", fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", whiteSpace:"nowrap" }}>
+                    <a
+                      href={`mailto:${role.apply}?subject=Application — ${role.title}`}
+                      onClick={e => e.stopPropagation()}
+                      style={{ background:"white", color:"#F5820A", border:"1.5px solid #F5820A", borderRadius:50, padding:"8px 18px", fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", whiteSpace:"nowrap", textDecoration:"none" }}
+                    >
+                      Apply →
+                    </a>
+                    <div style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"8px 20px", fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", whiteSpace:"nowrap", cursor:"pointer" }}>
                       {open===role.id ? "Close ✕" : "View Role →"}
                     </div>
                   </div>
