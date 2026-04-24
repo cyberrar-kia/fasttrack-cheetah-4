@@ -62,24 +62,30 @@ function FlipBook({ book }: { book: any }) {
     <div style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:20, overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.06)" }}>
       {/* Book viewer */}
       <div style={{ position:"relative", background:book.color, minHeight:320 }}>
-        {/* PAGE 1 */}
+        {/* PAGE 1 — Book Cover */}
         {page === 0 && (
-          <div style={{ padding:"clamp(20px,4%,32px)", minHeight:320, display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
-            <div>
-              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:16 }}>
-                <div style={{ width:32, height:32, borderRadius:"50%", background:book.accent, display:"flex", alignItems:"center", justifyContent:"center" }}>
-                  <span style={{ fontSize:14, color:"white" }}>📗</span>
-                </div>
-                <div>
-                  <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:11, color:book.accent, letterSpacing:"0.5px", textTransform:"uppercase" }}>JamDER+™</div>
-                  <div style={{ fontSize:10, color:"rgba(0,0,0,0.4)" }}>Page 1 of 2 (Preview)</div>
-                </div>
+          <div style={{ minHeight:320, display:"flex", flexDirection:"column" }}>
+            {/* Cover image */}
+            <div style={{ flex:1, background:book.color, display:"flex", alignItems:"center", justifyContent:"center", padding:16, position:"relative", minHeight:240 }}>
+              <img
+                src={book.cover}
+                alt={`${book.title} ${book.vol} cover`}
+                style={{ maxWidth:"100%", maxHeight:220, objectFit:"contain", borderRadius:8, boxShadow:"0 8px 32px rgba(0,0,0,0.18)" }}
+                onError={(e)=>{
+                  const img = e.target as HTMLImageElement;
+                  img.style.display="none";
+                  const fallback = img.nextElementSibling as HTMLElement;
+                  if(fallback) fallback.style.display="flex";
+                }}
+              />
+              {/* Fallback if cover doesn't load */}
+              <div style={{ display:"none", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, width:"100%" }}>
+                <div style={{ fontSize:48 }}>📗</div>
+                <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:16, color:"#0C2340", textAlign:"center" }}>{book.title}</div>
+                <div style={{ fontSize:12, color:"#8A7A6A" }}>{book.vol}</div>
               </div>
-              <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(14px,2vw,17px)", color:"#0C2340", marginBottom:8, lineHeight:1.3 }}>{book.pages[0].heading}</h3>
-              <div style={{ fontSize:11, fontWeight:700, color:book.accent, marginBottom:12, letterSpacing:"0.5px" }}>{book.pages[0].sub}</div>
-              <p style={{ fontSize:"clamp(12px,1.4vw,13px)", color:"#5A5240", lineHeight:1.8 }}>{book.pages[0].body}</p>
+              <div style={{ position:"absolute", bottom:8, left:"50%", transform:"translateX(-50%)", fontSize:10, color:"rgba(0,0,0,0.35)", letterSpacing:"1px", background:"rgba(255,255,255,0.7)", padding:"2px 10px", borderRadius:50 }}>Page 1 of 2 · Preview</div>
             </div>
-            <div style={{ marginTop:16, paddingTop:12, borderTop:"1px solid rgba(0,0,0,0.08)", fontSize:10, color:"rgba(0,0,0,0.4)", lineHeight:1.6 }}>{book.pages[0].author}</div>
           </div>
         )}
         {/* PAGE 2 */}
@@ -259,27 +265,27 @@ export default function Resources() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(260px,28vw,340px),1fr))", gap:24 }}>
             {[
-              { title:"Teacher's Helper", vol:"Volume 1", color:"#DBEAFE", accent:"#1E40AF", pages:[
+              { title:"Teacher's Helper", vol:"Volume 1", cover:"https://heyzine.com/api1/thumb?pdf=0a66e4e5a7&page=0", color:"#DBEAFE", accent:"#1E40AF", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Teacher's Helper · Volume 1", body:"This resource provides structured lesson plans and teaching guides aligned to the FastTrack Literacy™ programme. Designed for classroom teachers and early literacy educators.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz · Iain Taylor" },
                 { heading:"How to Use This Book", sub:"Teacher's Guide", body:"Each lesson follows the 16-step FastTrack structured format. Begin with the phoneme song, proceed through decoding activities, and close with the reading of the decodable text.", author:"Early Literacy Tool · CHEETAH® Purrrrrrr Publishing" },
               ]},
-              { title:"Teacher's Helper", vol:"Volume 2", color:"#DCFCE7", accent:"#166534", pages:[
+              { title:"Teacher's Helper", vol:"Volume 2", cover:"https://heyzine.com/api1/thumb?pdf=01cc4943e4&page=0", color:"#DCFCE7", accent:"#166534", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Teacher's Helper · Volume 2", body:"A continuation of the teacher's instructional guide series. Covers phoneme sets 4–6 with extended lesson activities, assessment tools, and differentiation strategies.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz · Iain Taylor" },
                 { heading:"Phoneme Set Overview", sub:"Sets 4 — 6", body:"Set 4: l, b, short ŭ, soft g, long ā · Set 5: j, long ī, or, long ō, z · Set 6: ng, w/wh, short oo, long oo, v. Each set includes song activities and decodable text practice.", author:"Early Literacy Tool · Ministry of Education Aligned" },
               ]},
-              { title:"Pupil's Helper", vol:"Volume 1", color:"#FEF3C7", accent:"#92400E", pages:[
+              { title:"Pupil's Helper", vol:"Volume 1", cover:"https://heyzine.com/api1/thumb?pdf=c3b25db878&page=0", color:"#FEF3C7", accent:"#92400E", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 1", body:"A student workbook filled with phonics activities, letter-sound exercises, and early reading practice. Designed for children ages 3–6 beginning their literacy journey.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"Welcome, Young Reader!", sub:"A Message to Students", body:"This book is for you! Every page will help you learn new sounds and words. You are going to be a great reader. Let's begin!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"Pupil's Helper", vol:"Volume 2", color:"#FCE7F3", accent:"#9D174D", pages:[
+              { title:"Pupil's Helper", vol:"Volume 2", cover:"https://heyzine.com/api1/thumb?pdf=16a9bc1676&page=0", color:"#FCE7F3", accent:"#9D174D", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 2", body:"Building on Volume 1, this workbook introduces more complex phoneme combinations through engaging activities, rhymes, and culturally relevant Jamaican stories.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"What You Will Learn", sub:"Phoneme Sets 4 — 6", body:"In this volume you will practise blending longer words, reading short sentences, and recognising tricky high-frequency words. Keep going — you are doing amazing!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"Pupil's Helper", vol:"Volume 3", color:"#EDE9FE", accent:"#5B21B6", pages:[
+              { title:"Pupil's Helper", vol:"Volume 3", cover:"https://heyzine.com/api1/thumb?pdf=639bcdbb20&page=0", color:"#EDE9FE", accent:"#5B21B6", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 3", body:"The third volume in the Pupil's Helper series. Focuses on vowel digraphs, blends, and reading fluency through structured decodable passages and comprehension activities.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"You're Almost There!", sub:"Advanced Phoneme Practice", body:"This volume covers the final phoneme sets — including digraphs, diphthongs, and longer word patterns. You are reading real sentences and short stories now. Well done!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"JamDER™ Reader", vol:"Special Edition", color:"#FFF0E0", accent:"#C05A00", pages:[
+              { title:"JamDER™ Reader", vol:"Special Edition", cover:"https://heyzine.com/api1/thumb?pdf=eda08f4c87&page=0", color:"#FFF0E0", accent:"#C05A00", pages:[
                 { heading:"JamDER+™ — Special Edition", sub:"Jamaican Decodable & Early Readers", body:"A special curated collection of JamDER™ stories — culturally authentic, fully decodable, and beautifully illustrated. Celebrating Jamaican heritage through the joy of reading.", author:"CHEETAH® Purrrrrrr Publishing · Paulette Trowers, Juris Doctor" },
                 { heading:"About This Collection", sub:"Stories from Our Culture", body:"These stories are set in Jamaica and feature characters, places, and experiences that Jamaican children know and love. Every word is decodable using the FastTrack phonics sequence.", author:"fasttrackliteracy.com · mycheetahinc.com" },
               ]},
