@@ -182,17 +182,23 @@ export default function Resources() {
               { title:"JamDER™ Reader", vol:"Special Edition", url:"https://heyzine.com/flip-book/eda08f4c87.html", color:"#FFF0E0" },
             ].map(book => (
               <div key={book.url} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:20, overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.06)" }}>
-                <div style={{ position:"relative", width:"100%", height:260, overflow:"hidden" }}>
+                <div style={{ position:"relative", width:"100%", height:280, overflow:"hidden" }}>
+                  {/* iframe scaled to show approx 2 pages only */}
                   <iframe
                     src={book.url}
-                    style={{ width:"200%", height:"200%", border:"none", transform:"scale(0.5)", transformOrigin:"top left", pointerEvents:"none" }}
+                    style={{ width:"200%", height:"520px", border:"none", transform:"scale(0.5)", transformOrigin:"top left", pointerEvents:"none" }}
                     title={`${book.title} ${book.vol}`}
                     loading="lazy"
                   />
-                  <div style={{ position:"absolute", bottom:0, left:0, right:0, height:100, background:"linear-gradient(transparent, white)", pointerEvents:"none" }} />
-                  <div style={{ position:"absolute", bottom:0, left:0, right:0, display:"flex", flexDirection:"column", alignItems:"center", paddingBottom:12, gap:4 }}>
-                    <div style={{ fontSize:18 }}>🔒</div>
-                    <div style={{ fontSize:10, color:"#8A7A6A", letterSpacing:"0.5px" }}>Preview only</div>
+                  {/* Hard clip — white block covers everything below 2 pages */}
+                  <div style={{ position:"absolute", top:140, left:0, right:0, bottom:0, background:"white", pointerEvents:"none" }} />
+                  {/* Blur layer on the cutoff area */}
+                  <div style={{ position:"absolute", top:100, left:0, right:0, height:60, backdropFilter:"blur(6px)", WebkitBackdropFilter:"blur(6px)", background:"rgba(255,255,255,0.4)", pointerEvents:"none" }} />
+                  {/* Lock overlay */}
+                  <div style={{ position:"absolute", top:110, left:0, right:0, bottom:0, background:"white", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, pointerEvents:"none" }}>
+                    <div style={{ fontSize:28 }}>🔒</div>
+                    <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:13, color:"#0C2340" }}>Full access required</div>
+                    <div style={{ fontSize:11, color:"#8A7A6A" }}>Preview shows first 2 pages only</div>
                   </div>
                 </div>
                 <div style={{ padding:"14px 18px", borderTop:"1px solid #EDE0D0" }}>
