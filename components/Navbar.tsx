@@ -11,6 +11,7 @@ const links = [
   { href:"/resources", label:"Resources" },
   { href:"/how-it-works", label:"How It Works" },
   { href:"/contact", label:"Contact" },
+  { href:"/careers", label:"Careers" },
 ];
 
 export default function Navbar() {
