@@ -174,11 +174,11 @@ export default function Resources() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(260px,28vw,340px),1fr))", gap:20 }}>
             {[
-              { title:"Teacher's Helper", vol:"Volume 1", url:"https://heyzine.com/flip-book/Teacher-Helper-Vol-1.html", color:"#DBEAFE" },
-              { title:"Teacher's Helper", vol:"Volume 2", url:"https://heyzine.com/flip-book/Teacher-Helper-Vol-2.html", color:"#DCFCE7" },
-              { title:"Pupil's Helper", vol:"Volume 1", url:"https://heyzine.com/flip-book/Pupil-Helper-Vol-1.html", color:"#FEF3C7" },
-              { title:"Pupil's Helper", vol:"Volume 2", url:"https://heyzine.com/flip-book/Pupil-Helper-Vol-2.html", color:"#FCE7F3" },
-              { title:"Pupil's Helper", vol:"Volume 3", url:"https://heyzine.com/flip-book/Pupil-Helper-Vol-3.html", color:"#EDE9FE" },
+              { title:"Teacher's Helper", vol:"Volume 1", url:"https://heyzine.com/flip-book/0a66e4e5a7.html", color:"#DBEAFE" },
+              { title:"Teacher's Helper", vol:"Volume 2", url:"https://heyzine.com/flip-book/01cc4943e4.html", color:"#DCFCE7" },
+              { title:"Pupil's Helper", vol:"Volume 1", url:"https://heyzine.com/flip-book/c3b25db878.html", color:"#FEF3C7" },
+              { title:"Pupil's Helper", vol:"Volume 2", url:"https://heyzine.com/flip-book/16a9bc1676.html", color:"#FCE7F3" },
+              { title:"Pupil's Helper", vol:"Volume 3", url:"https://heyzine.com/flip-book/639bcdbb20.html", color:"#EDE9FE" },
               { title:"JamDER™ Reader", vol:"Special Edition", url:"https://heyzine.com/flip-book/eda08f4c87.html", color:"#FFF0E0" },
             ].map(book => (
               <div key={book.url} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:20, overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.06)" }}>
