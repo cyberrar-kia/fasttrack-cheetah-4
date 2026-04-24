@@ -210,8 +210,7 @@ export default function Resources() {
                     <span style={{ background:book.color, color:"#0C2340", fontSize:10, fontWeight:700, padding:"3px 10px", borderRadius:50 }}>JamDER™</span>
                   </div>
                   <div style={{ display:"flex", gap:8 }}>
-                    <a href={book.url} target="_blank" rel="noopener noreferrer" style={{ flex:1, background:"#F5820A", color:"white", textAlign:"center", textDecoration:"none", padding:"10px 0", borderRadius:50, fontSize:12, fontWeight:700, fontFamily:"'Nunito',sans-serif" }}>Get Full Access →</a>
-                    <a href={book.url} target="_blank" rel="noopener noreferrer" style={{ background:"#FFF0E0", color:"#C05A00", textDecoration:"none", padding:"10px 14px", borderRadius:50, fontSize:12, fontWeight:700, fontFamily:"'Nunito',sans-serif", border:"1px solid #EDE0D0" }}>Read</a>
+                    <a href="/get-started" style={{ flex:1, background:"#F5820A", color:"white", textAlign:"center", textDecoration:"none", padding:"10px 0", borderRadius:50, fontSize:12, fontWeight:700, fontFamily:"'Nunito',sans-serif" }}>Get Full Access →</a>
                   </div>
                 </div>
               </div>
