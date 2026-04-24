@@ -255,6 +255,45 @@ export default function Resources() {
         </div>
       </section>
 
+      {/* FREE DOWNLOADS */}
+      <section className="section" style={{ background:"white" }}>
+        <div className="container">
+          <div style={{ textAlign:"center", marginBottom:40 }}>
+            <div className="section-chip">📥 Free Resources</div>
+            <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(22px,4vw,34px)", color:"#0C2340", marginBottom:12 }}>Free Teacher Resources</h2>
+            <p style={{ fontSize:15, color:"#5A5240", maxWidth:520, margin:"0 auto" }}>Download these free resources to support early literacy in your classroom — no sign-up required.</p>
+          </div>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(260px,28vw,340px),1fr))", gap:20 }}>
+            {[
+              { title:"The Reading Brain Pathway", desc:"Science-backed instructional sequence for educators — how the brain learns to read.", file:"The_Reading_Brain_Pathway.pdf", icon:"🧠", tag:"For Teachers" },
+              { title:"I Can Sound Out 2 Letters", desc:"Consonant-vowel combination chart for early phonics practice with the JamDER™ system.", file:"For_Teachers_I_can_sound_out_2_letters.pdf", icon:"🔤", tag:"For Teachers" },
+              { title:"Learning Word Families", desc:"Blend sounds to make three-letter words using common word family groups.", file:"For_Teachers_Learning_Word_Families.pdf", icon:"📖", tag:"For Teachers" },
+              { title:"Did You Know? Reading Facts", desc:"Key literacy statistics and reading fluency targets for children ages 5–7.", file:"Did_You_Know_Interesting_Facts.png", icon:"💡", tag:"For Everyone" },
+              { title:"High-Frequency Sight Words", desc:"Teaching strategies, word lists, and practice activities to build reading automaticity.", file:"Sight_Words_High_Frequency.pdf", icon:"📝", tag:"For Teachers" },
+            ].map((r) => (
+              <a
+                key={r.file}
+                href={`/downloads/${r.file}`}
+                download
+                style={{ display:"flex", alignItems:"flex-start", gap:16, padding:20, background:"#FFF9F4", borderRadius:16, border:"1px solid #EDE0D0", textDecoration:"none", transition:"all 0.2s ease", cursor:"pointer" }}
+                onMouseEnter={e=>(e.currentTarget.style.borderColor="#F5820A")}
+                onMouseLeave={e=>(e.currentTarget.style.borderColor="#EDE0D0")}
+              >
+                <div style={{ width:48, height:48, borderRadius:12, background:"#FFF0E0", display:"flex", alignItems:"center", justifyContent:"center", fontSize:24, flexShrink:0 }}>{r.icon}</div>
+                <div style={{ flex:1 }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
+                    <span style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:14, color:"#0C2340" }}>{r.title}</span>
+                    <span style={{ background:"#FFF0E0", color:"#C05A00", fontSize:10, fontWeight:700, padding:"2px 8px", borderRadius:50, whiteSpace:"nowrap" }}>{r.tag}</span>
+                  </div>
+                  <p style={{ fontSize:12, color:"#5A5240", lineHeight:1.6, marginBottom:8 }}>{r.desc}</p>
+                  <span style={{ fontSize:12, fontWeight:700, color:"#F5820A" }}>↓ Download Free</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FLIP BOOKS */}
       <section className="section" style={{ background:"#FFF0E0" }}>
         <div className="container">
