@@ -54,6 +54,91 @@ const resources = [
 
 const tagColors: Record<string,{bg:string,tc:string}> = { green:{bg:"#F0FDF4",tc:"#166534"}, blue:{bg:"#EEF4FF",tc:"#1A5DB5"}, orange:{bg:"#FFF0E0",tc:"#C05A00"} };
 
+
+function FlipBook({ book }: { book: any }) {
+  const [page, setPage] = useState(0); // 0=page1, 1=page2, 2=locked
+
+  return (
+    <div style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:20, overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.06)" }}>
+      {/* Book viewer */}
+      <div style={{ position:"relative", background:book.color, minHeight:320 }}>
+        {/* PAGE 1 */}
+        {page === 0 && (
+          <div style={{ padding:"clamp(20px,4%,32px)", minHeight:320, display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
+            <div>
+              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:16 }}>
+                <div style={{ width:32, height:32, borderRadius:"50%", background:book.accent, display:"flex", alignItems:"center", justifyContent:"center" }}>
+                  <span style={{ fontSize:14, color:"white" }}>📗</span>
+                </div>
+                <div>
+                  <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:11, color:book.accent, letterSpacing:"0.5px", textTransform:"uppercase" }}>JamDER+™</div>
+                  <div style={{ fontSize:10, color:"rgba(0,0,0,0.4)" }}>Page 1 of 2 (Preview)</div>
+                </div>
+              </div>
+              <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(14px,2vw,17px)", color:"#0C2340", marginBottom:8, lineHeight:1.3 }}>{book.pages[0].heading}</h3>
+              <div style={{ fontSize:11, fontWeight:700, color:book.accent, marginBottom:12, letterSpacing:"0.5px" }}>{book.pages[0].sub}</div>
+              <p style={{ fontSize:"clamp(12px,1.4vw,13px)", color:"#5A5240", lineHeight:1.8 }}>{book.pages[0].body}</p>
+            </div>
+            <div style={{ marginTop:16, paddingTop:12, borderTop:"1px solid rgba(0,0,0,0.08)", fontSize:10, color:"rgba(0,0,0,0.4)", lineHeight:1.6 }}>{book.pages[0].author}</div>
+          </div>
+        )}
+        {/* PAGE 2 */}
+        {page === 1 && (
+          <div style={{ padding:"clamp(20px,4%,32px)", minHeight:320, display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
+            <div>
+              <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:16 }}>
+                <div style={{ width:32, height:32, borderRadius:"50%", background:book.accent, display:"flex", alignItems:"center", justifyContent:"center" }}>
+                  <span style={{ fontSize:14, color:"white" }}>📄</span>
+                </div>
+                <div>
+                  <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:11, color:book.accent, letterSpacing:"0.5px", textTransform:"uppercase" }}>JamDER+™</div>
+                  <div style={{ fontSize:10, color:"rgba(0,0,0,0.4)" }}>Page 2 of 2 (Preview)</div>
+                </div>
+              </div>
+              <h3 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(14px,2vw,17px)", color:"#0C2340", marginBottom:8, lineHeight:1.3 }}>{book.pages[1].heading}</h3>
+              <div style={{ fontSize:11, fontWeight:700, color:book.accent, marginBottom:12, letterSpacing:"0.5px" }}>{book.pages[1].sub}</div>
+              <p style={{ fontSize:"clamp(12px,1.4vw,13px)", color:"#5A5240", lineHeight:1.8 }}>{book.pages[1].body}</p>
+            </div>
+            <div style={{ marginTop:16, paddingTop:12, borderTop:"1px solid rgba(0,0,0,0.08)", fontSize:10, color:"rgba(0,0,0,0.4)", lineHeight:1.6 }}>{book.pages[1].author}</div>
+          </div>
+        )}
+        {/* PAGE 3 — LOCKED */}
+        {page === 2 && (
+          <div style={{ minHeight:320, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:12, padding:32, textAlign:"center" }}>
+            <div style={{ width:56, height:56, borderRadius:"50%", background:"rgba(12,35,64,0.08)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:28 }}>🔒</div>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:16, color:"#0C2340" }}>Full Access Required</div>
+            <div style={{ fontSize:13, color:"#8A7A6A", lineHeight:1.7, maxWidth:220 }}>Get full access to read all pages of {book.title} — {book.vol}</div>
+            <a href="/get-started" style={{ background:"#F5820A", color:"white", textDecoration:"none", padding:"11px 24px", borderRadius:50, fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", marginTop:4 }}>Get Full Access →</a>
+          </div>
+        )}
+        {/* Page indicator dots */}
+        <div style={{ position:"absolute", top:12, right:12, display:"flex", gap:4 }}>
+          {[0,1,2].map(i => (
+            <div key={i} style={{ width:6, height:6, borderRadius:"50%", background: i===page ? book.accent : "rgba(0,0,0,0.15)" }} />
+          ))}
+        </div>
+      </div>
+      {/* Book footer */}
+      <div style={{ padding:"14px 18px", borderTop:"1px solid #EDE0D0" }}>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12 }}>
+          <div>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:"clamp(13px,1.7vw,15px)", color:"#0C2340" }}>{book.title}</div>
+            <div style={{ fontSize:11, color:"#8A7A6A", marginTop:2 }}>{book.vol}</div>
+          </div>
+          <span style={{ background:book.color, color:"#0C2340", fontSize:10, fontWeight:700, padding:"3px 10px", borderRadius:50 }}>JamDER™</span>
+        </div>
+        {/* Navigation */}
+        <div style={{ display:"flex", gap:8 }}>
+          <button onClick={()=>setPage(p=>Math.max(0,p-1))} disabled={page===0} style={{ background:"#F5EEE4", border:"none", borderRadius:50, padding:"8px 14px", fontSize:12, cursor:page===0?"not-allowed":"pointer", color:page===0?"#C8B89A":"#5A5240", fontWeight:600, fontFamily:"'Nunito',sans-serif" }}>← Prev</button>
+          <button onClick={()=>setPage(p=>Math.min(2,p+1))} disabled={page===2} style={{ flex:1, background: page===2?"#EDE0D0":"#F5820A", border:"none", borderRadius:50, padding:"8px 14px", fontSize:12, cursor:page===2?"not-allowed":"pointer", color:page===2?"#8A7A6A":"white", fontWeight:700, fontFamily:"'Nunito',sans-serif" }}>
+            {page===1?"View Access Page →":"Next Page →"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Resources() {
   const [activeDrawer, setActiveDrawer] = useState<string|null>(null);
   const [lastClicked, setLastClicked] = useState<string|null>(null);
@@ -170,50 +255,36 @@ export default function Resources() {
           <div style={{ textAlign:"center", marginBottom:48 }}>
             <div className="section-chip">📖 JamDER™ Digital Books</div>
             <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(24px,4vw,36px)", color:"#0C2340", marginBottom:12 }}>Read Our Books Online</h2>
-            <p style={{ fontSize:"clamp(13px,1.5vw,16px)", color:"#8A7A6A", maxWidth:500, margin:"0 auto" }}>Preview the first pages of each book below. Get full access to unlock all pages.</p>
+            <p style={{ fontSize:"clamp(13px,1.5vw,16px)", color:"#8A7A6A", maxWidth:500, margin:"0 auto" }}>Preview the first 2 pages of each book. Get full access to read more.</p>
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(260px,28vw,340px),1fr))", gap:20 }}>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(260px,28vw,340px),1fr))", gap:24 }}>
             {[
-              { title:"Teacher's Helper", vol:"Volume 1", url:"https://heyzine.com/flip-book/0a66e4e5a7.html", color:"#DBEAFE" },
-              { title:"Teacher's Helper", vol:"Volume 2", url:"https://heyzine.com/flip-book/01cc4943e4.html", color:"#DCFCE7" },
-              { title:"Pupil's Helper", vol:"Volume 1", url:"https://heyzine.com/flip-book/c3b25db878.html", color:"#FEF3C7" },
-              { title:"Pupil's Helper", vol:"Volume 2", url:"https://heyzine.com/flip-book/16a9bc1676.html", color:"#FCE7F3" },
-              { title:"Pupil's Helper", vol:"Volume 3", url:"https://heyzine.com/flip-book/639bcdbb20.html", color:"#EDE9FE" },
-              { title:"JamDER™ Reader", vol:"Special Edition", url:"https://heyzine.com/flip-book/eda08f4c87.html", color:"#FFF0E0" },
-            ].map(book => (
-              <div key={book.url} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:20, overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.06)" }}>
-                <div style={{ position:"relative", width:"100%", height:280, overflow:"hidden" }}>
-                  {/* iframe scaled to show approx 2 pages only */}
-                  <iframe
-                    src={book.url}
-                    style={{ width:"200%", height:"520px", border:"none", transform:"scale(0.5)", transformOrigin:"top left", pointerEvents:"none" }}
-                    title={`${book.title} ${book.vol}`}
-                    loading="lazy"
-                  />
-                  {/* Hard clip — white block covers everything below 2 pages */}
-                  <div style={{ position:"absolute", top:140, left:0, right:0, bottom:0, background:"white", pointerEvents:"none" }} />
-                  {/* Blur layer on the cutoff area */}
-                  <div style={{ position:"absolute", top:100, left:0, right:0, height:60, backdropFilter:"blur(6px)", WebkitBackdropFilter:"blur(6px)", background:"rgba(255,255,255,0.4)", pointerEvents:"none" }} />
-                  {/* Lock overlay */}
-                  <div style={{ position:"absolute", top:110, left:0, right:0, bottom:0, background:"white", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, pointerEvents:"none" }}>
-                    <div style={{ fontSize:28 }}>🔒</div>
-                    <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:13, color:"#0C2340" }}>Full access required</div>
-                    <div style={{ fontSize:11, color:"#8A7A6A" }}>Preview shows first 2 pages only</div>
-                  </div>
-                </div>
-                <div style={{ padding:"14px 18px", borderTop:"1px solid #EDE0D0" }}>
-                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12 }}>
-                    <div>
-                      <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:"clamp(13px,1.7vw,15px)", color:"#0C2340" }}>{book.title}</div>
-                      <div style={{ fontSize:11, color:"#8A7A6A", marginTop:2 }}>{book.vol}</div>
-                    </div>
-                    <span style={{ background:book.color, color:"#0C2340", fontSize:10, fontWeight:700, padding:"3px 10px", borderRadius:50 }}>JamDER™</span>
-                  </div>
-                  <div style={{ display:"flex", gap:8 }}>
-                    <a href="/get-started" style={{ flex:1, background:"#F5820A", color:"white", textAlign:"center", textDecoration:"none", padding:"10px 0", borderRadius:50, fontSize:12, fontWeight:700, fontFamily:"'Nunito',sans-serif" }}>Get Full Access →</a>
-                  </div>
-                </div>
-              </div>
+              { title:"Teacher's Helper", vol:"Volume 1", color:"#DBEAFE", accent:"#1E40AF", pages:[
+                { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Teacher's Helper · Volume 1", body:"This resource provides structured lesson plans and teaching guides aligned to the FastTrack Literacy™ programme. Designed for classroom teachers and early literacy educators.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz · Iain Taylor" },
+                { heading:"How to Use This Book", sub:"Teacher's Guide", body:"Each lesson follows the 16-step FastTrack structured format. Begin with the phoneme song, proceed through decoding activities, and close with the reading of the decodable text.", author:"Early Literacy Tool · CHEETAH® Purrrrrrr Publishing" },
+              ]},
+              { title:"Teacher's Helper", vol:"Volume 2", color:"#DCFCE7", accent:"#166534", pages:[
+                { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Teacher's Helper · Volume 2", body:"A continuation of the teacher's instructional guide series. Covers phoneme sets 4–6 with extended lesson activities, assessment tools, and differentiation strategies.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz · Iain Taylor" },
+                { heading:"Phoneme Set Overview", sub:"Sets 4 — 6", body:"Set 4: l, b, short ŭ, soft g, long ā · Set 5: j, long ī, or, long ō, z · Set 6: ng, w/wh, short oo, long oo, v. Each set includes song activities and decodable text practice.", author:"Early Literacy Tool · Ministry of Education Aligned" },
+              ]},
+              { title:"Pupil's Helper", vol:"Volume 1", color:"#FEF3C7", accent:"#92400E", pages:[
+                { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 1", body:"A student workbook filled with phonics activities, letter-sound exercises, and early reading practice. Designed for children ages 3–6 beginning their literacy journey.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
+                { heading:"Welcome, Young Reader!", sub:"A Message to Students", body:"This book is for you! Every page will help you learn new sounds and words. You are going to be a great reader. Let's begin!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
+              ]},
+              { title:"Pupil's Helper", vol:"Volume 2", color:"#FCE7F3", accent:"#9D174D", pages:[
+                { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 2", body:"Building on Volume 1, this workbook introduces more complex phoneme combinations through engaging activities, rhymes, and culturally relevant Jamaican stories.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
+                { heading:"What You Will Learn", sub:"Phoneme Sets 4 — 6", body:"In this volume you will practise blending longer words, reading short sentences, and recognising tricky high-frequency words. Keep going — you are doing amazing!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
+              ]},
+              { title:"Pupil's Helper", vol:"Volume 3", color:"#EDE9FE", accent:"#5B21B6", pages:[
+                { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 3", body:"The third volume in the Pupil's Helper series. Focuses on vowel digraphs, blends, and reading fluency through structured decodable passages and comprehension activities.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
+                { heading:"You're Almost There!", sub:"Advanced Phoneme Practice", body:"This volume covers the final phoneme sets — including digraphs, diphthongs, and longer word patterns. You are reading real sentences and short stories now. Well done!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
+              ]},
+              { title:"JamDER™ Reader", vol:"Special Edition", color:"#FFF0E0", accent:"#C05A00", pages:[
+                { heading:"JamDER+™ — Special Edition", sub:"Jamaican Decodable & Early Readers", body:"A special curated collection of JamDER™ stories — culturally authentic, fully decodable, and beautifully illustrated. Celebrating Jamaican heritage through the joy of reading.", author:"CHEETAH® Purrrrrrr Publishing · Paulette Trowers, Juris Doctor" },
+                { heading:"About This Collection", sub:"Stories from Our Culture", body:"These stories are set in Jamaica and feature characters, places, and experiences that Jamaican children know and love. Every word is decodable using the FastTrack phonics sequence.", author:"fasttrackliteracy.com · mycheetahinc.com" },
+              ]},
+            ].map((book, bookIdx) => (
+              <FlipBook key={bookIdx} book={book} />
             ))}
           </div>
         </div>
