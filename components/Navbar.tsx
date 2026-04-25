@@ -22,7 +22,7 @@ export default function Navbar() {
       <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 20px", height:68, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
         <Link href="/" style={{ textDecoration:"none", display:"flex", alignItems:"center", gap:10, flexShrink:0 }}>
           <Image src="/images/fasttrack-literacy-logo.png" alt="FastTrack Literacy Program" width={280} height={90} style={{ height:72, width:"auto", objectFit:"contain" }} />
-          <Image src="/images/cheetah-logo.png" alt="CHEETAH®" width={80} height={48} style={{ height:40, width:"auto", objectFit:"contain", filter:"brightness(0) invert(1)", marginLeft:8 }} />
+          <Image src="/images/cheetah-logo.png" alt="CHEETAH®" width={80} height={48} style={{ height:40, width:"auto", objectFit:"contain", mixBlendMode:"screen", marginLeft:8 }} />
         </Link>
         <div style={{ display:"flex", alignItems:"center", gap:2 }} className="nav-desktop">
           {links.map(l=>{
