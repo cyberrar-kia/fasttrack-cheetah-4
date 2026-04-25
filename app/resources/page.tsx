@@ -377,7 +377,7 @@ export default function Resources() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(260px,28vw,340px),1fr))", gap:24 }}>
             {[
-              { title:"Teacher's Helper", vol:"Volume 1", cover:"", color:"#DBEAFE", accent:"#1E40AF", pages:[
+              { title:"Teacher's Helper", vol:"Volume 1", cover:"/images/resources/teachers-helper-vol1.webp", color:"#DBEAFE", accent:"#1E40AF", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Teacher's Helper · Volume 1", body:"This resource provides structured lesson plans and teaching guides aligned to the FastTrack Literacy™ programme. Designed for classroom teachers and early literacy educators.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz · Iain Taylor" },
                 { heading:"How to Use This Book", sub:"Teacher's Guide", body:"Each lesson follows the 16-step FastTrack structured format. Begin with the phoneme song, proceed through decoding activities, and close with the reading of the decodable text.", author:"Early Literacy Tool · CHEETAH® Purrrrrrr Publishing" },
               ]},
