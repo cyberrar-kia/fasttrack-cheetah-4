@@ -84,7 +84,7 @@ export default function About() {
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)" }}>
         <div className="container">
           <div className="grid-auto">
-            {[["2014/15","Founded in USA & Jamaica"],["90+","Educational Resources"],["1,100+","Total Resources Developed"],["770M+","People globally lacking literacy"],["37%","US 4th graders below basic reading"],["3","Countries Served"]].map(([n,l])=>(
+            {[["2014/15","Founded in USA & Jamaica"],["90+","Educational Resources"],["1,100+","Total Resources Developed"],["770M+","People globally lacking literacy"],["5","Countries Served"]].map(([n,l])=>(
               <div key={l} style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:16, padding:24, textAlign:"center" }}>
                 <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:28, fontWeight:900, color:"#F5820A" }}>{n}</div>
                 <div style={{ fontSize:12, color:"rgba(255,255,255,0.6)", marginTop:6 }}>{l}</div>

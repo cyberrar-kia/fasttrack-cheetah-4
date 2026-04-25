@@ -42,8 +42,8 @@ function AnimatedStats() {
       {[
         { value: `${n90}+`, label: "Educational Resources" },
         { value: `${n1100.toLocaleString()}+`, label: "Resources Developed" },
-        { value: `${n3}`, label: "Countries Served" },
-        { value: "Ages 3–8", label: "Primary Focus" },
+        { value: "5", label: "Countries Served" },
+        { value: "Ages 3–8", label: "Early Learning" },
       ].map(({ value, label }) => (
         <div key={label}>
           <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:22, fontWeight:900, color:"#F5820A", minWidth:60 }}>{value}</div>
@@ -100,7 +100,7 @@ export default function Home() {
         <div className="container" style={{ textAlign:"center" }}>
           <p style={{ fontSize:11, fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:"#A0927A", marginBottom:16 }}>Serving educators & families in</p>
           <div style={{ display:"flex", justifyContent:"center", alignItems:"center", gap:"clamp(16px,4vw,48px)", flexWrap:"wrap" }}>
-            {["🇯🇲 Jamaica","🇺🇸 United States","🌍 Africa","🏝️ Caribbean"].map(c=>(<span key={c} style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:14, color:"#C4B08A" }}>{c}</span>))}
+            {["🇯🇲 Jamaica","🇺🇸 United States","🇬🇭 Ghana","🇺🇬 Uganda","🏝️ Caribbean"].map(c=>(<span key={c} style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:14, color:"#C4B08A" }}>{c}</span>))}
           </div>
         </div>
       </section>
@@ -205,7 +205,7 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:48 }}>
             <h2 style={{ fontSize:"clamp(24px,4vw,36px)", fontWeight:900, color:"white" }}>What Educators Are Saying</h2>
-            <p style={{ fontSize:15, color:"rgba(255,255,255,0.6)", marginTop:10 }}>Real results from classrooms across Jamaica, the US, and Africa</p>
+            <p style={{ fontSize:15, color:"rgba(255,255,255,0.6)", marginTop:10 }}>Real results from classrooms across Jamaica, the US, and Ghana & Uganda</p>
           </div>
           <div className="grid-auto">
             {[{q:"FastTrack Literacy™ transformed our classroom. Children who struggled to recognise letters are now reading decodable books independently after just 10 weeks.",n:"Miss Thompson",r:"Year 1 Teacher, Kingston, Jamaica"},{q:"The reggae phoneme songs are magical. My students wake up singing them — and that repetition is exactly what builds phonemic awareness.",n:"Mrs. Davis",r:"Literacy Coach, Hartford, CT"},{q:"As a parent, the home support guides made it easy to continue the learning at home. My daughter moved two reading levels in one term.",n:"Natalie B.",r:"Parent, Portmore, Jamaica"}].map(t=>(

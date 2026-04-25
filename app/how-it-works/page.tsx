@@ -128,6 +128,29 @@ export default function HowItWorks() {
       </section>
 
       <section className="section-sm" style={{ background:"#FFF0E0", textAlign:"center" }}>
+        <div className="container-xs">
+          <div className="section-chip">🐆 See It In Action</div>
+          <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(22px,4vw,34px)", color:"#0C2340", marginBottom:14, marginTop:12 }}>
+            Inside a CHEETAH® Lesson
+          </h2>
+          <p style={{ fontSize:"clamp(13px,1.6vw,16px)", color:"#8A7A6A", lineHeight:1.8, marginBottom:32 }}>
+            Watch the FastTrack Literacy™ system in action — a real classroom lesson showing how the 16-step structure comes to life.
+          </p>
+          <div style={{ borderRadius:20, overflow:"hidden", boxShadow:"0 12px 48px rgba(12,35,64,0.15)", maxWidth:760, margin:"0 auto" }}>
+            <video
+              controls
+              preload="metadata"
+              style={{ width:"100%", display:"block", background:"#0C2340" }}
+              poster="/images/five-pillars.jpg"
+            >
+              <source src="/videos/inside-cheetah-lessons.mp4" type="video/mp4"/>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-sm" style={{ background:"#FFF0E0", textAlign:"center" }}>
         <h2 style={{ fontSize:"clamp(20px,3vw,30px)", fontWeight:900, color:"#0C2340", marginBottom:14 }}>Ready to Start the Journey?</h2>
         <p style={{ fontSize:15, color:"#5A5240", marginBottom:28, maxWidth:440, margin:"0 auto 28px" }}>Join thousands of educators and families using FastTrack Literacy™.</p>
         <div className="btn-row" style={{ justifyContent:"center" }}>
