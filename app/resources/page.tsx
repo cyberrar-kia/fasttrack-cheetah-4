@@ -196,12 +196,6 @@ export default function Resources() {
           >
             👨‍👩‍👧 For Parents
           </button>
-          {/* Description */}
-          <div style={{ marginLeft:"auto", fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A", paddingLeft:16 }}>
-            {audience==="all" && "Showing all resources"}
-            {audience==="teacher" && "Guides, charts, and tools for educators"}
-            {audience==="parent" && "Books, songs, and guides for home learning"}
-          </div>
         </div>
       </div>
 
