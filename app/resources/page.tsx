@@ -46,7 +46,7 @@ const resources = [
   { cat:"Songs & Audio", icon:"🎵", audience:"both", title:"BIG FISH-WARRIOR — Reggae Phoneme Song", desc:"A sample reggae phoneme song from the FastTrack Literacy™ collection. Call-and-response rhythmic structure.", tag:"blue", type:"Audio Sample" },
   { cat:"Songs & Audio", icon:"🎵", audience:"both", title:"BLACK BIRD — Reggae Phoneme Song", desc:"A sample reggae phoneme song from the FastTrack Literacy™ collection. Children wake up singing these!", tag:"green", type:"Audio Sample" },
   { cat:"Books", icon:"📗", audience:"parent", title:"All JamDER™ & C-DER Books", desc:"70+ decodable readers — JamDER™ (Jamaica) and C-DER™ (Caribbean) series. Fiction and nonfiction across all levels and cultural contexts.", tag:"green", type:"Book Collection" },
-  { cat:"Rewards", icon:"⭐", audience:"both", title:"Reward Sticker Sets", desc:"Motivational reward stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone.", tag:"orange", type:"Classroom Resource" },
+  { cat:"Rewards", icon:"⭐", audience:"both", title:"Reward Sticker Sets", desc:"Motivational reward stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone.", tag:"orange", type:"Classroom Resource", contactUs:true },
   { cat:"Charts & Visual Tools", icon:"📌", audience:"teacher", title:"CHEETAH® Charts — Multisensory Reinforcement Tools", desc:"Physical chart resources designed as multisensory reinforcement tools — supporting phoneme recall through visual and kinaesthetic engagement alongside the 27+ interactive charts.", tag:"blue", type:"Physical Resource" },
   { cat:"Technology", icon:"💡", audience:"teacher", title:"Innovative AI Tool", desc:"An AI-powered learning tool that integrates artificial intelligence into the literacy ecosystem — tracking fluency, personalising learning, and supporting data-driven instruction.", tag:"orange", type:"Digital Tool" },
   { cat:"Training", icon:"🎓", audience:"teacher", title:"Teacher Training", desc:"Comprehensive teacher training including 'train-the-trainer' programmes and intensive Transformation Weeks — equipping educators to implement FastTrack Literacy™ with confidence.", tag:"green", type:"Professional Development" },
@@ -245,14 +245,17 @@ export default function Resources() {
               { icon:"📗", title:"Pupil's Helper Vol 1, 2 & 3", desc:"Student workbooks with phonics activities, letter-sound exercises, and early reading practice. Designed for children ages 3–8." },
               { icon:"🎵", title:"45 Reggae Phoneme Songs", desc:"One-minute call-and-response reggae songs — one per phoneme. Children wake up singing these! Perfect for home learning." },
               { icon:"📖", title:"JamDER™ & C-DER Books", desc:"70+ culturally authentic decodable early readers. Fiction and nonfiction across all reading levels. Ideal for reading together at home." },
-              { icon:"⭐", title:"Reward Sticker Sets", desc:"Motivational stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone." },
-              { icon:"📊", title:"Home Progress Guide", desc:"Simple parent-friendly guide to tracking your child's reading progress at home alongside the FastTrack programme." },
+              { icon:"⭐", title:"Reward Sticker Sets", desc:"Motivational stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone.", contactUs:true },
+              { icon:"📊", title:"Home Progress Guide", desc:"Simple parent-friendly guide to tracking your child's reading progress at home alongside the FastTrack programme.", contactUs:true },
               { icon:"🤖", title:"iCHEETAH™ AI Device", desc:"AI-powered reading companion for children ages 3–8. Guides phonics practice and adapts to each child's pace." },
             ].map(item => (
               <div key={item.title} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:16, padding:"18px 20px" }}>
                 <div style={{ fontSize:28, marginBottom:10 }}>{item.icon}</div>
                 <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:"clamp(13px,1.6vw,15px)", color:"#0C2340", marginBottom:6 }}>{item.title}</div>
-                <p style={{ fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A", lineHeight:1.75 }}>{item.desc}</p>
+                <p style={{ fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A", lineHeight:1.75, marginBottom:(item as any).contactUs ? 12 : 0 }}>{item.desc}</p>
+                {(item as any).contactUs && (
+                  <a href="/contact" style={{ display:"inline-block", background:"#0C2340", color:"white", fontSize:12, fontWeight:700, padding:"7px 16px", borderRadius:50, textDecoration:"none", fontFamily:"'Nunito',sans-serif" }}>Contact Us →</a>
+                )}
               </div>
             ))}
           </div>
@@ -331,10 +334,14 @@ export default function Resources() {
                 <p style={{ fontSize:12, color:"#5A5240", lineHeight:1.7, flex:1 }}>{r.desc}</p>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", paddingTop:8, borderTop:"1px solid #F5EEE4" }}>
                   <span style={{ fontSize:11, color:"#A0927A", fontWeight:500 }}>{r.type}</span>
-                  <button onClick={()=>{
-                      setActiveDrawer(r.title);
-                      setLastClicked(r.title);
-                    }} style={{ background:"#FFF0E0", color:"#C05A00", border:"none", borderRadius:50, padding:"7px 14px", fontSize:12, fontWeight:700, cursor:"pointer" }}>Learn More →</button>
+                  {(r as any).contactUs ? (
+                    <a href="/contact" style={{ background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:"7px 14px", fontSize:12, fontWeight:700, cursor:"pointer", textDecoration:"none", fontFamily:"'Nunito',sans-serif" }}>Contact Us →</a>
+                  ) : (
+                    <button onClick={()=>{
+                        setActiveDrawer(r.title);
+                        setLastClicked(r.title);
+                      }} style={{ background:"#FFF0E0", color:"#C05A00", border:"none", borderRadius:50, padding:"7px 14px", fontSize:12, fontWeight:700, cursor:"pointer" }}>Learn More →</button>
+                  )}
                 </div>
               </div>
             ))}
