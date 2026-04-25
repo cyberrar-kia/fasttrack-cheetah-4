@@ -82,8 +82,13 @@ export default function Home() {
           <div className="grid-2">
             <div>
               <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:20, background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", padding:"6px 16px", borderRadius:50, fontSize:12, fontWeight:700, color:"#FFB366" }}>🚂 FastTrack Literacy™ by CHEETAH®</div>
-              <h1 style={{ fontSize:"clamp(34px,5vw,56px)", fontWeight:900, color:"white", marginBottom:20, lineHeight:1.08 }}>Every Child Can Read.<br/><span style={{ color:"#F5820A" }}>Every Child Must Read.</span></h1>
-              <p style={{ fontSize:"clamp(15px,2vw,17px)", color:"rgba(255,255,255,0.85)", lineHeight:1.8, marginBottom:36, maxWidth:500 }}>FastTrack Literacy™ is a structured, evidence-based reading program for children ages 3–8. Built on the Science of Reading — combining reggae-inspired phoneme songs, decodable books, and AI technology.</p>
+              <h1 style={{ fontSize:"clamp(28px,4.5vw,52px)", fontWeight:900, color:"white", marginBottom:20, lineHeight:1.15 }}>
+                Every Child Can Learn to Read and Write.<br/>
+                <span style={{ color:"#F5820A" }}>Every Child Must Learn to Read and Write.</span><br/>
+                <span style={{ fontSize:"clamp(22px,3.5vw,40px)" }}>Every Child Must Be Given the Resources to Succeed.</span>
+              </h1>
+              <p style={{ fontSize:"clamp(14px,1.8vw,16px)", color:"rgba(255,255,255,0.85)", lineHeight:1.8, marginBottom:16, maxWidth:560 }}>FastTrack Literacy™ is a structured, Science of Reading–aligned system designed to accelerate reading and writing success.</p>
+              <p style={{ fontSize:"clamp(13px,1.6vw,15px)", color:"rgba(255,255,255,0.75)", lineHeight:1.8, marginBottom:36, maxWidth:560 }}>We combine reggae-inspired phoneme songs, decodable books, AI-powered technology, flashcards, and structured learning tools to educate, inspire, and deliver measurable results at school and at home.</p>
               <div className="btn-row">
                 <Link href="/get-started" className="btn-orange">Get Started Free →</Link>
                 <Link href="/how-it-works" className="btn-white">How It Works</Link>
