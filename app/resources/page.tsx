@@ -66,12 +66,12 @@ function FlipBook({ book }: { book: any }) {
         {page === 0 && (
           <div style={{ minHeight:320, display:"flex", flexDirection:"column" }}>
             {/* Cover image */}
-            <div style={{ flex:1, background:book.color, display:"flex", alignItems:"center", justifyContent:"center", padding:0, position:"relative", minHeight:240, overflow:"hidden" }}>
+            <div style={{ background:book.color, position:"relative", height:280, overflow:"hidden" }}>
               {book.cover ? (
                 <img
                   src={book.cover}
                   alt={`${book.title} ${book.vol} cover`}
-                  style={{ width:"100%", height:"100%", minHeight:240, objectFit:"cover", objectPosition:"center center", display:"block" }}
+                  style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", display:"block" }}
                   onError={(e)=>{
                     const img = e.target as HTMLImageElement;
                     img.style.display="none";
@@ -81,7 +81,7 @@ function FlipBook({ book }: { book: any }) {
                 />
               ) : null}
               {/* Fallback if no cover or cover doesn't load */}
-              <div style={{ display:book.cover?"none":"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, width:"100%", minHeight:240, background:book.color }}>
+              <div style={{ display:book.cover?"none":"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, width:"100%", height:"100%", position:"absolute", top:0, left:0, background:book.color }}>
                 <div style={{ fontSize:48 }}>📗</div>
                 <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:16, color:"#0C2340", textAlign:"center" }}>{book.title}</div>
                 <div style={{ fontSize:12, color:"#8A7A6A" }}>{book.vol}</div>
