@@ -210,20 +210,27 @@ export default function Resources() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(220px,26vw,280px),1fr))", gap:16 }}>
             {[
-              { icon:"📋", title:"Teacher's Helper Vol 1 & 2", desc:"Full 16-step instructional roadmap for every phoneme. Includes auditory stories, guided steps, and a suggested 65-minute lesson plan per letter." },
-              { icon:"📊", title:"FastTrack Phonics Chart", desc:"Official Ministry of Education approved phonics chart covering all 9 phoneme sets plus a bonus letter sound. Print-ready PDF.", free:true },
+              { icon:"📋", image:"/images/resources/teachers-helper-combined.jpg", title:"Teacher's Helper Vol 1 & 2", desc:"Full 16-step instructional roadmap for every phoneme. Includes auditory stories, guided steps, and a suggested 65-minute lesson plan per letter." },
+              { icon:"📊", image:"/images/resources/phonics-charts.jpg", title:"FastTrack Phonics Chart", desc:"Official Ministry of Education approved phonics chart covering all 9 phoneme sets plus a bonus letter sound. Print-ready PDF.", free:true },
               { icon:"📝", title:"Assessment & Progress Tools", desc:"CHEETAH® Poster Fluency Tests, self-assessment checklists, and progress tracking sheets. Measurable outcomes at every stage." },
-              { icon:"🗂️", title:"27+ Interactive Charts", desc:"Multisensory reinforcement tools including phonics charts, word family charts, and classroom display resources." },
+              { icon:"🗂️", image:"/images/resources/phonics-charts.jpg", title:"27+ Interactive Charts", desc:"Multisensory reinforcement tools including phonics charts, word family charts, and classroom display resources." },
               { icon:"🎓", title:"Teacher Training Programme", desc:"Full implementation training for classroom teachers. Train-the-trainer model for school-wide rollout. Available in-person and digitally." },
-              { icon:"🃏", title:"Phoneme Flashcard Sets", desc:"Letter-sound correspondence flashcards, sight word recognition sets, and vocabulary building cards aligned to the 16-step sequence." },
+              { icon:"🃏", image:"/images/resources/flashcards-rhymes.jpg", title:"Phoneme Flashcard Sets", desc:"Letter-sound correspondence flashcards, sight word recognition sets, and vocabulary building cards aligned to the 16-step sequence." },
             ].map(item => (
-              <div key={item.title} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:16, padding:"18px 20px" }}>
-                <div style={{ fontSize:28, marginBottom:10 }}>{item.icon}</div>
-                <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}>
-                  <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:"clamp(13px,1.6vw,15px)", color:"#0C2340" }}>{item.title}</div>
-                  {item.free && <span style={{ background:"#DCFCE7", color:"#166534", fontSize:10, fontWeight:700, padding:"2px 8px", borderRadius:50 }}>Free</span>}
+              <div key={item.title} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:16, overflow:"hidden" }}>
+                {(item as any).image && (
+                  <div style={{ width:"100%", height:140, background:"white", display:"flex", alignItems:"center", justifyContent:"center", borderBottom:"1px solid #EDE0D0", padding:10, boxSizing:"border-box" }}>
+                    <img src={(item as any).image} alt={item.title} style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain" }} />
+                  </div>
+                )}
+                <div style={{ padding:"16px 20px" }}>
+                  {!(item as any).image && <div style={{ fontSize:28, marginBottom:10 }}>{item.icon}</div>}
+                  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}>
+                    <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:"clamp(13px,1.6vw,15px)", color:"#0C2340" }}>{item.title}</div>
+                    {item.free && <span style={{ background:"#DCFCE7", color:"#166534", fontSize:10, fontWeight:700, padding:"2px 8px", borderRadius:50 }}>Free</span>}
+                  </div>
+                  <p style={{ fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A", lineHeight:1.75 }}>{item.desc}</p>
                 </div>
-                <p style={{ fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A", lineHeight:1.75 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -242,20 +249,27 @@ export default function Resources() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(220px,26vw,280px),1fr))", gap:16 }}>
             {[
-              { icon:"📗", title:"Pupil's Helper Vol 1, 2 & 3", desc:"Student workbooks with phonics activities, letter-sound exercises, and early reading practice. Designed for children ages 3–8." },
+              { icon:"📗", image:"/images/resources/pupils-helper-combined.jpg", title:"Pupil's Helper Vol 1, 2 & 3", desc:"Student workbooks with phonics activities, letter-sound exercises, and early reading practice. Designed for children ages 3–8." },
               { icon:"🎵", title:"45 Reggae Phoneme Songs", desc:"One-minute call-and-response reggae songs — one per phoneme. Children wake up singing these! Perfect for home learning." },
-              { icon:"📖", title:"JamDER™ & C-DER Books", desc:"70+ culturally authentic decodable early readers. Fiction and nonfiction across all reading levels. Ideal for reading together at home." },
+              { icon:"📖", image:"/images/resources/cder-books.jpg", title:"JamDER™ & C-DER Books", desc:"70+ culturally authentic decodable early readers. Fiction and nonfiction across all reading levels. Ideal for reading together at home." },
               { icon:"⭐", title:"Reward Sticker Sets", desc:"Motivational stickers tied to the 16-step lesson structure. Children celebrate their progress at every milestone.", contactUs:true },
               { icon:"📊", title:"Home Progress Guide", desc:"Simple parent-friendly guide to tracking your child's reading progress at home alongside the FastTrack programme.", contactUs:true },
-              { icon:"🤖", title:"iCHEETAH™ AI Device", desc:"AI-powered reading companion for children ages 3–8. Guides phonics practice and adapts to each child's pace." },
+              { icon:"🤖", image:"/images/icheetah-frontal.png", title:"iCHEETAH™ AI Device", desc:"AI-powered reading companion for children ages 3–8. Guides phonics practice and adapts to each child's pace." },
             ].map(item => (
-              <div key={item.title} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:16, padding:"18px 20px" }}>
-                <div style={{ fontSize:28, marginBottom:10 }}>{item.icon}</div>
-                <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:"clamp(13px,1.6vw,15px)", color:"#0C2340", marginBottom:6 }}>{item.title}</div>
-                <p style={{ fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A", lineHeight:1.75, marginBottom:(item as any).contactUs ? 12 : 0 }}>{item.desc}</p>
-                {(item as any).contactUs && (
-                  <a href="/contact" style={{ display:"inline-block", background:"#0C2340", color:"white", fontSize:12, fontWeight:700, padding:"7px 16px", borderRadius:50, textDecoration:"none", fontFamily:"'Nunito',sans-serif" }}>Contact Us →</a>
+              <div key={item.title} style={{ background:"white", border:"1px solid #EDE0D0", borderRadius:16, overflow:"hidden" }}>
+                {(item as any).image && (
+                  <div style={{ width:"100%", height:140, background:"white", display:"flex", alignItems:"center", justifyContent:"center", borderBottom:"1px solid #EDE0D0", padding:10, boxSizing:"border-box" }}>
+                    <img src={(item as any).image} alt={item.title} style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain" }} />
+                  </div>
                 )}
+                <div style={{ padding:"16px 20px" }}>
+                  {!(item as any).image && <div style={{ fontSize:28, marginBottom:10 }}>{item.icon}</div>}
+                  <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:800, fontSize:"clamp(13px,1.6vw,15px)", color:"#0C2340", marginBottom:6 }}>{item.title}</div>
+                  <p style={{ fontSize:"clamp(11px,1.3vw,13px)", color:"#8A7A6A", lineHeight:1.75, marginBottom:(item as any).contactUs ? 12 : 0 }}>{item.desc}</p>
+                  {(item as any).contactUs && (
+                    <a href="/contact" style={{ display:"inline-block", background:"#0C2340", color:"white", fontSize:12, fontWeight:700, padding:"7px 16px", borderRadius:50, textDecoration:"none", fontFamily:"'Nunito',sans-serif" }}>Contact Us →</a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
