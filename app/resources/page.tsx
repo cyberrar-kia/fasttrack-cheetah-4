@@ -71,7 +71,7 @@ function FlipBook({ book }: { book: any }) {
                 <img
                   src={book.cover}
                   alt={`${book.title} ${book.vol} cover`}
-                  style={{ width:"100%", height:"100%", minHeight:240, objectFit:"cover", objectPosition:"center top", display:"block" }}
+                  style={{ width:"100%", height:"100%", minHeight:240, objectFit:"cover", objectPosition:"center center", display:"block" }}
                   onError={(e)=>{
                     const img = e.target as HTMLImageElement;
                     img.style.display="none";
@@ -81,7 +81,7 @@ function FlipBook({ book }: { book: any }) {
                 />
               ) : null}
               {/* Fallback if no cover or cover doesn't load */}
-              <div style={{ display:book.cover?"none":"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, width:"100%", minHeight:240 }}>
+              <div style={{ display:book.cover?"none":"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, width:"100%", minHeight:240, background:book.color }}>
                 <div style={{ fontSize:48 }}>📗</div>
                 <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:16, color:"#0C2340", textAlign:"center" }}>{book.title}</div>
                 <div style={{ fontSize:12, color:"#8A7A6A" }}>{book.vol}</div>
@@ -413,7 +413,7 @@ export default function Resources() {
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 3", body:"The third volume in the Pupil's Helper series. Focuses on vowel digraphs, blends, and reading fluency through structured decodable passages and comprehension activities.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"You're Almost There!", sub:"Advanced Phoneme Practice", body:"This volume covers the final phoneme sets — including digraphs, diphthongs, and longer word patterns. You are reading real sentences and short stories now. Well done!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"JamDER™ Reader", vol:"Special Edition", cover:"/images/resources/mr-pete-makes-friends.jpg", color:"#FFF0E0", accent:"#C05A00", pages:[
+              { title:"JamDER™ Reader", vol:"Special Edition", cover:"/images/resources/cder-books.jpg", color:"#FFF0E0", accent:"#C05A00", pages:[
                 { heading:"JamDER+™ — Special Edition", sub:"Jamaican Decodable & Early Readers", body:"A special curated collection of JamDER™ stories — culturally authentic, fully decodable, and beautifully illustrated. Celebrating Jamaican heritage through the joy of reading.", author:"CHEETAH® Purrrrrrr Publishing · Paulette Trowers, Juris Doctor" },
                 { heading:"About This Collection", sub:"Stories from Our Culture", body:"These stories are set in Jamaica and feature characters, places, and experiences that Jamaican children know and love. Every word is decodable using the FastTrack phonics sequence.", author:"fasttrackliteracy.com · mycheetahinc.com" },
               ]},
