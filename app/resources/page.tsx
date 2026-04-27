@@ -390,27 +390,27 @@ export default function Resources() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(260px,28vw,340px),1fr))", gap:24 }}>
             {[
-              { title:"Teacher's Helper", vol:"Volume 1", cover:"/images/resources/teachers-helper-vol1.webp", color:"#DBEAFE", accent:"#1E40AF", pages:[
+              { title:"Teacher's Helper", vol:"Volume 1", cover:"/images/resources/teachers-helper-vol1.webp", url:"https://heyzine.com/flip-book/0a66e4e5a7.html", color:"#DBEAFE", accent:"#1E40AF", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Teacher's Helper · Volume 1", body:"This resource provides structured lesson plans and teaching guides aligned to the FastTrack Literacy™ programme. Designed for classroom teachers and early literacy educators.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz · Iain Taylor" },
                 { heading:"How to Use This Book", sub:"Teacher's Guide", body:"Each lesson follows the 16-step FastTrack structured format. Begin with the phoneme song, proceed through decoding activities, and close with the reading of the decodable text.", author:"Early Literacy Tool · CHEETAH® Purrrrrrr Publishing" },
               ]},
-              { title:"Teacher's Helper", vol:"Volume 2", cover:"/images/resources/teachers-helper-vol2.jpg", color:"#DCFCE7", accent:"#166534", pages:[
+              { title:"Teacher's Helper", vol:"Volume 2", cover:"/images/resources/teachers-helper-vol2.jpg", url:"https://heyzine.com/flip-book/01cc4943e4.html", color:"#DCFCE7", accent:"#166534", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Teacher's Helper · Volume 2", body:"A continuation of the teacher's instructional guide series. Covers phoneme sets 4–6 with extended lesson activities, assessment tools, and differentiation strategies.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz · Iain Taylor" },
                 { heading:"Phoneme Set Overview", sub:"Sets 4 — 6", body:"Set 4: l, b, short ŭ, soft g, long ā · Set 5: j, long ī, or, long ō, z · Set 6: ng, w/wh, short oo, long oo, v. Each set includes song activities and decodable text practice.", author:"Early Literacy Tool · Ministry of Education Aligned" },
               ]},
-              { title:"Pupil's Helper", vol:"Volume 1", cover:"/images/resources/pupils-helper-vol1.jpg", color:"#FEF3C7", accent:"#92400E", pages:[
+              { title:"Pupil's Helper", vol:"Volume 1", cover:"/images/resources/pupils-helper-vol1.jpg", url:"https://heyzine.com/flip-book/c3b25db878.html", color:"#FEF3C7", accent:"#92400E", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 1", body:"A student workbook filled with phonics activities, letter-sound exercises, and early reading practice. Designed for children ages 3–6 beginning their literacy journey.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"Welcome, Young Reader!", sub:"A Message to Students", body:"This book is for you! Every page will help you learn new sounds and words. You are going to be a great reader. Let's begin!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"Pupil's Helper", vol:"Volume 2", cover:"/images/resources/pupils-helper-vol2.jpg", color:"#FCE7F3", accent:"#9D174D", pages:[
+              { title:"Pupil's Helper", vol:"Volume 2", cover:"/images/resources/pupils-helper-vol2.jpg", url:"https://heyzine.com/flip-book/16a9bc1676.html", color:"#FCE7F3", accent:"#9D174D", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 2", body:"Building on Volume 1, this workbook introduces more complex phoneme combinations through engaging activities, rhymes, and culturally relevant Jamaican stories.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"What You Will Learn", sub:"Phoneme Sets 4 — 6", body:"In this volume you will practise blending longer words, reading short sentences, and recognising tricky high-frequency words. Keep going — you are doing amazing!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"Pupil's Helper", vol:"Volume 3", cover:"/images/resources/pupils-helper-vol3.jpg", color:"#EDE9FE", accent:"#5B21B6", pages:[
+              { title:"Pupil's Helper", vol:"Volume 3", cover:"/images/resources/pupils-helper-vol3.jpg", url:"https://heyzine.com/flip-book/639bcdbb20.html", color:"#EDE9FE", accent:"#5B21B6", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 3", body:"The third volume in the Pupil's Helper series. Focuses on vowel digraphs, blends, and reading fluency through structured decodable passages and comprehension activities.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"You're Almost There!", sub:"Advanced Phoneme Practice", body:"This volume covers the final phoneme sets — including digraphs, diphthongs, and longer word patterns. You are reading real sentences and short stories now. Well done!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"JamDER™ Reader", vol:"Special Edition", cover:"/images/resources/cder-books.jpg", color:"#FFF0E0", accent:"#C05A00", pages:[
+              { title:"JamDER™ Reader", vol:"Special Edition", url:"https://heyzine.com/flip-book/eda08f4c87.html", cover:"/images/resources/cder-books.jpg", color:"#FFF0E0", accent:"#C05A00", pages:[
                 { heading:"JamDER+™ — Special Edition", sub:"Jamaican Decodable & Early Readers", body:"A special curated collection of JamDER™ stories — culturally authentic, fully decodable, and beautifully illustrated. Celebrating Jamaican heritage through the joy of reading.", author:"CHEETAH® Purrrrrrr Publishing · Paulette Trowers, Juris Doctor" },
                 { heading:"About This Collection", sub:"Stories from Our Culture", body:"These stories are set in Jamaica and feature characters, places, and experiences that Jamaican children know and love. Every word is decodable using the FastTrack phonics sequence.", author:"fasttrackliteracy.com · mycheetahinc.com" },
               ]},
