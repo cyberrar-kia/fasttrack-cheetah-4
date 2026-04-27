@@ -128,7 +128,7 @@ export default function HowItWorks() {
         <div className="container">
           <div className="section-chip" style={{ background:"rgba(245,130,10,0.2)", border:"1px solid rgba(245,130,10,0.4)", color:"#FFB366" }}>🐆 See It In Action</div>
           <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(24px,4vw,38px)", color:"white", marginBottom:14, marginTop:12 }}>
-            Inside a CHEETAH® Lesson
+            Inside a FastTrack Literacy™ Lesson
           </h2>
           <p style={{ fontSize:"clamp(13px,1.6vw,16px)", color:"rgba(255,255,255,0.75)", lineHeight:1.8, marginBottom:40, maxWidth:580, margin:"0 auto 40px" }}>
             Watch the FastTrack Literacy™ system in action — a real classroom lesson showing how the 16-step structure comes to life.

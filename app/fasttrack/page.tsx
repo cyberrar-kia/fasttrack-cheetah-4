@@ -24,10 +24,11 @@ export default function FastTrackPage() {
           <div className="grid-2">
             <div>
               <div className="section-chip">🚂 A Literacy Journey</div>
-              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>What is FastTrack Literacy©?</h2>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Phonics™ is a structured early reading program that teaches children how letters sound, connect, and form words.</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>It is grounded in the <strong>evidence-based Science of Reading</strong>, integrating the five pillars of <strong>phonemic awareness, phonics, fluency, vocabulary, and comprehension</strong> to build strong, confident readers, especially during the formative years.</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>Children are not just learners — they become active participants in their reading journey through <strong>child-led learning and guided practice</strong>.</p>
+              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>What is FastTrack Literacy™?</h2>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Literacy™ is a structured early reading programme that teaches children how letters sound, connect, and form words.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Grounded in the <strong>evidence-based Science of Reading</strong>, it integrates the five pillars of <strong>phonemic awareness, phonics, fluency, vocabulary, and comprehension</strong> to build strong, confident readers, particularly during the formative years.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>FastTrack Literacy™ is supported by an extensive suite of <strong>over 90 integrated resources</strong>, including more than 70 decodable books, flashcards, songs and movement activities, structured lesson materials, and AI-enhanced supervised learning tools. Content is delivered through CHEETAH's proprietary digital media, including the iCHEETAH™ device and branded tablets, creating a seamless blend of curriculum, technology, and assessment.</p>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>Children are not just learners — they become <strong>active participants</strong> in their reading journey through child-led learning and guided practice.</p>
             </div>
             <div>
               <Image src="/images/image3.png" alt="The Five Pillars of Literacy: Building Strong Readers" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
@@ -41,7 +42,7 @@ export default function FastTrackPage() {
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:32 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>📊 A Global Need</div>
-            <h2 style={{ fontSize:"clamp(22px,4vw,36px)", fontWeight:900, color:"#0C2340", marginBottom:12 }}>Why It Matters</h2>
+            <h2 style={{ fontSize:"clamp(22px,4vw,36px)", fontWeight:900, color:"#0C2340", marginBottom:12 }}>Why the Programme Matters</h2>
           </div>
           <div className="grid-2" style={{ alignItems:"center" }}>
             <div>
@@ -65,8 +66,8 @@ export default function FastTrackPage() {
         <div className="container">
           <div className="grid-2" style={{ alignItems:"center" }}>
             <div>
-              <div className="section-chip">👧 Who Is the Program For</div>
-              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>Designed for Ages 3–8 and Their Families</h2>
+              <div className="section-chip">👧 Who is the Programme For</div>
+              <h2 style={{ fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>Who is the Programme For?</h2>
               <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>Primarily designed for children ages 3–8 and their families because reading success starts early and grows at home.</p>
               <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}><strong>FastTrack Literacy©</strong> is adaptive and can be used across a wide range of age groups, supporting learners at different reading levels. It is also a great resource for educators and parents.</p>
               <button onClick={() => setWhoOpen(true)} style={{ background:"#F5820A", color:"white", border:"none", borderRadius:50, padding:"11px 24px", fontSize:14, fontWeight:800, fontFamily:"'Nunito',sans-serif", cursor:"pointer" }}>Read More →</button>
