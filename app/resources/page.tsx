@@ -113,7 +113,7 @@ function FlipBook({ book }: { book: any }) {
             <div style={{ width:56, height:56, borderRadius:"50%", background:"rgba(12,35,64,0.08)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:28 }}>🔒</div>
             <div style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:16, color:"#0C2340" }}>Full Access Required</div>
             <div style={{ fontSize:13, color:"#8A7A6A", lineHeight:1.7, maxWidth:220 }}>Get full access to read all pages of {book.title} — {book.vol}</div>
-            <a href="/get-started" style={{ background:"#F5820A", color:"white", textDecoration:"none", padding:"11px 24px", borderRadius:50, fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", marginTop:4 }}>Get Full Access →</a>
+            <a href={book.url || "/get-started"} target={book.url ? "_blank" : "_self"} rel="noopener noreferrer" style={{ background:"#F5820A", color:"white", textDecoration:"none", padding:"11px 24px", borderRadius:50, fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", marginTop:4 }}>Read Full Book →</a>
           </div>
         )}
         {/* Page indicator dots */}
@@ -434,6 +434,27 @@ export default function Resources() {
                 { heading:"FastTrack Literacy™ Lesson Framework", sub:"1-Hour Lesson Framework Overview", body:"The complete suggested timetable and instructional flow for delivering FastTrack Literacy™ lessons. Essential reference for all CHEETAH® educators.", author:"CHEETAH® FastTrack Literacy™ · Paulette Trowers, JD" },
                 { heading:"For Teacher Training Manual", sub:"Final Approved Version", body:"This framework outlines the 16-step instructional sequence within a structured 1-hour lesson — covering daily review, phonics drill, blending, fluency practice, and assessment.", author:"CHEETAH® FastTrack Literacy™ · fasttrackliteracy.com" },
               ]},
+,
+              { title:"House Flood", vol:"Story Book", cover:"", color:"#DBEAFE", accent:"#1E40AF", url:"https://heyzine.com/flip-book/8e75d550bf.html", pages:[
+                { heading:"House Flood", sub:"JamDER™ Story Book", body:"A decodable story book from the JamDER™ collection. Culturally authentic, fully decodable, and designed for early readers.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
+                { heading:"About This Story", sub:"Early Reader Series", body:"This story follows the FastTrack phonics sequence. Every word is decodable using the sounds learned in the programme.", author:"fasttrackliteracy.com" },
+              ]},
+              { title:"Mr Pete Makes Friends", vol:"Story Book", cover:"", color:"#DCFCE7", accent:"#166534", url:"https://heyzine.com/flip-book/b3e8251538.html", pages:[
+                { heading:"Mr Pete Makes Friends", sub:"JamDER™ Story Book", body:"A warm, decodable early reader about friendship and community. Aligned to the FastTrack Literacy™ phonics sequence.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
+                { heading:"About This Story", sub:"Early Reader Series", body:"Perfect for children beginning to read independently. Simple, decodable text with engaging illustrations.", author:"fasttrackliteracy.com" },
+              ]},
+              { title:"Meet My Family", vol:"Story Book", cover:"", color:"#FEF9C3", accent:"#92400E", url:"https://heyzine.com/flip-book/ff1ce15d36.html", pages:[
+                { heading:"Meet My Family", sub:"JamDER™ Story Book", body:"A decodable story celebrating family and belonging. Culturally authentic illustrations and fully decodable text.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
+                { heading:"About This Story", sub:"Early Reader Series", body:"Introduces family vocabulary through decodable text. Great for early phonics learners.", author:"fasttrackliteracy.com" },
+              ]},
+              { title:"Grade 6 PEP Mathematics", vol:"Workbook", cover:"", color:"#EDE9FE", accent:"#5B21B6", url:"https://heyzine.com/flip-book/811a07b9b4.html", pages:[
+                { heading:"Grade 6 PEP Mathematics Workbook", sub:"Examination Preparation", body:"A comprehensive mathematics workbook designed to prepare Grade 6 students for the Primary Exit Profile (PEP) examinations.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
+                { heading:"What This Covers", sub:"PEP Examination Prep", body:"Covers all key mathematics topics for Grade 6 — number operations, fractions, geometry, measurement, and data handling.", author:"fasttrackliteracy.com" },
+              ]},
+              { title:"FastTrack Lesson Framework", vol:"Teacher Guide", cover:"", color:"#FFF0E0", accent:"#C05A00", url:"https://heyzine.com/flip-book/2bee43b4b3.html", pages:[
+                { heading:"FastTrack Lesson Framework", sub:"Teacher Guide", body:"The complete FastTrack Literacy™ lesson framework for educators — the 16-step structured lesson plan in full detail.", author:"Paulette Trowers, Juris Doctor · CHEETAH® Purrrrrrr Publishing" },
+                { heading:"How to Use This Guide", sub:"16-Step Framework", body:"Follow the 16 steps in sequence for every lesson. Adjust timing based on student needs. This guide is your complete classroom companion.", author:"fasttrackliteracy.com" },
+              ]}
             ].map((book, bookIdx) => (
               <FlipBook key={bookIdx} book={book} />
             ))}
