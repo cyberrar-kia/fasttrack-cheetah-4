@@ -30,7 +30,7 @@ const drawerContent: Record<string, DrawerItem> = {
 };
 
 const resources = [
-  { cat:"Phonics", icon:"📊", audience:"both", image:"/images/resources/phonics-charts.jpg", title:"Phonics Chart — Sets 1–9", desc:"Official FastTrack Literacy™ Phonics Chart — 9 phoneme sets plus bonus sound, as provided by the Ministry of Education, Skills, Youth and Information.", tag:"orange", type:"PDF Download", downloadUrl:"/phonics-chart.pdf" },
+  { cat:"Phonics", icon:"📊", audience:"both", image:"/images/resources/phonics-chart-preview.jpg", title:"Phonics Chart — Sets 1–9", desc:"Official FastTrack Literacy™ Phonics Chart — 9 phoneme sets plus bonus sound, as provided by the Ministry of Education, Skills, Youth and Information.", tag:"orange", type:"PDF Download", downloadUrl:"/phonics-chart.pdf" },
   { cat:"Teacher Resources", icon:"👩‍🏫", audience:"teacher", image:"/images/resources/teachers-helper-combined.jpg", title:"Teacher's Helper / Teacher's Guide", desc:"Full instructional roadmap with difficult auditory stories, a 65-minute suggested Teacher's Page per letter, and over 640 activities. Available in Volumes 1 and 2.", tag:"blue", type:"Physical + Digital" },
   { cat:"Student Resources", icon:"👧", audience:"parent", image:"/images/resources/pupils-helper-vol1.jpg", title:"Pupil's Workbook / Pupil's Helper", desc:"Streamlined version for students (omitting steps 2, 3, and 4) to remain accessible for the child. Available in Volumes 1, 2, and 3.", tag:"green", type:"Physical Book" },
   { cat:"Songs & Audio", icon:"🎵", audience:"both", title:"45 Reggae Phoneme Songs", desc:"One-minute rhythmic, memorable, and fun songs — one for each phoneme. Children wake up singing them! Samples: ANNA-WARRIOR, BIG FISH-WARRIOR, BLACK BIRD. Full list coming soon.", tag:"orange", type:"Audio + Digital" },
@@ -212,7 +212,7 @@ export default function Resources() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(clamp(220px,26vw,280px),1fr))", gap:16 }}>
             {[
               { icon:"📋", image:"/images/resources/teachers-helper-combined.jpg", title:"Teacher's Helper Vol 1 & 2", desc:"Full 16-step instructional roadmap for every phoneme. Includes auditory stories, guided steps, and a suggested 65-minute lesson plan per letter." },
-              { icon:"📊", image:"/images/resources/phonics-charts.jpg", title:"FastTrack Phonics Chart", desc:"Official Ministry of Education approved phonics chart covering all 9 phoneme sets plus a bonus letter sound. Print-ready PDF.", free:true },
+              { icon:"📊", image:"/images/resources/phonics-chart-preview.jpg", title:"FastTrack Phonics Chart", desc:"Official Ministry of Education approved phonics chart covering all 9 phoneme sets plus a bonus letter sound. Print-ready PDF.", free:true },
               { icon:"📝", title:"Assessment & Progress Tools", desc:"CHEETAH® Poster Fluency Tests, self-assessment checklists, and progress tracking sheets. Measurable outcomes at every stage." },
               { icon:"🗂️", image:"/images/resources/phonics-charts.jpg", title:"27+ Interactive Charts", desc:"Multisensory reinforcement tools including phonics charts, word family charts, and classroom display resources." },
               { icon:"🎓", title:"Teacher Training Programme", desc:"Full implementation training for classroom teachers. Train-the-trainer model for school-wide rollout. Available in-person and digitally." },
