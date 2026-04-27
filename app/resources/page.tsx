@@ -148,6 +148,7 @@ export default function Resources() {
   const [activeDrawer, setActiveDrawer] = useState<string|null>(null);
   const [audience, setAudience] = useState<"all"|"teacher"|"parent">("all");
   const [lastClicked, setLastClicked] = useState<string|null>(null);
+  const [expandedImg, setExpandedImg] = useState<string|null>(null);
   const allResourcesRef = useRef<HTMLDivElement>(null);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [quoteStatus, setQuoteStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
@@ -312,8 +313,12 @@ export default function Resources() {
             {resources.filter(r => audience === "all" || r.audience === audience || r.audience === "both").map(r=>(
               <div key={r.title} style={{ background: lastClicked === r.title ? "#FFF0E0" : "white", border: lastClicked === r.title ? "2px solid #F5820A" : "1px solid #EDE0D0", borderRadius:16, overflow:"hidden", display:"flex", flexDirection:"column", transition:"all 0.3s ease", boxShadow: lastClicked === r.title ? "0 4px 20px rgba(245,130,10,0.15)" : "0 2px 8px rgba(0,0,0,0.04)" }}>
                 {(r as any).image && (
-                  <div style={{ width:"100%", height:180, background:"white", display:"flex", alignItems:"center", justifyContent:"center", borderBottom:"1px solid #EDE0D0", padding:12, boxSizing:"border-box" }}>
+                  <div
+                    onClick={() => setExpandedImg((r as any).image)}
+                    style={{ width:"100%", height:180, background:"white", display:"flex", alignItems:"center", justifyContent:"center", borderBottom:"1px solid #EDE0D0", padding:12, boxSizing:"border-box", cursor:"zoom-in", position:"relative" }}
+                  >
                     <img src={(r as any).image} alt={r.title} style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain", display:"block" }} />
+                    <div style={{ position:"absolute", bottom:6, right:8, fontSize:10, color:"#A0927A", background:"rgba(255,255,255,0.85)", padding:"2px 7px", borderRadius:50, fontWeight:600 }}>🔍 Expand</div>
                   </div>
                 )}
                 <div style={{ padding:20, display:"flex", flexDirection:"column", gap:10, flex:1 }}>
@@ -556,6 +561,15 @@ export default function Resources() {
               </div>
             )}
           </div>
+        </div>
+      )}
+      {expandedImg && (
+        <div
+          onClick={() => setExpandedImg(null)}
+          style={{ position:"fixed", inset:0, zIndex:2000, background:"rgba(0,0,0,0.88)", display:"flex", alignItems:"center", justifyContent:"center", padding:24, cursor:"zoom-out" }}
+        >
+          <button onClick={() => setExpandedImg(null)} style={{ position:"absolute", top:20, right:24, background:"rgba(255,255,255,0.15)", border:"none", color:"white", fontSize:24, borderRadius:8, padding:"4px 12px", cursor:"pointer" }}>✕</button>
+          <img src={expandedImg} alt="Expanded resource" style={{ maxWidth:"90vw", maxHeight:"88vh", objectFit:"contain", borderRadius:12, boxShadow:"0 24px 80px rgba(0,0,0,0.6)" }} />
         </div>
       )}
     </>
