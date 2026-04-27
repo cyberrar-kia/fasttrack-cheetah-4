@@ -414,47 +414,32 @@ export default function Resources() {
                 { heading:"JamDER+™ — Special Edition", sub:"Jamaican Decodable & Early Readers", body:"A special curated collection of JamDER™ stories — culturally authentic, fully decodable, and beautifully illustrated. Celebrating Jamaican heritage through the joy of reading.", author:"CHEETAH® Purrrrrrr Publishing · Paulette Trowers, Juris Doctor" },
                 { heading:"About This Collection", sub:"Stories from Our Culture", body:"These stories are set in Jamaica and feature characters, places, and experiences that Jamaican children know and love. Every word is decodable using the FastTrack phonics sequence.", author:"fasttrackliteracy.com · mycheetahinc.com" },
               ]},
-              { title:"House Flood", vol:"C-DER Story Book", cover:"/images/resources/house-flood.png", color:"#DBEAFE", accent:"#1E40AF", pages:[
+              { title:"House Flood", vol:"C-DER Story Book", cover:"/images/resources/house-flood.png", url:"https://heyzine.com/flip-book/8e75d550bf.html", color:"#DBEAFE", accent:"#1E40AF", pages:[
                 { heading:"House Flood", sub:"CHEETAH® Purrrrrrr Publishing", body:"A decodable early reader story from the C-DER™ collection. Fully phonics-aligned and culturally authentic.", author:"Bernadette Vidal · Paulette Trowers, JD" },
                 { heading:"About This Book", sub:"Decodable & Early Reader", body:"House Flood is fully decodable and aligned to the FastTrack Literacy™ phonics sequence — building fluency and confidence through culturally authentic storytelling.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"Mr. Pete Makes Friends", vol:"C-DER Story Book", cover:"/images/resources/mr-pete-makes-friends.png", color:"#DCFCE7", accent:"#166534", pages:[
+              { title:"Mr. Pete Makes Friends", vol:"C-DER Story Book", cover:"/images/resources/mr-pete-makes-friends.png", url:"https://heyzine.com/flip-book/b3e8251538.html", color:"#DCFCE7", accent:"#166534", pages:[
                 { heading:"Mr. Pete Makes Friends", sub:"CHEETAH® Purrrrrrr Publishing", body:"A decodable early reader story from the C-DER™ collection. Fully phonics-aligned and culturally authentic.", author:"Bernadette Vidal · Paulette Trowers, JD" },
                 { heading:"About This Book", sub:"Decodable & Early Reader", body:"Mr. Pete Makes Friends is fully decodable and aligned to the FastTrack Literacy™ phonics sequence — helping children build confidence through stories they love.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"Meet My Family", vol:"C-DER Story Book", cover:"/images/resources/meet-my-family.png", color:"#FEF3C7", accent:"#92400E", pages:[
+              { title:"Meet My Family", vol:"C-DER Story Book", cover:"/images/resources/meet-my-family.png", url:"https://heyzine.com/flip-book/ff1ce15d36.html", color:"#FEF3C7", accent:"#92400E", pages:[
                 { heading:"Meet My Family", sub:"CHEETAH® Purrrrrrr Publishing", body:"A decodable early reader story from the C-DER™ collection. Fully phonics-aligned and culturally authentic.", author:"Bernadette Vidal · Paulette Trowers, JD" },
                 { heading:"About This Book", sub:"Decodable & Early Reader", body:"Meet My Family is a fully decodable story aligned to the FastTrack Literacy™ phonics sequence — building reading confidence through relatable, culturally rich narratives.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
               ]},
-              { title:"Grade 6 PEP Mathematics Workbook", vol:"Workbook", cover:"/images/resources/pep-math-workbook.png", color:"#EDE9FE", accent:"#5B21B6", pages:[
+              { title:"Grade 6 PEP Mathematics Workbook", vol:"Workbook", cover:"/images/resources/pep-math-workbook.png", url:"https://heyzine.com/flip-book/811a07b9b4.html", color:"#EDE9FE", accent:"#5B21B6", pages:[
                 { heading:"Grade 6 PEP Mathematics Workbook", sub:"CHEETAH® Publishing", body:"A comprehensive mathematics workbook with answers and explanations. Designed to prepare Grade 6 students for PEP examinations.", author:"A Team of Educators · CHEETAH® Purrrrrrr Publishing" },
                 { heading:"What's Inside", sub:"Answers & Explanations", body:"This workbook provides detailed step-by-step answers to support independent study, classroom instruction, and exam preparation at the Grade 6 level.", author:"CHEETAH® Purrrrrrr Publishing · mycheetahinc.com" },
               ]},
-              { title:"FastTrack Lesson Framework", vol:"Teacher Reference", cover:"/images/resources/fasttrack-lesson-framework.png", color:"#F0FDF4", accent:"#166534", pages:[
+              { title:"FastTrack Lesson Framework", vol:"Teacher Reference", cover:"/images/resources/fasttrack-lesson-framework.png", url:"https://heyzine.com/flip-book/2bee43b4b3.html", color:"#F0FDF4", accent:"#166534", pages:[
                 { heading:"FastTrack Literacy™ Lesson Framework", sub:"1-Hour Lesson Framework Overview", body:"The complete suggested timetable and instructional flow for delivering FastTrack Literacy™ lessons. Essential reference for all CHEETAH® educators.", author:"CHEETAH® FastTrack Literacy™ · Paulette Trowers, JD" },
                 { heading:"For Teacher Training Manual", sub:"Final Approved Version", body:"This framework outlines the 16-step instructional sequence within a structured 1-hour lesson — covering daily review, phonics drill, blending, fluency practice, and assessment.", author:"CHEETAH® FastTrack Literacy™ · fasttrackliteracy.com" },
               ]},
 ,
-              { title:"House Flood", vol:"Story Book", cover:"", color:"#DBEAFE", accent:"#1E40AF", url:"https://heyzine.com/flip-book/8e75d550bf.html", pages:[
-                { heading:"House Flood", sub:"JamDER™ Story Book", body:"A decodable story book from the JamDER™ collection. Culturally authentic, fully decodable, and designed for early readers.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
-                { heading:"About This Story", sub:"Early Reader Series", body:"This story follows the FastTrack phonics sequence. Every word is decodable using the sounds learned in the programme.", author:"fasttrackliteracy.com" },
-              ]},
-              { title:"Mr Pete Makes Friends", vol:"Story Book", cover:"", color:"#DCFCE7", accent:"#166534", url:"https://heyzine.com/flip-book/b3e8251538.html", pages:[
-                { heading:"Mr Pete Makes Friends", sub:"JamDER™ Story Book", body:"A warm, decodable early reader about friendship and community. Aligned to the FastTrack Literacy™ phonics sequence.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
-                { heading:"About This Story", sub:"Early Reader Series", body:"Perfect for children beginning to read independently. Simple, decodable text with engaging illustrations.", author:"fasttrackliteracy.com" },
-              ]},
-              { title:"Meet My Family", vol:"Story Book", cover:"", color:"#FEF9C3", accent:"#92400E", url:"https://heyzine.com/flip-book/ff1ce15d36.html", pages:[
-                { heading:"Meet My Family", sub:"JamDER™ Story Book", body:"A decodable story celebrating family and belonging. Culturally authentic illustrations and fully decodable text.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
-                { heading:"About This Story", sub:"Early Reader Series", body:"Introduces family vocabulary through decodable text. Great for early phonics learners.", author:"fasttrackliteracy.com" },
-              ]},
-              { title:"Grade 6 PEP Mathematics", vol:"Workbook", cover:"", color:"#EDE9FE", accent:"#5B21B6", url:"https://heyzine.com/flip-book/811a07b9b4.html", pages:[
-                { heading:"Grade 6 PEP Mathematics Workbook", sub:"Examination Preparation", body:"A comprehensive mathematics workbook designed to prepare Grade 6 students for the Primary Exit Profile (PEP) examinations.", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
-                { heading:"What This Covers", sub:"PEP Examination Prep", body:"Covers all key mathematics topics for Grade 6 — number operations, fractions, geometry, measurement, and data handling.", author:"fasttrackliteracy.com" },
-              ]},
-              { title:"FastTrack Lesson Framework", vol:"Teacher Guide", cover:"", color:"#FFF0E0", accent:"#C05A00", url:"https://heyzine.com/flip-book/2bee43b4b3.html", pages:[
-                { heading:"FastTrack Lesson Framework", sub:"Teacher Guide", body:"The complete FastTrack Literacy™ lesson framework for educators — the 16-step structured lesson plan in full detail.", author:"Paulette Trowers, Juris Doctor · CHEETAH® Purrrrrrr Publishing" },
-                { heading:"How to Use This Guide", sub:"16-Step Framework", body:"Follow the 16 steps in sequence for every lesson. Adjust timing based on student needs. This guide is your complete classroom companion.", author:"fasttrackliteracy.com" },
-              ]}
+
+
+
+
+
             ].map((book, bookIdx) => (
               <FlipBook key={bookIdx} book={book} />
             ))}
