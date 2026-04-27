@@ -112,6 +112,9 @@ export default function About() {
               </div>
             ))}
           </div>
+          <div style={{ marginTop:48, textAlign:"center" }}>
+            <Image src="/images/team-partners.png" alt="Stronger Together — Collaborating Today for a Better Tomorrow" width={800} height={500} style={{ width:"100%", maxWidth:700, height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)", margin:"0 auto", display:"block" }} />
+          </div>
         </div>
       </section>
 
