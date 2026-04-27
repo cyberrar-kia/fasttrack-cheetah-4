@@ -292,7 +292,10 @@ export default function Resources() {
                 ))}
               </div>
             </div>
-            <Image src="/images/icheetah-frontal.png" alt="iCHEETAH™ Robot" width={400} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
+            <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
+              <Image src="/images/girl-with-icheetah.png" alt="Child hugging iCHEETAH™ Robot" width={400} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
+              <Image src="/images/icheetah-frontal.png" alt="iCHEETAH™ Robot" width={400} height={300} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
+            </div>
           </div>
           <div style={{ marginBottom:48 }}>
             <Image src="/images/icheetah-features.png" alt="iCHEETAH Features" width={1200} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
