@@ -112,9 +112,6 @@ export default function About() {
               </div>
             ))}
           </div>
-          <div style={{ marginTop:48, textAlign:"center" }}>
-            <Image src="/images/team-partners.png" alt="Stronger Together — Collaborating Today for a Better Tomorrow" width={800} height={500} style={{ width:"100%", maxWidth:700, height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)", margin:"0 auto", display:"block" }} />
-          </div>
         </div>
       </section>
 
@@ -135,7 +132,8 @@ export default function About() {
         <div className="container-xs">
           <div className="section-chip" style={{ margin:"0 auto 16px" }}>🤝 How to Partner with Us</div>
           <h2 style={{ fontSize:"clamp(20px,3vw,30px)", fontWeight:900, color:"#0C2340", marginBottom:14 }}>Want to Partner With CHEETAH®?</h2>
-          <p style={{ fontSize:15, color:"#5A5240", marginBottom:28, maxWidth:480, margin:"0 auto 28px" }}>Whether you run a school, an NGO, or a government literacy programme — we want to hear from you. We work with Ministries of Education, community organisations, and private sector partners to expand literacy access worldwide.</p>
+          <p style={{ fontSize:15, color:"#5A5240", marginBottom:32, maxWidth:480, margin:"0 auto 32px" }}>Whether you run a school, an NGO, or a government literacy programme — we want to hear from you. We work with Ministries of Education, community organisations, and private sector partners to expand literacy access worldwide.</p>
+          <Image src="/images/team-partners.png" alt="Stronger Together — Collaborating Today for a Better Tomorrow" width={900} height={560} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)", marginBottom:32 }} />
           <Link href="/contact" className="btn-orange">Get In Touch →</Link>
         </div>
       </section>
