@@ -58,15 +58,8 @@ export default function Footer() {
               <a href="/images/welcome-letter.png" download style={{ display:"inline-flex", alignItems:"center", gap:8, background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", color:"#FFB366", fontSize:12, fontWeight:700, padding:"8px 14px", borderRadius:50, textDecoration:"none" }}>🎁 Download Free Welcome Letter</a>
             </div>
             {status === "sent" ? (
-              <div>
-                <div style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.15)", borderRadius:12, padding:"12px 16px", fontSize:13, color:"#4ADE80", marginBottom:12 }}>
-                  ✓ You're subscribed!
-                </div>
-                <p style={{ fontSize:12, color:"rgba(255,255,255,0.6)", marginBottom:10 }}>Your free welcome resource:</p>
-                <a href="/images/welcome-letter.png" download style={{ display:"block" }}>
-                  <img src="/images/welcome-letter.png" alt="FastTrack Literacy Welcome Letter" style={{ width:"100%", borderRadius:8, boxShadow:"0 4px 20px rgba(0,0,0,0.4)", marginBottom:8 }} />
-                  <span style={{ fontSize:12, color:"#F5820A", fontWeight:700 }}>↓ Download Welcome Letter</span>
-                </a>
+              <div style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.15)", borderRadius:50, padding:"10px 18px", fontSize:13, color:"#4ADE80" }}>
+                ✓ You're subscribed!
               </div>
             ) : (
               <div style={{ display:"flex", gap:8, marginBottom:8 }}>

@@ -21,9 +21,6 @@ export default function GetStarted() {
     <>
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"80px 24px 60px", textAlign:"center" }}>
         <div className="container-sm">
-          <div style={{ display:"flex", justifyContent:"center", marginBottom:16 }}>
-            <Image src="/images/cheetah-logo.png" alt="CHEETAH®" width={80} height={40} style={{ height:40, width:"auto", objectFit:"contain", opacity:0.9 }} />
-          </div>
 
           <div style={{ display:"inline-flex", background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", color:"#FFB366", fontSize:11, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", padding:"6px 14px", borderRadius:50, marginBottom:20 }}>Get Started</div>
           <h1 style={{ fontSize:"clamp(28px,5vw,48px)", fontWeight:900, color:"white", marginBottom:18 }}>FastTrack Literacy™, <span style={{ color:"#F5820A" }}>A Complete Educational Solution for All Stakeholders</span></h1>
