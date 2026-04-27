@@ -13,7 +13,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section" style={{ background:"white" }}>
+      <section id="who-we-are" className="section" style={{ background:"white" }}>
         <div className="container">
           <div className="grid-2">
             <div>
@@ -38,7 +38,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section" style={{ background:"#FFF9F4" }}>
+      <section className="section" style={{ background:"#FFF9F4" }} id="ecosystem">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:40 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>🌍 A Global Literacy Ecosystem</div>
@@ -49,7 +49,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section" style={{ background:"white" }}>
+      <section className="section" style={{ background:"white" }} id="fasttrack">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:32 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>📚 What is FastTrack Literacy™</div>
@@ -61,7 +61,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section" style={{ background:"#FFF9F4" }}>
+      <section className="section" style={{ background:"#FFF9F4" }} id="founder">
         <div className="container">
           <div className="grid-2">
             <div>
@@ -85,7 +85,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section" style={{ background:"white" }}>
+      <section className="section" style={{ background:"white" }} id="team">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:40 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>🤝 Our Team Members and Partners</div>
@@ -124,7 +124,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section-sm" style={{ background:"#FFF0E0", textAlign:"center" }}>
+      <section id="partner" className="section-sm" style={{ background:"#FFF0E0", textAlign:"center" }}>
         <div className="container-xs">
           <div className="section-chip" style={{ margin:"0 auto 16px" }}>🤝 How to Partner with Us</div>
           <h2 style={{ fontSize:"clamp(20px,3vw,30px)", fontWeight:900, color:"#0C2340", marginBottom:14 }}>Want to Partner With CHEETAH®?</h2>

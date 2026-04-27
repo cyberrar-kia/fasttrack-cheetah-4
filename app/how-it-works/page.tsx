@@ -31,7 +31,7 @@ export default function HowItWorks() {
       </section>
 
       {/* VIDEO — moved to top */}
-      <section style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"60px 24px", textAlign:"center" }}>
+      <section id="video" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"60px 24px", textAlign:"center" }}>
         <div className="container">
           <div className="section-chip" style={{ background:"rgba(245,130,10,0.2)", border:"1px solid rgba(245,130,10,0.4)", color:"#FFB366" }}>🐆 See It In Action</div>
           <h2 style={{ fontFamily:"'Nunito',sans-serif", fontWeight:900, fontSize:"clamp(24px,4vw,38px)", color:"white", marginBottom:14, marginTop:12 }}>
@@ -55,7 +55,7 @@ export default function HowItWorks() {
       </section>
 
       {/* THE 5 PILLARS */}
-      <section className="section" style={{ background:"white" }}>
+      <section className="section" style={{ background:"white" }} id="pillars">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:48 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>🔬 Science of Reading</div>
@@ -81,7 +81,7 @@ export default function HowItWorks() {
       </section>
 
       {/* 16 STEPS + ANATOMY */}
-      <section className="section" style={{ background:"#FFF9F4" }}>
+      <section className="section" style={{ background:"#FFF9F4" }} id="anatomy">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:52 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>🚂 The Lesson Structure</div>

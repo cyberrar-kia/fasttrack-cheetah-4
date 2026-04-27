@@ -201,7 +201,7 @@ export default function Resources() {
 
       {/* TEACHER RESOURCES */}
       {(audience==="teacher"||audience==="all") && (
-      <section className="section" style={{ background:"#F0FDF4", display: audience==="teacher"||audience==="all" ? "block" : "none" }}>
+      <section className="section" style={{ background:"#F0FDF4", display: audience==="teacher"||audience==="all" ? "block" : "none" }} id="educators">
         <div className="container">
           <div style={{ marginBottom:32 }}>
             <div className="section-chip" style={{ background:"rgba(22,163,74,0.1)", border:"1px solid rgba(22,163,74,0.25)", color:"#166534" }}>👩‍🏫 Teacher Resources</div>
@@ -240,7 +240,7 @@ export default function Resources() {
 
       {/* PARENT RESOURCES */}
       {(audience==="parent"||audience==="all") && (
-      <section className="section" style={{ background:"#EFF6FF" }}>
+      <section id="parents" className="section" style={{ background:"#EFF6FF" }}>
         <div className="container">
           <div style={{ marginBottom:32 }}>
             <div className="section-chip" style={{ background:"rgba(59,130,246,0.1)", border:"1px solid rgba(59,130,246,0.25)", color:"#1E40AF" }}>👨‍👩‍👧 Parent Resources</div>
@@ -278,7 +278,7 @@ export default function Resources() {
       )}
 
 
-      <section className="section" style={{ background:"#FFF9F4" }}>
+      <section id="icheetah" className="section" style={{ background:"#FFF9F4" }}>
         <div className="container">
           <div className="grid-2" style={{ marginBottom:48, gap:40, alignItems:"center" }}>
             <div>
@@ -305,7 +305,7 @@ export default function Resources() {
             <Image src="/images/jamder-books.png" alt="All JamDER and C-DER Books" width={400} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.1)" }} />
           </div>
 
-          <div ref={allResourcesRef} style={{ textAlign:"center", marginBottom:40 }}>
+          <div ref={allResourcesRef} id="all-resources" style={{ textAlign:"center", marginBottom:40 }}>
             <h2 style={{ fontSize:"clamp(22px,4vw,34px)", fontWeight:900, color:"#0C2340" }}>All Resources</h2>
             <p style={{ fontSize:14, color:"#5A5240", marginTop:8 }}>Click "Learn More" on any resource — it will be highlighted here.</p>
           </div>
@@ -349,7 +349,7 @@ export default function Resources() {
       </section>
 
       {/* FREE DOWNLOADS */}
-      <section className="section" style={{ background:"white" }}>
+      <section className="section" style={{ background:"white" }} id="free-downloads">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:40 }}>
             <div className="section-chip">📥 Free Resources</div>
@@ -388,7 +388,7 @@ export default function Resources() {
       </section>
 
       {/* FLIP BOOKS */}
-      <section className="section" style={{ background:"#FFF0E0" }}>
+      <section className="section" style={{ background:"#FFF0E0" }} id="flipbooks">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:48 }}>
             <div className="section-chip">📖 JamDER™ Digital Books</div>

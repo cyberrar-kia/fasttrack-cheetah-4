@@ -19,7 +19,7 @@ export default function FastTrackPage() {
       </section>
 
       {/* WHAT IS IT */}
-      <section className="section" style={{ background:"white" }}>
+      <section className="section" style={{ background:"white" }} id="what-is">
         <div className="container">
           <div className="grid-2">
             <div>
@@ -38,7 +38,7 @@ export default function FastTrackPage() {
       </section>
 
       {/* WHY IT MATTERS */}
-      <section className="section" style={{ background:"#FFF9F4" }}>
+      <section className="section" style={{ background:"#FFF9F4" }} id="why-matters">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:32 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>📊 A Global Need</div>
@@ -62,7 +62,7 @@ export default function FastTrackPage() {
       </section>
 
       {/* WHO IS IT FOR */}
-      <section className="section" style={{ background:"white" }}>
+      <section id="who-for" className="section" style={{ background:"white" }}>
         <div className="container">
           <div className="grid-2" style={{ alignItems:"center" }}>
             <div>
@@ -80,7 +80,7 @@ export default function FastTrackPage() {
       </section>
 
       {/* WHAT MAKES IT DIFFERENT */}
-      <section className="section" style={{ background:"#FFF9F4" }}>
+      <section className="section" style={{ background:"#FFF9F4" }} id="what-makes">
         <div className="container">
           <div className="grid-2" style={{ alignItems:"center" }}>
             <div>
@@ -121,7 +121,7 @@ export default function FastTrackPage() {
       </section>
 
       {/* COMPARISON TABLE — moved from How It Works */}
-      <section className="section" style={{ background:"white" }}>
+      <section className="section" style={{ background:"white" }} id="comparison">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:40 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>🚀 What Makes Us Different</div>
@@ -165,7 +165,7 @@ export default function FastTrackPage() {
       </section>
 
       {/* THE BRAND EXPERIENCE — THE FASTTRACK LITERACY TRAIN */}
-      <section className="section" style={{ background:"#FFF0E0" }}>
+      <section id="brand-experience" className="section" style={{ background:"#FFF0E0" }}>
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:40 }}>
             <div className="section-chip" style={{ margin:"0 auto 16px" }}>🚂 The Brand Experience</div>
