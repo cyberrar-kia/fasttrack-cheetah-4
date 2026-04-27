@@ -38,7 +38,7 @@ function AnimatedStats() {
   }, []);
 
   return (
-    <div ref={ref} style={{ display:"flex", gap:"clamp(20px,3vw,36px)", marginTop:40, flexWrap:"wrap" }}>
+    <div ref={ref} style={{ display:"flex", gap:"clamp(20px,3vw,36px)", marginTop:40, flexWrap:"wrap", justifyContent:"center" }}>
       {[
         { value: `${n90}+`, label: "Educational Resources" },
         { value: `${n1100.toLocaleString()}+`, label: "Resources Developed" },
@@ -73,7 +73,7 @@ export default function Home() {
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay so text stays readable */}
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(12,35,64,0.82) 0%, rgba(12,35,64,0.65) 50%, rgba(12,35,64,0.75) 100%)", zIndex:1 }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(12,35,64,0.82) 0%, rgba(12,35,64,0.65) 50%, rgba(12,35,64,0.75) 100%)", zIndex:1, pointerEvents:"none" }} />
         {/* Orange accent glow */}
         <div style={{ position:"absolute", top:-100, right:-100, width:500, height:500, borderRadius:"50%", background:"rgba(245,130,10,0.08)", pointerEvents:"none", zIndex:1 }} />
 

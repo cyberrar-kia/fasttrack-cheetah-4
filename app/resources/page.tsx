@@ -30,7 +30,7 @@ const drawerContent: Record<string, DrawerItem> = {
 };
 
 const resources = [
-  { cat:"Phonics", icon:"📊", audience:"both", image:"/images/resources/phonics-charts.jpg", title:"Phonics Chart — Sets 1–9", desc:"Official FastTrack Literacy™ Phonics Chart — 9 phoneme sets plus bonus sound, as provided by the Ministry of Education, Skills, Youth and Information.", tag:"orange", type:"PDF Download" },
+  { cat:"Phonics", icon:"📊", audience:"both", image:"/images/resources/phonics-charts.jpg", title:"Phonics Chart — Sets 1–9", desc:"Official FastTrack Literacy™ Phonics Chart — 9 phoneme sets plus bonus sound, as provided by the Ministry of Education, Skills, Youth and Information.", tag:"orange", type:"PDF Download", downloadUrl:"/phonics-chart.pdf" },
   { cat:"Teacher Resources", icon:"👩‍🏫", audience:"teacher", image:"/images/resources/teachers-helper-combined.jpg", title:"Teacher's Helper / Teacher's Guide", desc:"Full instructional roadmap with difficult auditory stories, a 65-minute suggested Teacher's Page per letter, and over 640 activities. Available in Volumes 1 and 2.", tag:"blue", type:"Physical + Digital" },
   { cat:"Student Resources", icon:"👧", audience:"parent", image:"/images/resources/pupils-helper-vol1.jpg", title:"Pupil's Workbook / Pupil's Helper", desc:"Streamlined version for students (omitting steps 2, 3, and 4) to remain accessible for the child. Available in Volumes 1, 2, and 3.", tag:"green", type:"Physical Book" },
   { cat:"Songs & Audio", icon:"🎵", audience:"both", title:"45 Reggae Phoneme Songs", desc:"One-minute rhythmic, memorable, and fun songs — one for each phoneme. Children wake up singing them! Samples: ANNA-WARRIOR, BIG FISH-WARRIOR, BLACK BIRD. Full list coming soon.", tag:"orange", type:"Audio + Digital" },
@@ -327,6 +327,8 @@ export default function Resources() {
                     <span style={{ fontSize:11, color:"#A0927A", fontWeight:500 }}>{r.type}</span>
                     {(r as any).contactUs ? (
                       <a href="/contact" style={{ background:"#0C2340", color:"white", border:"none", borderRadius:50, padding:"7px 14px", fontSize:12, fontWeight:700, cursor:"pointer", textDecoration:"none", fontFamily:"'Nunito',sans-serif" }}>Contact Us →</a>
+                    ) : (r as any).downloadUrl ? (
+                      <a href={(r as any).downloadUrl} download style={{ background:"#DCFCE7", color:"#166534", border:"none", borderRadius:50, padding:"7px 14px", fontSize:12, fontWeight:700, cursor:"pointer", textDecoration:"none", fontFamily:"'Nunito',sans-serif" }}>↓ Download</a>
                     ) : (
                       <button onClick={()=>{
                           setActiveDrawer(r.title);
@@ -409,10 +411,6 @@ export default function Resources() {
               { title:"Pupil's Helper", vol:"Volume 3", cover:"/images/resources/pupils-helper-vol3.jpg", url:"https://heyzine.com/flip-book/639bcdbb20.html", color:"#EDE9FE", accent:"#5B21B6", pages:[
                 { heading:"JamDER+™ — Jamaican Decodable & Early Readers", sub:"Pupil's Helper · Volume 3", body:"The third volume in the Pupil's Helper series. Focuses on vowel digraphs, blends, and reading fluency through structured decodable passages and comprehension activities.", author:"Paulette Trowers, Juris Doctor · Kristina Jaz" },
                 { heading:"You're Almost There!", sub:"Advanced Phoneme Practice", body:"This volume covers the final phoneme sets — including digraphs, diphthongs, and longer word patterns. You are reading real sentences and short stories now. Well done!", author:"CHEETAH® Purrrrrrr Publishing · fasttrackliteracy.com" },
-              ]},
-              { title:"JamDER™ Reader", vol:"Special Edition", url:"https://heyzine.com/flip-book/eda08f4c87.html", cover:"/images/resources/cder-books.jpg", color:"#FFF0E0", accent:"#C05A00", pages:[
-                { heading:"JamDER+™ — Special Edition", sub:"Jamaican Decodable & Early Readers", body:"A special curated collection of JamDER™ stories — culturally authentic, fully decodable, and beautifully illustrated. Celebrating Jamaican heritage through the joy of reading.", author:"CHEETAH® Purrrrrrr Publishing · Paulette Trowers, Juris Doctor" },
-                { heading:"About This Collection", sub:"Stories from Our Culture", body:"These stories are set in Jamaica and feature characters, places, and experiences that Jamaican children know and love. Every word is decodable using the FastTrack phonics sequence.", author:"fasttrackliteracy.com · mycheetahinc.com" },
               ]},
               { title:"House Flood", vol:"C-DER Story Book", cover:"/images/resources/house-flood.png", url:"https://heyzine.com/flip-book/8e75d550bf.html", color:"#DBEAFE", accent:"#1E40AF", pages:[
                 { heading:"House Flood", sub:"CHEETAH® Purrrrrrr Publishing", body:"A decodable early reader story from the C-DER™ collection. Fully phonics-aligned and culturally authentic.", author:"Bernadette Vidal · Paulette Trowers, JD" },
