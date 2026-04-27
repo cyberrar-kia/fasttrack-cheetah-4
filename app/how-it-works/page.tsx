@@ -24,6 +24,10 @@ export default function HowItWorks() {
     <>
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"80px 24px 60px", textAlign:"center" }}>
         <div className="container-sm">
+          <div style={{ display:"flex", justifyContent:"center", marginBottom:16 }}>
+            <Image src="/images/cheetah-logo.png" alt="CHEETAH®" width={80} height={40} style={{ height:40, width:"auto", objectFit:"contain", opacity:0.9 }} />
+          </div>
+
           <div style={{ display:"inline-flex", background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", color:"#FFB366", fontSize:11, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", padding:"6px 14px", borderRadius:50, marginBottom:20 }}>The Method</div>
           <h1 style={{ fontSize:"clamp(28px,5vw,48px)", fontWeight:900, color:"white", marginBottom:20 }}>How FastTrack Literacy™ <span style={{ color:"#F5820A" }}>Works</span></h1>
           <p style={{ fontSize:"clamp(14px,2vw,17px)", color:"rgba(255,255,255,0.8)", lineHeight:1.8 }}>Every lesson follows a systematic <strong style={{ color:"#F5820A" }}>16-step instructional pattern</strong> designed to ensure reading success through structured, multisensory engagement.</p>

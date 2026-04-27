@@ -7,6 +7,10 @@ export default function About() {
     <>
       <section className="section" style={{ background:"linear-gradient(135deg,#0C2340,#1A3A70)", padding:"80px 24px 60px", textAlign:"center" }}>
         <div className="container-sm">
+          <div style={{ display:"flex", justifyContent:"center", marginBottom:16 }}>
+            <Image src="/images/cheetah-logo.png" alt="CHEETAH®" width={80} height={40} style={{ height:40, width:"auto", objectFit:"contain", opacity:0.9 }} />
+          </div>
+
           <div style={{ display:"inline-flex", background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", color:"#FFB366", fontSize:11, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", padding:"6px 14px", borderRadius:50, marginBottom:20 }}>Our Story</div>
           <h1 style={{ fontSize:"clamp(30px,5vw,50px)", fontWeight:900, color:"white", marginBottom:20 }}>About <span style={{ color:"#F5820A" }}>CHEETAH®</span></h1>
           <p style={{ fontSize:"clamp(14px,2vw,17px)", color:"rgba(255,255,255,0.8)", lineHeight:1.8 }}>CHEETAH® (Connect to Higher Education, Electronic Tools, Apps & Help) Toys & More, LLC is a global education and technology company designing complete literacy ecosystems for children worldwide.</p>
@@ -46,6 +50,9 @@ export default function About() {
             <p style={{ fontSize:15, color:"#5A5240", maxWidth:600, margin:"12px auto 24px", lineHeight:1.7 }}>A comprehensive framework combining educational resources, technological innovations, and extensive training to improve reading outcomes at scale — across Kenya, Uganda, Jamaica, the USA, and beyond.</p>
           </div>
           <Image src="/images/image13.png" alt="The CHEETAH Literacy Ecosystem — A Global Framework" width={1200} height={680} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)", marginBottom:32 }} />
+          <div style={{ textAlign:"center" }}>
+            <Link href="/about" className="btn-orange">Learn More — About Us →</Link>
+          </div>
         </div>
       </section>
 
