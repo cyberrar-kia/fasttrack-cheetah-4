@@ -172,8 +172,7 @@ export default function FastTrackPage() {
             <h2 style={{ fontSize:"clamp(22px,4vw,36px)", fontWeight:900, color:"#0C2340", marginBottom:12 }}>The FastTrack Literacy™ Train</h2>
             <p style={{ fontSize:15, color:"#5A5240", maxWidth:560, margin:"0 auto 32px", lineHeight:1.7 }}>The Train is the heart of the FastTrack Literacy™ brand — a symbol of momentum, structure, and the journey every child takes from their first sound to confident, independent reading.</p>
           </div>
-          <Image src="/images/train-poster.png" alt="The FastTrack Literacy™ Train — Speeding Reading and Writing Success" width={1200} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)", marginBottom:32 }} />
-          <Image src="/images/train-image.png" alt="FastTrack Literacy™ Train Brand Experience" width={1200} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.06)" }} />
+          <Image src="/images/train-poster.png" alt="The FastTrack Literacy™ Train — Speeding Reading and Writing Success" width={1200} height={600} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
         </div>
       </section>
 
