@@ -31,7 +31,7 @@ export default function FastTrackPage() {
               <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>Children are not just learners — they become <strong>active participants</strong> in their reading journey through child-led learning and guided practice.</p>
             </div>
             <div>
-              <Image src="/images/image3.png" alt="The Five Pillars of Literacy: Building Strong Readers" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
+              <Image src="/images/fasttrack-vision.png" alt="Building a Literate Nation: The Vision and Legacy of FastTrack Literacy" width={900} height={500} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)" }} />
             </div>
           </div>
         </div>
