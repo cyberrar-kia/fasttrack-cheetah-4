@@ -177,6 +177,32 @@ export default function FastTrackPage() {
         </div>
       </section>
 
+      {/* WHY CHOOSE FASTTRACK LITERACY */}
+      <section className="section" style={{ background:"white" }} id="why-choose">
+        <div className="container">
+          <div style={{ textAlign:"center", marginBottom:40 }}>
+            <div className="section-chip" style={{ margin:"0 auto 16px" }}>✅ Why Choose FastTrack Literacy™?</div>
+            <h2 style={{ fontSize:"clamp(22px,4vw,36px)", fontWeight:900, color:"#0C2340" }}>Why Choose FastTrack Literacy™?</h2>
+          </div>
+          <div style={{ maxWidth:700, margin:"0 auto", display:"flex", flexDirection:"column", gap:14 }}>
+            {[
+              "Culturally responsive content",
+              "Multi-modal instruction and content delivery",
+              "Full literacy ecosystem, not just books",
+              "90+ integrated literacy resources across the ecosystem",
+              "Strong home–school integration",
+              "AI-enabled and hardware-integrated learning",
+              "Scalable for national rollout as a literacy infrastructure model",
+            ].map((item, i) => (
+              <div key={i} style={{ display:"flex", alignItems:"flex-start", gap:14, background:"#FFF9F4", border:"1px solid #EDE0D0", borderRadius:12, padding:"16px 20px" }}>
+                <div style={{ width:28, height:28, borderRadius:"50%", background:"#F5820A", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, fontSize:14, color:"white", fontWeight:900 }}>✓</div>
+                <p style={{ fontSize:15, color:"#0C2340", fontWeight:600, margin:0, lineHeight:1.6 }}>{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section-sm" style={{ background:"#FFF0E0", textAlign:"center" }}>
         <h2 style={{ fontSize:"clamp(20px,3vw,30px)", fontWeight:900, color:"#0C2340", marginBottom:14 }}>Ready to Experience FastTrack Literacy™?</h2>
         <p style={{ fontSize:15, color:"#5A5240", marginBottom:28, maxWidth:460, margin:"0 auto 28px" }}>Explore our resources, see how it works, or get started today.</p>

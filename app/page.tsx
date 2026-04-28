@@ -82,12 +82,11 @@ export default function Home() {
           <div className="grid-2">
             <div>
               <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:20, background:"rgba(245,130,10,0.15)", border:"1px solid rgba(245,130,10,0.3)", padding:"6px 16px", borderRadius:50, fontSize:12, fontWeight:700, color:"#FFB366" }}>🚂 FastTrack Literacy™ by CHEETAH®</div>
-              <h1 style={{ fontSize:"clamp(28px,4.5vw,52px)", fontWeight:900, color:"white", marginBottom:20, lineHeight:1.15 }}>
-                Every Child Can Learn to Read and Write.<br/>
-                <span style={{ color:"#F5820A" }}>Every Child Must Learn to Read and Write.</span><br/>
-                <span style={{ fontSize:"clamp(22px,3.5vw,40px)" }}>Every Child Must Be Given the Resources to Succeed.</span>
+              <h1 style={{ fontSize:"clamp(28px,4.5vw,52px)", fontWeight:900, color:"white", marginBottom:16, lineHeight:1.15 }}>
+                Accelerating the ability to read, write, understand, and apply information.
               </h1>
-              <p style={{ fontSize:"clamp(14px,1.8vw,16px)", color:"rgba(255,255,255,0.85)", lineHeight:1.8, marginBottom:36, maxWidth:560 }}>A structured early reading programme with <strong>90+ integrated resources</strong> — grounded in the Science of Reading and built to accelerate literacy success at school and at home.</p>
+              <p style={{ fontSize:"clamp(18px,2.5vw,24px)", fontWeight:700, color:"#F5820A", marginBottom:10, lineHeight:1.3 }}>Literacy Can't Wait</p>
+              <p style={{ fontSize:"clamp(14px,1.8vw,17px)", color:"rgba(255,255,255,0.85)", lineHeight:1.8, marginBottom:36, maxWidth:560 }}>Every child deserves the resources, opportunities, and support to succeed.</p>
               <div className="btn-row">
                 <Link href="/get-started" className="btn-orange">Get Started Free →</Link>
                 <Link href="/how-it-works" className="btn-white">How It Works</Link>
@@ -238,10 +237,7 @@ export default function Home() {
               <div className="section-chip">🌟 Our Founder</div>
               <h2 style={{ fontSize:"clamp(24px,3.5vw,36px)", fontWeight:900, color:"#0C2340", marginBottom:16 }}>Paulette Trowers-Lawrence, JD</h2>
               <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>A trained USA lawyer, global literacy leader, author, entrepreneur, and education innovator committed to improving reading outcomes for children worldwide. Recipient of the <strong>USA Presidential Lifetime Achievement Award (2024)</strong> and an <strong>Honorary Doctorate of Humanitarianism</strong>.</p>
-              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:16 }}>With over <strong>30 years</strong> of corporate and business experience, she has led the development of more than <strong>1,100 educational resources</strong>, integrating curriculum, technology, and AI to support learning across diverse environments.</p>
-              <div style={{ background:"#FFF0E0", borderLeft:"4px solid #F5820A", padding:"16px 20px", borderRadius:"0 12px 12px 0", marginBottom:24 }}>
-                <p style={{ fontSize:14, fontStyle:"italic", color:"#0C2340", lineHeight:1.7 }}>"Every child can read, and every child must read."</p>
-              </div>
+              <p style={{ fontSize:15, color:"#5A5240", lineHeight:1.85, marginBottom:24 }}>With over <strong>30 years</strong> of corporate and business experience, she has led the development of more than <strong>1,100 educational resources</strong>, integrating curriculum, technology, and AI to support learning across diverse environments.</p>
               <Link href="/about" className="btn-orange">Read Her Full Story →</Link>
             </div>
           </div>

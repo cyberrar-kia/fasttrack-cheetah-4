@@ -26,6 +26,7 @@ const navLinks = [
       { href:"/fasttrack#what-makes", label:"What Makes It Different" },
       { href:"/fasttrack#brand-experience", label:"The FastTrack Train" },
       { href:"/fasttrack#comparison", label:"FastTrack vs. Traditional" },
+      { href:"/fasttrack#why-choose", label:"Why Choose FastTrack Literacy™?" },
     ]
   },
   {
