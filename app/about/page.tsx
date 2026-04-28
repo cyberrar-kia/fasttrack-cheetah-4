@@ -47,9 +47,6 @@ export default function About() {
             <p style={{ fontSize:15, color:"#5A5240", maxWidth:600, margin:"12px auto 24px", lineHeight:1.7 }}>A comprehensive framework combining educational resources, technological innovations, and extensive training to improve reading outcomes at scale — across Kenya, Uganda, Jamaica, the USA, and beyond.</p>
           </div>
           <Image src="/images/image13.png" alt="The CHEETAH Literacy Ecosystem — A Global Framework" width={1200} height={680} style={{ width:"100%", height:"auto", borderRadius:16, boxShadow:"0 8px 32px rgba(0,0,0,0.08)", marginBottom:32 }} />
-          <div style={{ textAlign:"center" }}>
-            <Link href="/about" className="btn-orange">Learn More — About Us →</Link>
-          </div>
         </div>
       </section>
 
