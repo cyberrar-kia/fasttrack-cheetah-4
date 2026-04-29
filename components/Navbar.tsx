@@ -61,8 +61,8 @@ export default function Navbar() {
     <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(12,35,64,0.97)", backdropFilter:"blur(12px)", borderBottom:"1px solid rgba(255,255,255,0.08)" }}>
       <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 20px", height:68, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
         <Link href="/" style={{ textDecoration:"none", display:"flex", alignItems:"center", gap:10, flexShrink:0 }}>
-          <Image src="/images/fasttrack-literacy-logo.png" alt="FastTrack Literacy Program" width={400} height={120} className="nav-logo-ft" style={{ height:72, width:"auto", objectFit:"contain" }} />
-          <Image src="/images/cheetah-logo.png" alt="CHEETAH®" width={180} height={72} className="nav-logo-ch" style={{ height:64, width:"auto", objectFit:"contain", mixBlendMode:"screen", marginRight:8 }} />
+          <Image src="/images/fasttrack-literacy-logo.png" alt="FastTrack Literacy Program" width={400} height={120} style={{ height:72, width:"auto", objectFit:"contain" }} />
+          <Image src="/images/cheetah-logo.png" alt="CHEETAH®" width={180} height={72} style={{ height:64, width:"auto", objectFit:"contain", mixBlendMode:"screen" }} />
         </Link>
 
         {/* DESKTOP NAV */}
@@ -138,7 +138,7 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE TOGGLE */}
-        <button onClick={() => setOpen(!open)} className="nav-mobile" style={{ background:"#F5820A", border:"none", borderRadius:8, color:"white", padding:"8px 13px", cursor:"pointer", fontSize:18, fontWeight:700, flexShrink:0 }}>{open ? "✕" : "☰"}</button>
+        <button onClick={() => setOpen(!open)} className="nav-mobile" style={{ background:"none", border:"1px solid rgba(255,255,255,0.2)", borderRadius:8, color:"white", padding:"6px 11px", cursor:"pointer", fontSize:16 }}>{open ? "✕" : "☰"}</button>
       </div>
 
       {/* MOBILE MENU */}
@@ -188,7 +188,7 @@ export default function Navbar() {
         </div>
       )}
 
-      <style>{`.nav-desktop{display:flex !important}.nav-mobile{display:none !important}@media(max-width:900px){.nav-desktop{display:none !important}.nav-mobile{display:block !important}.nav-logo-ft{height:40px !important}.nav-logo-ch{height:36px !important}}`}</style>
+      <style>{`.nav-desktop{display:flex !important}.nav-mobile{display:none !important}@media(max-width:900px){.nav-desktop{display:none !important}.nav-mobile{display:block !important}}`}</style>
     </nav>
   );
 }
